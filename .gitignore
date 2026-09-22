@@ -1,0 +1,35 @@
+# Python & Virtual environments
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+*$py.class
+*.ipynb_checkpoints
+
+# IDE & Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Project context & notes
+context.md
+
+# UV config and lock files
+pyproject.toml
+uv.lock
+uv.toml
+.uv/
+
+# Generated parsing outputs & large artifacts
+parsing/output/
+output/
+*.json
+*.parquet
+
+# Temporary & cache
+.cache/
+tmp/
+*.log
+.DS_Store
