@@ -1,0 +1,19 @@
+# Python & Virtual environments
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+*$py.class
+
+# IDE & Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Temporary & cache
+.cache/
+tmp/
+*.log
+.DS_Store
