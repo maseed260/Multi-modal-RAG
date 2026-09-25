@@ -25,6 +25,8 @@ uv.toml
 # Generated parsing outputs & large artifacts
 parsing/output/
 output/
+figures/
+**/figures/
 *.json
 *.parquet
 
