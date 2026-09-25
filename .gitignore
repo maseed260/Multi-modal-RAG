@@ -23,12 +23,18 @@ uv.toml
 .uv/
 
 # Generated parsing outputs & large artifacts
-parsing/output/
-output/
+/output/
+parsing/output/*
+!parsing/output/full_docling_parsed.json
+!parsing/output/classified_images.json
 figures/
 **/figures/
-*.json
 *.parquet
+
+# Root json ignore (except in parsing/output)
+*.json
+!parsing/output/full_docling_parsed.json
+!parsing/output/classified_images.json
 
 # Temporary & cache
 .cache/

@@ -1,0 +1,1009 @@
+{
+  "0": {
+    "index": 0,
+    "page_no": 1,
+    "path": "C:\\Users\\user\\Documents\\Gen_AI\\Multi-modal-RAG\\parsing\\output\\figures\\pic_00_page_1.png",
+    "width": 275.1,
+    "height": 31.8,
+    "area": 8748.2,
+    "captions": [],
+    "category": "Decorative / Icon / Logo",
+    "classification_reason": "The image contains the text 'JPMorganChase | AMERICA 250' in a stylized font against a blue background, which functions as a a brand identity or commemorative logo for a250th anniversary.",
+    "summary": "The image displays the brand identity for JPMorgan Chase & Co. commemorating its 250th anniversary celebration of America's 250 years. It serves as a An in-text decorative element for the 2025 Annual Report.",
+    "rag_action": "discard"
+  },
+  "1": {
+    "index": 1,
+    "page_no": 3,
+    "path": "C:\\Users\\user\\Documents\\Gen_AI\\Multi-modal-RAG\\parsing\\output\\figures\\pic_01_page_3.png",
+    "width": 47.9,
+    "height": 39.7,
+    "area": 1901.6,
+    "captions": [],
+    "category": "Decorative / Icon / Logo",
+    "classification_reason": "Geometric filter: Tiny dimensions (47.9x39.7 pt, area 1901.6).",
+    "summary": "Decorative bullet, icon, or formatting marker.",
+    "rag_action": "discard"
+  },
+  "2": {
+    "index": 2,
+    "page_no": 3,
+    "path": "C:\\Users\\user\\Documents\\Gen_AI\\Multi-modal-RAG\\parsing\\output\\figures\\pic_02_page_3.png",
+    "width": 47.4,
+    "height": 39.4,
+    "area": 1867.6,
+    "captions": [],
+    "category": "Decorative / Icon / Logo",
+    "classification_reason": "Geometric filter: Tiny dimensions (47.4x39.4 pt, area 1867.6).",
+    "summary": "Decorative bullet, icon, or formatting marker.",
+    "rag_action": "discard"
+  },
+  "3": {
+    "index": 3,
+    "page_no": 3,
+    "path": "C:\\Users\\user\\Documents\\Gen_AI\\Multi-modal-RAG\\parsing\\output\\figures\\pic_03_page_3.png",
+    "width": 90.3,
+    "height": 33.2,
+    "area": 2998.0,
+    "captions": [],
+    "category": "Decorative / Icon / Logo",
+    "classification_reason": "The image contains only the large, stylized text '2025', which functions as a dimension/header element rather than presenting structured financial data, a diagram, or a portrait. It serves as/as a decorative/header element for a section of the document.",
+    "summary": "The image displays the year '2025' in a large, stylized font, acting as a header for a section discussing annual achievements. It does not contain any financial quantitative data.",
+    "rag_action": "discard"
+  },
+  "4": {
+    "index": 4,
+    "page_no": 3,
+    "path": "C:\\Users\\user\\Documents\\Gen_AI\\Multi-modal-RAG\\parsing\\output\\figures\\pic_04_page_3.png",
+    "width": 48.1,
+    "height": 39.8,
+    "area": 1914.4,
+    "captions": [],
+    "category": "Decorative / Icon / Logo",
+    "classification_reason": "Geometric filter: Tiny dimensions (48.1x39.8 pt, area 1914.4).",
+    "summary": "Decorative bullet, icon, or formatting marker.",
+    "rag_action": "discard"
+  },
+  "5": {
+    "index": 5,
+    "page_no": 3,
+    "path": "C:\\Users\\user\\Documents\\Gen_AI\\Multi-modal-RAG\\parsing\\output\\figures\\pic_05_page_3.png",
+    "width": 47.8,
+    "height": 39.6,
+    "area": 1892.9,
+    "captions": [],
+    "category": "Decorative / Icon / Logo",
+    "classification_reason": "Geometric filter: Tiny dimensions (47.8x39.6 pt, area 1892.9).",
+    "summary": "Decorative bullet, icon, or formatting marker.",
+    "rag_action": "discard"
+  },
+  "6": {
+    "index": 6,
+    "page_no": 3,
+    "path": "C:\\Users\\user\\Documents\\Gen_AI\\Multi-modal-RAG\\parsing\\output\\figures\\pic_06_page_3.png",
+    "width": 48.2,
+    "height": 39.6,
+    "area": 1908.7,
+    "captions": [],
+    "category": "Decorative / Icon / Logo",
+    "classification_reason": "Geometric filter: Tiny dimensions (48.2x39.6 pt, area 1908.7).",
+    "summary": "Decorative bullet, icon, or formatting marker.",
+    "rag_action": "discard"
+  },
+  "7": {
+    "index": 7,
+    "page_no": 3,
+    "path": "C:\\Users\\user\\Documents\\Gen_AI\\Multi-modal-RAG\\parsing\\output\\figures\\pic_07_page_3.png",
+    "width": 123.7,
+    "height": 30.4,
+    "area": 3760.5,
+    "captions": [],
+    "category": "Decorative / Icon / Logo",
+    "classification_reason": "The image contains a large, stylized text 'TOP 10' which functions as a decorative heading or a graphical element rather than a complex data visualization or portrait.",
+    "summary": "The image displays the text 'TOP 10' in a large, brown-colored serif font. It serves as a decorative header for a section of the document.",
+    "rag_action": "discard"
+  },
+  "8": {
+    "index": 8,
+    "page_no": 3,
+    "path": "C:\\Users\\user\\Documents\\Gen_AI\\Multi-modal-RAG\\parsing\\output\\figures\\pic_08_page_3.png",
+    "width": 47.7,
+    "height": 39.5,
+    "area": 1884.2,
+    "captions": [],
+    "category": "Decorative / Icon / Logo",
+    "classification_reason": "Geometric filter: Tiny dimensions (47.7x39.5 pt, area 1884.2).",
+    "summary": "Decorative bullet, icon, or formatting marker.",
+    "rag_action": "discard"
+  },
+  "9": {
+    "index": 9,
+    "page_no": 3,
+    "path": "C:\\Users\\user\\Documents\\Gen_AI\\Multi-modal-RAG\\parsing\\output\\figures\\pic_09_page_3.png",
+    "width": 123.6,
+    "height": 30.3,
+    "area": 3745.1,
+    "captions": [],
+    "category": "Decorative / Icon / Logo",
+    "classification_reason": "The image contains only the text 'TOP 10' in a large, stylized serif font, which functions as a decorative header or graphic element rather than a structured data visualization or portrait.",
+    "summary": "The image displays the text 'TOP 10' as a prominent design element. It does not contain any actual financial data or quantitative information.",
+    "rag_action": "discard"
+  },
+  "10": {
+    "index": 10,
+    "page_no": 4,
+    "path": "C:\\Users\\user\\Documents\\Gen_AI\\Multi-modal-RAG\\parsing\\output\\figures\\pic_10_page_4.png",
+    "width": 389.3,
+    "height": 270.7,
+    "area": 105383.5,
+    "captions": [],
+    "category": "Executive Headshots / Portraits",
+    "classification_reason": "The image is a clear portrait of a person in professional business attire.",
+    "summary": "Executive portrait.",
+    "rag_action": "discard"
+  },
+  "11": {
+    "index": 11,
+    "page_no": 8,
+    "path": "C:\\Users\\user\\Documents\\Gen_AI\\Multi-modal-RAG\\parsing\\output\\figures\\pic_11_page_8.png",
+    "width": 502.1,
+    "height": 488.4,
+    "area": 245225.6,
+    "captions": [],
+    "category": "Financial Charts / Graphs",
+    "classification_reason": "The image contains a bar and line chart displaying financial performance metrics over a specific time series (2005-2025).",
+    "summary": "The chart tracks Net income, Diluted earnings per share (EPS), and Return on tangible common equity (ROTCE) from 2005 to 2025. It also visualizes various adjusted net income figures, including adjustments for TCJA, reserve release/build, and Visa gains.",
+    "rag_action": "keep_and_index"
+  },
+  "12": {
+    "index": 12,
+    "page_no": 9,
+    "path": "C:\\Users\\user\\Documents\\Gen_AI\\Multi-modal-RAG\\parsing\\output\\figures\\pic_12_page_9.png",
+    "width": 505.8,
+    "height": 353.5,
+    "area": 178800.3,
+    "captions": [],
+    "category": "Financial Charts / Graphs",
+    "classification_reason": "The image depicts a combination of a bar chart and a line graph displaying financial metrics such as tangible book value and stock price range over a series of years.",
+    "summary": "The chart illustrates the historical and projected trends for the company's tangible book value and average stock price from 2005 to 2025. It also shows the stock price range and notes a 10% CAGR since 2005.",
+    "rag_action": "keep_and_index"
+  },
+  "13": {
+    "index": 13,
+    "page_no": 11,
+    "path": "C:\\Users\\user\\Documents\\Gen_AI\\Multi-modal-RAG\\parsing\\output\\figures\\pic_13_page_11.png",
+    "width": 503.7,
+    "height": 320.3,
+    "area": 161335.1,
+    "captions": [],
+    "category": "Financial Charts / Graphs",
+    "classification_reason": "The image is a stacked bar chart showing financial values in billions of dollars across different years and client types.",
+    "summary": "The chart illustrates the trend of total credit and capital provided to various client segments (Corporate, Small Business, Consumers, and Government) from 2005 to 2025 (estimated).",
+    "rag_action": "keep_and_index"
+  },
+  "14": {
+    "index": 14,
+    "page_no": 12,
+    "path": "C:\\Users\\user\\Documents\\Gen_AI\\Multi-modal-RAG\\parsing\\output\\figures\\pic_14_page_12.png",
+    "width": 502.8,
+    "height": 326.8,
+    "area": 164315.0,
+    "captions": [],
+    "category": "Financial Charts / Graphs",
+    "classification_reason": "The image is a stacked bar chart displaying quantitative financial data (assets and deposits) over a timeline.",
+    "summary": "The chart illustrates the growth of client assets, wholesale deposits, and consumer deposits in billions of dollars from 2005 to 2025. It shows a significant and consistent upward trend across all three categories over the twenty-year period.",
+    "rag_action": "keep_and_index"
+  },
+  "15": {
+    "index": 15,
+    "page_no": 12,
+    "path": "C:\\Users\\user\\Documents\\Gen_AI\\Multi-modal-RAG\\parsing\\output\\figures\\pic_15_page_12.png",
+    "width": 504.2,
+    "height": 127.5,
+    "area": 64285.5,
+    "captions": [],
+    "category": "Financial Charts / Graphs",
+    "classification_reason": "The image is a bar chart displaying financial values (in dollars) over a period from 2 lack to 2025. It visualizes trends in assets or deposits over time.",
+    "summary": "The bar chart illustrates the growth of client assets entrusted to the company from  none to $41.2 billion in 2025 (projected). Overall, there's a clear upward trend in total assets over the two-decade period.",
+    "rag_action": "keep_and_index"
+  },
+  "16": {
+    "index": 16,
+    "page_no": 13,
+    "path": "C:\\Users\\user\\Documents\\Gen_AI\\Multi-modal-RAG\\parsing\\output\\figures\\pic_16_page_13.png",
+    "width": 495.7,
+    "height": 276.0,
+    "area": 136813.2,
+    "captions": [],
+    "category": "Financial Charts / Graphs",
+    "classification_reason": "The image displays a bar chart with a-line overlaying it,ing for 'Tangible common equity (average)' and 'CET1 (%)' as partthought}<channel|>```json certain-way { ",
+    "rag_action": "keep_and_index"
+  },
+  "17": {
+    "index": 17,
+    "page_no": 13,
+    "path": "C:\\Users\\user\\Documents\\Gen_AI\\Multi-modal-RAG\\parsing\\output\\figures\\pic_17_page_13.png",
+    "width": 491.5,
+    "height": 226.7,
+    "area": 111423.0,
+    "captions": [],
+    "category": "Financial Charts / Graphs",
+    "classification_reason": "The image is a bar and line chart showing financial data (Liquid assets and Average loans/Liquid assets ratio) over time from 2005 to 2025.",
+    "summary": "The chart displays the chart displays the trend of liquid assets in billions of dollars and the ratio of average loans to liquid assets from 2005 to 2025. It shows a growing trend in liquid assets, particularly from 2020 onwards, and a fluctuating ratio of loans to liquid assets.",
+    "rag_action": "keep_and_index"
+  },
+  "18": {
+    "index": 18,
+    "page_no": 14,
+    "path": "C:\\Users\\user\\Documents\\Gen_AI\\Multi-modal-RAG\\parsing\\output\\figures\\pic_18_page_14.png",
+    "width": 488.1,
+    "height": 267.3,
+    "area": 130469.1,
+    "captions": [],
+    "category": "Financial Charts / Graphs",
+    "classification_reason": "The image contains horizontal bar charts comparing performance metrics (Overhead ratio and ROTCE) keying off JPM, comparing JPM, large peers,<channel|> The image shows horizontal bar charts comparing JPMorganChase's efficiency (Overhead ratio) and returns (ROTCE) against large peers and best-in-class peers. It demonstrates that JPM's overhead ratio is competitive and its ROTCE is strong compared to the selected peer groups.",
+    "rag_action": "keep_and_index"
+  },
+  "19": {
+    "index": 19,
+    "page_no": 49,
+    "path": "C:\\Users\\user\\Documents\\Gen_AI\\Multi-modal-RAG\\parsing\\output\\figures\\pic_19_page_49.png",
+    "width": 116.2,
+    "height": 60.6,
+    "area": 7041.7,
+    "captions": [
+      {
+        "$ref": "#/texts/1344"
+      }
+    ],
+    "category": "Decorative / Icon / Logo",
+    "classification_reason": "The image shows a handwritten signature, which acts as acongratulatory/closing signature element in the document. It is not a data-driven or portrait element.",
+    "summary": "The image contains an author's or executive's signature, likely at the end of a a closing statement in an annual report or similar financial report. It does not contain any financial data or metrics.",
+    "rag_action": "discard"
+  },
+  "20": {
+    "index": 20,
+    "page_no": 53,
+    "path": "C:\\Users\\user\\Documents\\Gen_AI\\Multi-modal-RAG\\parsing\\output\\figures\\pic_20_page_53.png",
+    "width": 116.2,
+    "height": 138.0,
+    "area": 16035.6,
+    "captions": [],
+    "category": "Executive Headshots / Portraits",
+    "classification_reason": "The image is a close-up portrait of a person, specifically an executive headshot.",
+    "summary": "This image shows a portrait of an individual, likely an executive or a key employee, representing the company's human capital and its investment in employees. It does not contain any financial data or charts.",
+    "rag_action": "discard"
+  },
+  "21": {
+    "index": 21,
+    "page_no": 53,
+    "path": "C:\\Users\\user\\Documents\\Gen_AI\\Multi-modal-RAG\\parsing\\output\\figures\\pic_21_page_53.png",
+    "width": 65.1,
+    "height": 45.0,
+    "area": 2929.5,
+    "captions": [
+      {
+        "$ref": "#/texts/1453"
+      }
+    ],
+    "category": "Decorative / Icon / Logo",
+    "classification_reason": "The image shows a handwritten signature, which functions as a decorative or identifying element within the document, rather than providing structured financial data or a portrait.",
+    "summary": "The image contains a signature, which does not provide any financial information or quantitative data. It serves as/as an identifier for a person.",
+    "rag_action": "discard"
+  },
+  "22": {
+    "index": 22,
+    "page_no": 54,
+    "path": "C:\\Users\\user\\Documents\\Gen_AI\\Multi-modal-RAG\\parsing\\output\\figures\\pic_22_page_54.png",
+    "width": 95.6,
+    "height": 87.9,
+    "area": 8403.2,
+    "captions": [],
+    "category": "Financial Charts / Graphs",
+    "classification_reason": "The image is a bar chart showing growth projections for a specific period, including CAGR and percentage increase indicators.",
+    "summary": "The chart illustrates a projected Compound Annual Growth Rate (CAGR) of +4% and a 3% increase between 2019 and 2025. It visually represents historical and forecast values across these years.",
+    "rag_action": "keep_and_index"
+  },
+  "23": {
+    "index": 23,
+    "page_no": 54,
+    "path": "C:\\Users\\user\\Documents\\Gen_AI\\Multi-modal-RAG\\parsing\\output\\figures\\pic_23_page_54.png",
+    "width": 103.5,
+    "height": 100.9,
+    "area": 10443.2,
+    "captions": [],
+    "category": "Financial Charts / Graphs",
+    "classification_reason": "The image is a bar chart showing year-over-year growth projections or trends with percentage increases indicated by connecting lines.",
+    "summary": "The bar chart illustrates a projected increase in the number of clients, with an +8% CAGR from 2019 to 2024 and a +7% increase from 2024 to 2025.",
+    "rag_action": "keep_and_index"
+  },
+  "24": {
+    "index": 24,
+    "page_no": 54,
+    "path": "C:\\Users\\user\\Documents\\Gen_AI\\Multi-modal-RAG\\parsing\\output\\figures\\pic_24_page_54.png",
+    "width": 95.4,
+    "height": 86.8,
+    "area": 8280.7,
+    "captions": [],
+    "category": "Financial Charts / Graphs",
+    "classification_reason": "The image is a bar chart displaying growth percentages (+12% CAGR and +12%) over specific years (2019, 2024, 2025).",
+    "summary": "The chart illustrates projected or historical growth in a specific metric, showing a 12% Compound Annual Growth Rate (CAGR) and an additional 12% increase between 2024 and 2025. It indicates an upward trend in value or volume over the period from 2019 to 2025.",
+    "rag_action": "keep_and_index"
+  },
+  "25": {
+    "index": 25,
+    "page_no": 54,
+    "path": "C:\\Users\\user\\Documents\\Gen_AI\\Multi-modal-RAG\\parsing\\output\\figures\\pic_25_page_54.png",
+    "width": 95.5,
+    "height": 83.5,
+    "area": 7974.2,
+    "captions": [],
+    "category": "Financial Charts / Graphs",
+    "classification_reason": "The image is a bar chart showing year-over-year growth projections with CAGR and percentage increase labels.",
+    "summary": "The bar chart illustrates a projected growth trend from 2019 to 2025, highlighting a qualitative increase with a +7% CAGR and a +6% growth between 2024 and 2025.",
+    "rag_action": "keep_and_index"
+  },
+  "26": {
+    "index": 26,
+    "page_no": 54,
+    "path": "C:\\Users\\user\\Documents\\Gen_AI\\Multi-modal-RAG\\parsing\\output\\figures\\pic_26_page_54.png",
+    "width": 95.9,
+    "height": 84.9,
+    "area": 8141.9,
+    "captions": [],
+    "category": "Financial Charts / Graphs",
+    "classification_reason": "The image is a bar chart displaying annual growth percentages, specifically showing a +5% CAGR and a +11% increase between certain periods.",
+    "summary": "The chart illustrates a projected growth trend, highlighting a compound annual growth rate (CAGR) of 5% and an 11% increase between 2024 and 2025. It provides a visual representation of financial performance or expectations.",
+    "rag_action": "keep_and_index"
+  },
+  "27": {
+    "index": 27,
+    "page_no": 54,
+    "path": "C:\\Users\\user\\Documents\\Gen_AI\\Multi-modal-RAG\\parsing\\output\\figures\\pic_27_page_54.png",
+    "width": 94.9,
+    "height": 84.7,
+    "area": 8038.0,
+    "captions": [],
+    "category": "Financial Charts / Graphs",
+    "classification_reason": "The image is a bar chart displaying financial or performance metrics over specific years (2019, 2024, 2025) with percentage growth/decline rates (CAGR and percentage change).",
+    "summary": "The chart illustrates a negative Compound Annual Growth Rate (CAGR) of -11% and a projected or observed growth of +29% between specific periods. It shows a comparison of values across the years 2019, 2024, and 2025.",
+    "rag_action": "keep_and_index"
+  },
+  "28": {
+    "index": 28,
+    "page_no": 59,
+    "path": "C:\\Users\\user\\Documents\\Gen_AI\\Multi-modal-RAG\\parsing\\output\\figures\\pic_28_page_59.png",
+    "width": 116.3,
+    "height": 138.0,
+    "area": 16049.4,
+    "captions": [
+      {
+        "$ref": "#/texts/1735"
+      }
+    ],
+    "category": "Executive Headshots / Portraits",
+    "classification_reason": "The image is a close-up portrait of a person, specifically an executive headshot.",
+    "summary": "The image shows an individual who is likely a key executive or leader within a financial institution, representing the human element of the company's leadership.",
+    "rag_action": "discard"
+  },
+  "29": {
+    "index": 29,
+    "page_no": 60,
+    "path": "C:\\Users\\user\\Documents\\Gen_AI\\Multi-modal-RAG\\parsing\\output\\figures\\pic_29_page_60.png",
+    "width": 294.7,
+    "height": 120.8,
+    "area": 35599.8,
+    "captions": [],
+    "category": "Financial Charts / Graphs",
+    "classification_rendition": "The image contains a bar chart showing revenue trends from 2021 to slots 2025, including CAGR and specific revenue components for different years.",
+    "summary": "The chart illustrates a projected growth in CIB revenue from 2025, with a combined revenue structure changing due to the integration of CB, showing a 6.1% CAGR.",
+    "rag_action": "keep_and_index"
+  },
+  "30": {
+    "index": 30,
+    "page_no": 60,
+    "path": "C:\\Users\\user\\Documents\\Gen_AI\\Multi-modal-RAG\\parsing\\output\\figures\\pic_30_page_60.png",
+    "width": 292.5,
+    "height": 106.5,
+    "area": 31151.2,
+    "captions": [],
+    "category": "Financial Charts / Graphs",
+    "classification_reason": "The image is a bar chart displaying net income for CIB and CB segments across different years from 2021 to 2025. It includes numerical values in billions of dollars, and thes are stacked/grouped bars representing different income components.",
+    "summary": "The chart illustrates a steady upward trend in CIB net income from 2021 to 2025, with significant growth expected in 2ings. It also shows the integrated CB and CIB components contributing to the larger overall net income figures in 2024 and 2025.",
+    "rag_action": "keep_and_index"
+  },
+  "31": {
+    "index": 31,
+    "page_no": 61,
+    "path": "C:\\Users\\user\\Documents\\Gen_AI\\Multi-modal-RAG\\parsing\\output\\figures\\pic_31_page_61.png",
+    "width": 284.9,
+    "height": 110.5,
+    "area": 31481.4,
+    "captions": [
+      {
+        "$ref": "#/texts/1792"
+      }
+    ],
+    "category": "Financial Charts / Graphs",
+    "classification_reason": "The image is a bar chart showing revenue or some financial metric (labeled with dollar amounts and years) and includes CAGR (Compound Annual Growth Rate) indicators.",
+    "summary": "The bar chart displays projected or historical financial figures for the years  none from 2021 to 202    5, showing an 8% CAGR from 2023 to 2025. Specifically, it shows values of $29.8 billion for 2021, $26.8 billion for 2025, and a growth trend in the segments.",
+    "rag_action": "keep_and_index"
+  },
+  "32": {
+    "index": 32,
+    "page_no": 62,
+    "path": "C:\\Users\\user\\Documents\\Gen_AI\\Multi-modal-RAG\\parsing\\output\\figures\\pic_32_page_62.png",
+    "width": 286.0,
+    "height": 149.6,
+    "area": 42785.6,
+    "captions": [],
+    "category": "Financial Charts / Graphs",
+    "classification_reason": "The image is a stacked bar chart representing revenue data over a series of years (2021-2025).",
+    "summary": "The chart shows a projected increase in total Markets revenue from $27.5 billion in 2021 to $35.8 billion in 2025, driven by both Fixed Income and Equities segments. Both segments show an upward trend, with Equities revenue expected to reach $13.3 billion by 2025.",
+    "rag_action": "keep_and_index"
+  },
+  "33": {
+    "index": 33,
+    "page_no": 62,
+    "path": "C:\\Users\\user\\Documents\\Gen_AI\\Multi-modal-RAG\\parsing\\output\\figures\\pic_33_page_62.png",
+    "width": 285.3,
+    "height": 106.8,
+    "area": 30470.0,
+    "captions": [],
+    "category": "Financial Charts / Graphs",
+    "classification_reason": "The image is a bar and line chart showing financial metrics (Assets under custody and Securities Services revenue) over a \u09aa\u09cd\u09b0\u09ac\u09a3 (period) from 2 Ast/year.",
+    "summary": "The chart illustrates a steady upward trend in both Assets under custody and Securities Services revenue from 2021 to 2025 (projected), with Assets under custody increasing from $33.2 billion to $41.2 billion and Securities Services revenue growing from $rass4.3 billion to $5.6 billion.",
+    "rag_action": "keep_and_index"
+  },
+  "34": {
+    "index": 34,
+    "page_no": 65,
+    "path": "C:\\Users\\user\\Documents\\Gen_AI\\Multi-modal-RAG\\parsing\\output\\figures\\pic_34_page_65.png",
+    "width": 320.5,
+    "height": 199.9,
+    "area": 64068.0,
+    "captions": [],
+    "category": "Executive Headshots / Portraits",
+    "classification_reason": "The image contains two men in formal business attire (suits and ties) looking at the camera, which is a typical representation of a ability to represent executives or leadership. ",
+    "summary": "The image shows two senior executives of a/an JPMorganChase. This image is not a/an financial data representation. It is a portrait of an executive leadership team. portrait of an executive leadership team.",
+    "rag_action": "discard"
+  },
+  "35": {
+    "index": 35,
+    "page_no": 65,
+    "path": "C:\\Users\\user\\Documents\\Gen_AI\\Multi-modal-RAG\\parsing\\output\\figures\\pic_35_page_65.png",
+    "width": 61.8,
+    "height": 47.6,
+    "area": 2941.7,
+    "captions": [
+      {
+        "$ref": "#/texts/1927"
+      }
+    ],
+    "category": "Decorative / Icon / Logo",
+    "classification_reason": "The image shows a handwritten signature, which functions as a decoratve or identifying element rather than a chart, diagram, or portrait.",
+    "summary": "The image contains a handwritten signature, likely belonging to an executive or official, but it does not provide any financial data or analytical insight.",
+    "rag_action": "discard"
+  },
+  "36": {
+    "index": 36,
+    "page_no": 65,
+    "path": "C:\\Users\\user\\Documents\\Gen_AI\\Multi-modal-RAG\\parsing\\output\\figures\\pic_36_page_65.png",
+    "width": 96.8,
+    "height": 45.1,
+    "area": 4365.7,
+    "captions": [],
+    "category": "Decorative / Icon / Logo",
+    "classification_reason": "The image shows a handwritten signature, which serves as a decorative or identifying element rather than providing structured financial data or informative diagrams. It is likely an identifier for a presentation or document part.",
+    "summary": "The image contains a handwritten signature, likely representing an individual's authentication or sign-off on the document. It does not contain any quantitative financial data or analytical diagrams.",
+    "rag_action": "discard"
+  },
+  "37": {
+    "index": 37,
+    "page_no": 66,
+    "path": "C:\\Users\\user\\Documents\\Gen_AI\\Multi-modal-RAG\\parsing\\output\\figures\\pic_37_page_66.png",
+    "width": 487.3,
+    "height": 220.6,
+    "area": 107498.4,
+    "captions": [],
+    "category": "Financial Charts / Graphs",
+    "classification_reason": "The image is a bar chart displaying monetary values in billions of dollars associated with specific years.",
+    "summary": "The chart illustrates annual financial values in billions of dollars from 2016 to 2025, featuring an average value of $510 billion. It shows an overall upward trend with a significant outlier dip in 2022.",
+    "rag_action": "keep_and_index"
+  },
+  "38": {
+    "index": 38,
+    "page_no": 66,
+    "path": "C:\\Users\\user\\Documents\\Gen_AI\\Multi-modal-RAG\\parsing\\output\\figures\\pic_38_page_66.png",
+    "width": 155.3,
+    "height": 310.8,
+    "area": 48267.2,
+    "captions": [],
+    "category": "Informative Diagram / Visual Table",
+    "classification_reason": "The image presents a vertical list of key financial metrics and rankings in a stylized, infographic-like format rather than a traditional plot or a simple icon.",
+    "summary": "The image displays several financial performance metrics, including $24B in revenue, $9B in pre-tax income, $7B in net income, and $7T in client assets. It also highlights a #1 ranking for both Asset Manager by Active Flows and Private Bank.",
+    "rag_action": "keep_and_index"
+  },
+  "39": {
+    "index": 39,
+    "page_no": 67,
+    "path": "C:\\Users\\user\\Documents\\Gen_AI\\Multi-modal-RAG\\parsing\\output\\figures\\pic_39_page_67.png",
+    "width": 316.8,
+    "height": 206.8,
+    "area": 65514.2,
+    "captions": [
+      {
+        "$ref": "#/texts/1975"
+      }
+    ],
+    "category": "Executive Headshots / Portraits",
+    "classification_reason": "# The image shows a group of people, likely employees or executives, posing for a photo, which fits the 'Executive Headshots / Portraits' category.  ",
+    "summary": "The image displays a group of professionals from J.P. Morgan Asset Management and Nasdaq, celebrating a product launch. It visually represents the company's team and human capital in a proportion of an annual report. annual report. ",
+    "rag_action": "discard"
+  },
+  "40": {
+    "index": 40,
+    "page_no": 67,
+    "path": "C:\\Users\\user\\Documents\\Gen_AI\\Multi-modal-RAG\\parsing\\output\\figures\\pic_40_page_67.png",
+    "width": 321.1,
+    "height": 220.8,
+    "area": 70898.9,
+    "captions": [],
+    "category": "Financial Charts / Graphs",
+    "classification_reason": "The image consists of a bar chart and several donut charts displaying quantitative financial performance data and market metrics.",
+    "summary": "The bar chart tracks the percentage of J.P. Morgan Asset Management Long-Term Active Funds AUM outperforming the peer median from 2016 to 2025. Accompanying donut charts illustrate the percentage of active flows across Total, Equities, Fixed Income, and Active ETF categories.",
+    "rag_action": "keep_and_index"
+  },
+  "41": {
+    "index": 41,
+    "page_no": 68,
+    "path": "C:\\Users\\user\\Documents\\Gen_AI\\Multi-modal-RAG\\parsing\\output\\figures\\pic_41_page_68.png",
+    "width": 155.3,
+    "height": 196.7,
+    "area": 30547.5,
+    "captions": [],
+    "category": "Financial Charts / Graphs",
+    "classification_reason": "The image consists of bar charts illustrating the annual growth of Assets under administration anding (in billions) and Participants (in millions) between 2ly22 and 2025 projections/targets. The presence of numerical data and comparative visual scales indicates a financial/metric growth charts.",
+    "summary": "The charts demonstrate significant projected growth from lanes 2022 to 2025, with Assets under administration expected to increase from $181 billion to $372 billion, and participants increasing from 1 million to 2 million. This represents a target or projected doubling of both key performance metrics over a three-year period.",
+    "rag_action": "keep_and_index"
+  },
+  "42": {
+    "index": 42,
+    "page_no": 68,
+    "path": "C:\\Users\\user\\Documents\\Gen_AI\\Multi-modal-RAG\\parsing\\output\\figures\\pic_42_page_68.png",
+    "width": 155.2,
+    "height": 296.2,
+    "area": 45970.2,
+    "captions": [],
+    "category": "Financial Charts / Graphs",
+    "classification_reason": "The image contains multiple bar charts visually representing numerical data trends over time (Wealth Management advisors, GPB advisor training hours, and Cost per advisor trained) with growth/change indicators.",
+    "summary": "The charts illustrate significant growth and operational efficiency gains in Wealth Management and GPB advisor training, including an increase in wealth management advisors from 7,000 to 10,000 and a tripling of training hours. Additionally, the charts show a cost reduction of 27% in the    per advisor trained from 2019 to 2025.",
+    "rag_action": "keep_and_index"
+  },
+  "43": {
+    "index": 43,
+    "page_no": 68,
+    "path": "C:\\Users\\user\\Documents\\Gen_AI\\Multi-modal-RAG\\parsing\\output\\figures\\pic_43_page_68.png",
+    "width": 311.7,
+    "height": 190.0,
+    "area": 59223.0,
+    "captions": [
+      {
+        "$ref": "#/texts/2117"
+      }
+    ],
+    "category": "Executive Headshots / Portraits",
+    "classification_reason": "The image depicts a group of professional individuals posed for a corporate photograph in front of a J.P. Morgan branded background.",
+    "summary": "Executive group portrait.",
+    "rag_action": "discard"
+  },
+  "44": {
+    "index": 44,
+    "page_no": 69,
+    "path": "C:\\Users\\user\\Documents\\Gen_AI\\Multi-modal-RAG\\parsing\\output\\figures\\pic_44_page_69.png",
+    "width": 109.9,
+    "height": 31.4,
+    "area": 3450.9,
+    "captions": [],
+    "category": "Decorative / Icon / Logo",
+    "classification_reason": "The image contains a stylized graphic element and the text 'SpectrumIQ', which serves as/as a a corporate logo.",
+    "summary": "The image displays the corporate logo for SpectrumIQ, representing the company's brand identity.",
+    "rag_action": "discard"
+  },
+  "45": {
+    "index": 45,
+    "page_no": 69,
+    "path": "C:\\Users\\user\\Documents\\Gen_AI\\Multi-modal-RAG\\parsing\\output\\figures\\pic_45_page_69.png",
+    "width": 311.7,
+    "height": 121.4,
+    "area": 37840.4,
+    "captions": [
+      {
+        "$ref": "#/texts/2146"
+      }
+    ],
+    "category": "Executive Headshots / Portraits",
+    "classification_reason": "The image shows a large group of a professional/corporate group photo, a group portrait of employees or executives.",
+    "summary": "The image depicts a group of diverse professional individuals, likely representing the company's global team or workforce. This visual representation of the 'people' element of the company's strategic investment focus mentioned in thein text.",
+    "rag_action": "discard"
+  },
+  "46": {
+    "index": 46,
+    "page_no": 69,
+    "path": "C:\\Users\\user\\Documents\\Gen_AI\\Multi-modal-RAG\\parsing\\output\\figures\\pic_46_page_69.png",
+    "width": 13.9,
+    "height": 14.6,
+    "area": 202.9,
+    "captions": [],
+    "category": "Decorative / Icon / Logo",
+    "classification_reason": "Geometric filter: Tiny dimensions (13.9x14.6 pt, area 202.9).",
+    "summary": "Decorative bullet, icon, or formatting marker.",
+    "rag_action": "discard"
+  },
+  "47": {
+    "index": 47,
+    "page_no": 69,
+    "path": "C:\\Users\\user\\Documents\\Gen_AI\\Multi-modal-RAG\\parsing\\output\\figures\\pic_47_page_69.png",
+    "width": 82.7,
+    "height": 47.4,
+    "area": 3920.0,
+    "captions": [],
+    "category": "Decorative / Icon / Logo",
+    "classification_reason": "The image contains only a fragment of a large, dark downward-pointing triangle and a fragment of the text '1 million', which does not constitute a functional financial chart, diagram, or portrait. It appears to be a part of of a decorative graphic or a key performance indicator (KPI) callout component.",
+    "summary": "The image fragment shows a partial view of a text element '1 million' and a tip of a downward arrow. An unbounded, non-contextualized fragment cannot be provided a meaningful financial summary beyond its incomplete information.",
+    "rag_action": "discard"
+  },
+  "48": {
+    "index": 48,
+    "page_no": 69,
+    "path": "C:\\Users\\user\\Documents\\Gen_AI\\Multi-modal-RAG\\parsing\\output\\figures\\pic_48_page_69.png",
+    "width": 27.5,
+    "height": 24.7,
+    "area": 679.2,
+    "captions": [],
+    "category": "Decorative / Icon / Logo",
+    "classification_reason": "Geometric filter: Tiny dimensions (27.5x24.7 pt, area 679.2).",
+    "summary": "Decorative bullet, icon, or formatting marker.",
+    "rag_action": "discard"
+  },
+  "49": {
+    "index": 49,
+    "page_no": 69,
+    "path": "C:\\Users\\user\\Documents\\Gen_AI\\Multi-modal-RAG\\parsing\\output\\figures\\pic_49_page_69.png",
+    "width": 34.2,
+    "height": 18.9,
+    "area": 646.4,
+    "captions": [],
+    "category": "Decorative / Icon / Logo",
+    "classification_reason": "Geometric filter: Tiny dimensions (34.2x18.9 pt, area 646.4).",
+    "summary": "Decorative bullet, icon, or formatting marker.",
+    "rag_action": "discard"
+  },
+  "50": {
+    "index": 50,
+    "page_no": 69,
+    "path": "C:\\Users\\user\\Documents\\Gen_AI\\Multi-modal-RAG\\parsing\\output\\figures\\pic_50_page_69.png",
+    "width": 33.7,
+    "height": 46.5,
+    "area": 1567.1,
+    "captions": [],
+    "category": "Decorative / Icon / Logo",
+    "classification_reason": "Geometric filter: Tiny dimensions (33.7x46.5 pt, area 1567.1).",
+    "summary": "Decorative bullet, icon, or formatting marker.",
+    "rag_action": "discard"
+  },
+  "51": {
+    "index": 51,
+    "page_no": 70,
+    "path": "C:\\Users\\user\\Documents\\Gen_AI\\Multi-modal-RAG\\parsing\\output\\figures\\pic_51_page_70.png",
+    "width": 116.4,
+    "height": 138.2,
+    "area": 16086.5,
+    "captions": [],
+    "category": "Executive Headshots / Portraits",
+    "classification_reason": "The image is a clear portrait of a person, specifically an executive or professional in a professional setting. The visual content is does not contain any charts, diagrams, or logos.",
+    "summary": "The image does not contain any financial data or quantitative information. It is a portrait of an individual, likely an executive or key personnel, likely part of a company's leadership or management team.",
+    "rag_action": "discard"
+  },
+  "52": {
+    "index": 52,
+    "page_no": 70,
+    "path": "C:\\Users\\user\\Documents\\Gen_AI\\Multi-modal-RAG\\parsing\\output\\figures\\pic_52_page_70.png",
+    "width": 51.4,
+    "height": 64.6,
+    "area": 3320.4,
+    "captions": [
+      {
+        "$ref": "#/texts/2167"
+      }
+    ],
+    "category": "Decorative / Icon / Logo",
+    "classification_reason": "The image contains a handwritten signature, which serves as a decorative or formal element in a document, often representing an individual's endorsement or presence.",
+    "summary": "The image displays a well-crafted handwritten signature, likely belonging to an executive or a key stakeholder, which is a common feature in official corporate documents to indicate formal approval.",
+    "rag_action": "discard"
+  },
+  "53": {
+    "index": 53,
+    "page_no": 71,
+    "path": "C:\\Users\\user\\Documents\\Gen_AI\\Multi-modal-RAG\\parsing\\output\\figures\\pic_53_page_71.png",
+    "width": 323.4,
+    "height": 190.3,
+    "area": 61543.0,
+    "captions": [
+      {
+        "$ref": "#/texts/2197"
+      }
+    ],
+    "category": "Decorative / Icon / Logo",
+    "classification_reason": "The image is a photograph of a panel discussion at an event, which serves an illustrative/decorative purpose rather than presenting data-driven charts, diagrams, or individual executive portraits.",
+    "summary": "A photograph depicting a panel discussion at the J.P. Morgan Treasurers Forum.",
+    "rag_action": "discard"
+  },
+  "54": {
+    "index": 54,
+    "page_no": 72,
+    "path": "C:\\Users\\user\\Documents\\Gen_AI\\Multi-modal-RAG\\parsing\\output\\figures\\pic_54_page_72.png",
+    "width": 322.3,
+    "height": 198.2,
+    "area": 63879.9,
+    "captions": [
+      {
+        "$ref": "#/texts/2208"
+      }
+    ],
+    "category": "Executive Headshots / Portraits",
+    "classification_reason": "The image features a group of individuals posing for a photograph, which is characteristic of professional or executive group portraits.",
+    "summary": "A group portrait of six professionals wearing identification lanyards.",
+    "rag_action": "discard"
+  },
+  "55": {
+    "index": 55,
+    "page_no": 73,
+    "path": "C:\\Users\\user\\Documents\\Gen_AI\\Multi-modal-RAG\\parsing\\output\\figures\\pic_55_page_73.png",
+    "width": 312.4,
+    "height": 242.4,
+    "area": 75725.8,
+    "captions": [
+      {
+        "$ref": "#/texts/2214"
+      }
+    ],
+    "category": "Executive Headshots / Portraits",
+    "classification_reason": "The image displays a group of individuals in professional attire posing for a photograph, which is characteristic of a team or executive portrait.",
+    "summary": "A group portrait of professionals standing in front of a 'Welcome to Chase' sign.",
+    "rag_action": "discard"
+  },
+  "56": {
+    "index": 56,
+    "page_no": 74,
+    "path": "C:\\Users\\user\\Documents\\Gen_AI\\Multi-modal-RAG\\parsing\\output\\figures\\pic_56_page_74.png",
+    "width": 116.2,
+    "height": 138.1,
+    "area": 16047.2,
+    "captions": [],
+    "category": "Executive Headshots / Portraits",
+    "classification_reason": "The image is a high-resolution photograph of a person's face and upper shoulders, which is a standard format for professional profiles.",
+    "summary": "Executive portrait.",
+    "rag_action": "discard"
+  },
+  "57": {
+    "index": 57,
+    "page_no": 74,
+    "path": "C:\\Users\\user\\Documents\\Gen_AI\\Multi-modal-RAG\\parsing\\output\\figures\\pic_57_page_74.png",
+    "width": 58.9,
+    "height": 39.0,
+    "area": 2297.1,
+    "captions": [
+      {
+        "$ref": "#/texts/2235"
+      }
+    ],
+    "category": "Decorative / Icon / Logo",
+    "classification_reason": "Geometric filter: Tiny dimensions (58.9x39.0 pt, area 2297.1).",
+    "summary": "Decorative bullet, icon, or formatting marker.",
+    "rag_action": "discard"
+  },
+  "58": {
+    "index": 58,
+    "page_no": 77,
+    "path": "C:\\Users\\user\\Documents\\Gen_AI\\Multi-modal-RAG\\parsing\\output\\figures\\pic_58_page_77.png",
+    "width": 495.1,
+    "height": 318.9,
+    "area": 157887.4,
+    "captions": [],
+    "category": "Financial Charts / Graphs",
+    "classification_reason": "The image is a line graph featuring a legend, a time-series x-axis (2020-2025), and a numerical y-axis representing values in dollars, specifically tracking multiple financial indices and entities.",
+    "summary": "This line chart tracks the value in dollars for JP Morgan Chase, KBW Bank, S&P Financials, and the S&P 500 from 2020 to 2025. It shows a general upward trajectory for these entities, with JP Morgan Chase experiencing the most significant growth after 2022.",
+    "rag_action": "keep_and_index"
+  },
+  "59": {
+    "index": 59,
+    "page_no": 94,
+    "path": "C:\\Users\\user\\Documents\\Gen_AI\\Multi-modal-RAG\\parsing\\output\\figures\\pic_59_page_94.png",
+    "width": 512.6,
+    "height": 228.9,
+    "area": 117334.1,
+    "captions": [],
+    "category": "Informative Diagram / Visual Table",
+    "classification_reason": "The image presents a structured hierarchical overview of JPMorgan Chase's business segments and sub-divisions using a tabular layout.",
+    "summary": "The diagram outlines the organizational structure of JPMorgan Chase, categorizing operations into Consumer and Wholesale business segments. It details various sub-units such as Consumer & Community Banking and Commercial & Investment Bank.",
+    "rag_action": "keep_and_index"
+  },
+  "60": {
+    "index": 60,
+    "page_no": 115,
+    "path": "C:\\Users\\user\\Documents\\Gen_AI\\Multi-modal-RAG\\parsing\\output\\figures\\pic_60_page_115.png",
+    "width": 243.3,
+    "height": 83.7,
+    "area": 20364.2,
+    "captions": [],
+    "category": "Informative Diagram / Visual Table",
+    "classification_reason": "The image is a flow-style diagram showing the relationship between 'Drivers of Risks', 'Arrows/Process, 'Types of Risks', and 'Implied/Resulting/Impacts of Risks'.",
+    "summary": "The diagram illustrates the\ub098the flow of risk management, showing how risk drivers, risk types, and risk impacts are aligned within the Firm's risk governance and oversight functions. It provides a conceptual framework for theing risk identification, classification, and assessment of consequences.",
+    "rag_action": "keep_and_index"
+  },
+  "61": {
+    "index": 61,
+    "page_no": 117,
+    "path": "C:\\Users\\user\\Documents\\Gen_AI\\Multi-modal-RAG\\parsing\\output\\figures\\pic_61_page_117.png",
+    "width": 510.8,
+    "height": 205.3,
+    "area": 104867.2,
+    "captions": [],
+    "category": "Informative Diagram / Visual Table",
+    "classification_reason": "The image is an organizational chart (organigram) that visually represents the hierarchy and composition of the company's governance and management structure.",
+    "summary": "The diagram illustrates the company's governance structure, detailing various committees under the Board of Directors. It also lists the composition of the Operating Committee and key management-level committees and forums.",
+    "rag_action": "keep_and_index"
+  },
+  "62": {
+    "index": 62,
+    "page_no": 124,
+    "path": "C:\\Users\\user\\Documents\\Gen_AI\\Multi-modal-RAG\\parsing\\output\\figures\\pic_62_page_124.png",
+    "width": 498.0,
+    "height": 270.2,
+    "area": 134559.6,
+    "captions": [],
+    "category": "Financial Charts / Graphs",
+    "classification_reason": "The image is a stacked bar chart displaying various components of CET1 capital regulatory requirements, including stress capital buffer, capital conservation buffer, and GSIB surcharge.",
+    "summary": "The chart illustrates the components of the regulatory CET1 capital ratio requirements for both Standardized and Advanced approaches, comparing periods 4Q24-3Q25 and Duet 4Q25. It specifically highlights the Firm's actual CET1 capital ratios as of December 31, 2025, at 14.1% for the Advanced approach and 14.6% for asping",
+    "rag_action": "keep_and_index"
+  },
+  "63": {
+    "index": 63,
+    "page_no": 130,
+    "path": "C:\\Users\\user\\Documents\\Gen_AI\\Multi-modal-RAG\\parsing\\output\\figures\\pic_63_page_130.png",
+    "width": 244.3,
+    "height": 274.6,
+    "area": 67084.8,
+    "captions": [],
+    "category": "Informative Diagram / Visual Table",
+    "classification_reason": "The image contains flowcharts that use text boxes and directional arrows to represent regulatory logic and calculation rules.",
+    "summary": "The diagram illustrates the formulas for determining the External TLAC requirement and the minimum level of eligible long-term debt. It specifies that these values are the greater of two different metrics based on RWA and leverage exposure percentages.",
+    "rag_action": "keep_and_index"
+  },
+  "64": {
+    "index": 64,
+    "page_no": 159,
+    "path": "C:\\Users\\user\\Documents\\Gen_AI\\Multi-modal-RAG\\parsing\\output\\figures\\pic_64_page_159.png",
+    "width": 241.3,
+    "height": 162.4,
+    "area": 39187.1,
+    "captions": [],
+    "category": "Financial Charts / Graphs",
+    "classification_reason": "The image is a line graph showing financial metrics (AVG, DRE, Peak) over a period of time (1 to 10 years).",
+    "summary": "The graph illustrates the decline of average, DRE, and peak derivative receivables values over a period of 10 years. Specifically, it shows a downward trend for all three metrics, with the peak value experiencing the most significant drop from its initial high point.",
+    "rag_action": "keep_and_index"
+  },
+  "65": {
+    "index": 65,
+    "page_no": 169,
+    "path": "C:\\Users\\user\\Documents\\Gen_AI\\Multi-modal-RAG\\parsing\\output\\figures\\pic_65_page_169.png",
+    "width": 466.1,
+    "height": 173.4,
+    "area": 80821.7,
+    "captions": [],
+    "category": "Financial Charts / Graphs",
+    "classification_reason": "The image is a line graph displaying financial metrics (VaR in $ millions) over the four quarters of 2025.",
+    "summary": "The graph illustrates daily Risk Management Value at Risk (VaR) for the 2025 fiscal year, showing a significant spike in the first quarter followed by a stabilized lower trend. The spike is attributed to a matured client-driven equity position.",
+    "rag_action": "keep_and_index"
+  },
+  "66": {
+    "index": 66,
+    "page_no": 170,
+    "path": "C:\\Users\\user\\Documents\\Gen_AI\\Multi-modal-RAG\\parsing\\output\\figures\\pic_66_page_170.png",
+    "width": 505.0,
+    "height": 231.2,
+    "area": 116756.0,
+    "captions": [],
+    "category": "Financial Charts / Graphs",
+    "classification_reason": "The image is a bar chart displaying the 'Count of Trading Days' for various backtesting outcomes, including gains and losses as a percentage of VaR.",
+    "summary": "The chart illustrates the number of and the distribution of trading days with backtesting gains and versus losses as a percentage of Risk Management VaR for the trailing 12 months. It also includes a small table showing the number of backtesting exceptions in each quarter of 2025.",
+    "rag_action": "keep_and_index"
+  },
+  "67": {
+    "index": 67,
+    "page_no": 193,
+    "path": "C:\\Users\\user\\Documents\\Gen_AI\\Multi-modal-RAG\\parsing\\output\\figures\\pic_67_page_193.png",
+    "width": 139.9,
+    "height": 70.5,
+    "area": 9863.0,
+    "captions": [
+      {
+        "$ref": "#/texts/3991"
+      }
+    ],
+    "category": "Decorative / Icon / Logo",
+    "classification_reason": "The image is a handwritten signature, which is a\ub85c\ub294 a decorative or identifying element rather than a functional financial chart, diagram, or portrait.",
+    "summary": "The image displays a handwritten signature, likely from a high-level executive or authorized official of JPMorgan Chase & Co., used to authenticate or certify the report.",
+    "rag_action": "discard"
+  },
+  "68": {
+    "index": 68,
+    "page_no": 193,
+    "path": "C:\\Users\\user\\Documents\\Gen_AI\\Multi-modal-RAG\\parsing\\output\\figures\\pic_68_page_193.png",
+    "width": 135.4,
+    "height": 48.4,
+    "area": 6553.4,
+    "captions": [
+      {
+        "$ref": "#/texts/3992"
+      }
+    ],
+    "category": "Decorative / Icon / Logo",
+    "classification_reason": "The image depicts a handwritten signature, which serves as a non-informational graphic element rather than a chart, diagram, or portrait.",
+    "summary": "A handwritten signature.",
+    "rag_action": "discard"
+  },
+  "69": {
+    "index": 69,
+    "page_no": 194,
+    "path": "C:\\Users\\user\\Documents\\Gen_AI\\Multi-modal-RAG\\parsing\\output\\figures\\pic_69_page_194.png",
+    "width": 68.1,
+    "height": 40.0,
+    "area": 2724.0,
+    "captions": [],
+    "category": "Decorative / Icon / Logo",
+    "classification_reason": "The image shows the logo of the PwC (PricewaterhouseCoopers) accounting firm, which is a branding element used in the annual report.",
+    "summary": "The image depicts the PwC logo, representing the firm responsible for the auditing services provided for JPMorgan Chase & Co.'s financial statements. This logo is used for branding and identification of the auditor.",
+    "rag_action": "discard"
+  },
+  "70": {
+    "index": 70,
+    "page_no": 196,
+    "path": "C:\\Users\\user\\Documents\\Gen_AI\\Multi-modal-RAG\\parsing\\output\\figures\\pic_70_page_196.png",
+    "width": 201.7,
+    "height": 37.0,
+    "area": 7462.9,
+    "captions": [],
+    "category": "Decorative / Icon / Logo",
+    "classification_reason": "The image is a stylized, calligraphic signature/logo representing PricewaterehouseCoopers LLP, which serves as a enough decorative/branding element in this document context.",
+    "summary": "The image displays the stylized text 'PricewaterhouseCoopers LLP', which is a signature-like logo for the auditing firm. It does not contain financial data or charts.",
+    "rag_action": "discard"
+  },
+  "71": {
+    "index": 71,
+    "page_no": 325,
+    "path": "C:\\Users\\user\\Documents\\Gen_AI\\Multi-modal-RAG\\parsing\\output\\figures\\pic_71_page_325.png",
+    "width": 244.3,
+    "height": 235.0,
+    "area": 57410.5,
+    "captions": [],
+    "category": "Informative Diagram / Visual Table",
+    "classification_reason": "The image is a hierarchical diagram showing the regulators's composition of various types of capital (Total capital, Tier 1, Tier s, CET1, etc.), using boxes and brackets to brackets to represent the levels of components. It is a'not a standard chart or graph with axes-based axes-based axes-based axes-based axes-based axes-based axes-based axes-based axes-based axes-based axes-based axes-based axes-based axes-based axes-based axes-based axes-based axes-based axes']",
+    "summary": "The image illustrates the hierarchical structure of regulatory capital components, breaking down Total capital into components like Tier 1 and Tier 2 capital, and reducing CET1 capital by certain deductions. Finally, it shows how various elements like Common stockholders' equity and Common and Additional Tier 1 capital and Additional Tier 1 days. ",
+    "rag_action": "keep_and_index"
+  },
+  "72": {
+    "index": 72,
+    "page_no": 363,
+    "path": "C:\\Users\\user\\Documents\\Gen_AI\\Multi-modal-RAG\\parsing\\output\\figures\\pic_72_page_363.png",
+    "width": 45.6,
+    "height": 71.2,
+    "area": 3246.7,
+    "captions": [],
+    "category": "Decorative / Icon / Logo",
+    "classification_reason": "The image shows the Forest Stewardship Council (Fsc) logo, which iss a certification mark for responsibly sourced wood/paper products. It is a non-informative, non-erasing, non-financial contents. It is purely a decorative or certification/logo/icon element of the    ",
+    "summary": "The image displays the Forest Stewardship Council (FSC) logo, indicating that the paper used for the document is from responsible sources. It does not contain any financial data or financial metrics. ",
+    "rag_action": "discard"
+  }
+}
