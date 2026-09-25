@@ -286,10 +286,14 @@ print(f"All {len(classified_results)} figures classified and saved to {CLASSIFIE
     add_code("""# Summary dataframe
 df = pd.DataFrame.from_dict(classified_results, orient="index")
 
+# Analytical RAG Policy: Index only quantitative charts and informative tables
+analytical_cats = ["Financial Charts / Graphs", "Informative Diagram / Visual Table"]
+df["rag_action"] = df["category"].apply(lambda c: "keep_and_index" if c in analytical_cats else "discard")
+
 print("=== Category Distribution ===")
 print(df["category"].value_counts())
 
-print("\\n=== RAG Action Distribution ===")
+print("\\n=== RAG Action Distribution (Analytical Policy) ===")
 print(df["rag_action"].value_counts())
 
 # Display top financial charts
