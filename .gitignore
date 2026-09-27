@@ -41,3 +41,7 @@ figures/
 tmp/
 *.log
 .DS_Store
+
+# Helper and scratch scripts
+scripts/
+**/scripts/
