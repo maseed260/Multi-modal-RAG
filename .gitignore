@@ -42,6 +42,7 @@ tmp/
 *.log
 .DS_Store
 
-# Helper and scratch scripts
-scripts/
-**/scripts/
+# Helper and scratch scripts (only allow run_classification.py and retry_failed.py)
+parsing/scripts/*
+!parsing/scripts/run_classification.py
+!parsing/scripts/retry_failed.py
