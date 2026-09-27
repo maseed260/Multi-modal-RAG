@@ -23,13 +23,26 @@ uv.toml
 .uv/
 
 # Generated parsing outputs & large artifacts
-parsing/output/
-output/
-*.json
+/output/
+parsing/output/*
+!parsing/output/full_docling_parsed.json
+!parsing/output/classified_images.json
+figures/
+**/figures/
 *.parquet
+
+# Root json ignore (except in parsing/output)
+*.json
+!parsing/output/full_docling_parsed.json
+!parsing/output/classified_images.json
 
 # Temporary & cache
 .cache/
 tmp/
 *.log
 .DS_Store
+
+# Helper and scratch scripts (only allow run_classification.py and retry_failed.py)
+parsing/scripts/*
+!parsing/scripts/run_classification.py
+!parsing/scripts/retry_failed.py
