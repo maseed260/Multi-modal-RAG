@@ -6,6 +6,16 @@ from langchain_groq import ChatGroq
 
 load_dotenv()
 
+# Automatically configure LangSmith tracing if API key is detected
+langsmith_key = os.getenv("LANGSMITH_API_KEY") or os.getenv("LANGCHAIN_API_KEY")
+if langsmith_key:
+    os.environ["LANGCHAIN_TRACING_V2"] = "true"
+    os.environ["LANGSMITH_TRACING"] = "true"
+    os.environ["LANGCHAIN_API_KEY"] = langsmith_key
+    os.environ["LANGSMITH_API_KEY"] = langsmith_key
+    if not os.getenv("LANGCHAIN_PROJECT"):
+        os.environ["LANGCHAIN_PROJECT"] = os.getenv("LANGSMITH_PROJECT", "multi-modal-rag")
+
 # Primary local configuration: Ollama with Qwen 9B
 OLLAMA_URL = os.getenv("OLLAMA_URL", "http://localhost:11434")
 OLLAMA_MODEL = os.getenv("OLLAMA_MODEL", "qwen3.5:9b")
