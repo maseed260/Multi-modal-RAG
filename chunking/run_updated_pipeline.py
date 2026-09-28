@@ -145,6 +145,22 @@ def split_text_into_semantic_chunks(text: str, heading: str = "", max_tokens: in
         chunks.append((c_text, approximate_token_count(c_text)))
     return chunks
 
+def get_surrounding_context_snippet(text: str, max_sentences: int = 2, max_chars: int = 250) -> str:
+    """Extracts the trailing 1-2 sentences of narrative text to inject as surrounding context."""
+    clean = text.strip()
+    if not clean:
+        return ""
+    clean = re.sub(r'^###\s+.*?\n+', '', clean, flags=re.MULTILINE).strip()
+    sentences = [s.strip() for s in re.split(r'(?<=[.!?])\s+', clean) if s.strip()]
+    if not sentences:
+        return clean[:max_chars]
+    snippet = " ".join(sentences[-max_sentences:])
+    if len(snippet) > max_chars:
+        snippet = snippet[-max_chars:]
+        if " " in snippet:
+            snippet = snippet.split(" ", 1)[1]
+    return snippet.strip()
+
 def emit_text_chunks(text: str, subheading: str, pages: set, b_idx: int, toc_info: dict, counter: int) -> Tuple[List[UnifiedChunk], int]:
     if not text.strip():
         return [], counter
@@ -279,6 +295,7 @@ for b_idx, sec_data in tqdm(sorted(sections_map.items()), desc="Processing TOC S
     section_chunks = []
     current_text_run = ""
     current_subheading = ""
+    last_narrative_context = ""
     current_pages = set()
     lead_in_text = ""
     
@@ -300,6 +317,7 @@ for b_idx, sec_data in tqdm(sorted(sections_map.items()), desc="Processing TOC S
                 if current_text_run:
                     flushed, chunk_counter = emit_text_chunks(current_text_run, current_subheading, current_pages, b_idx, toc_info, chunk_counter)
                     section_chunks.extend(flushed)
+                    last_narrative_context = current_text_run
                     current_text_run = ""
                     current_pages = set()
                 current_subheading = text_str
@@ -314,9 +332,12 @@ for b_idx, sec_data in tqdm(sorted(sections_map.items()), desc="Processing TOC S
             current_text_run = heal_cross_page_text(current_text_run, text_str)
             current_pages.add(page_no)
         elif modality == "table":
+            context_source = current_text_run if current_text_run.strip() else last_narrative_context
+            surrounding_context = get_surrounding_context_snippet(context_source)
             if current_text_run:
                 flushed, chunk_counter = emit_text_chunks(current_text_run, current_subheading, current_pages, b_idx, toc_info, chunk_counter)
                 section_chunks.extend(flushed)
+                last_narrative_context = current_text_run
                 current_text_run = ""
                 current_pages = set()
                 current_subheading = ""
@@ -341,6 +362,8 @@ for b_idx, sec_data in tqdm(sorted(sections_map.items()), desc="Processing TOC S
                 chunk_counter += 1
                 c_id = f"chunk_sec{b_idx:03d}_table_{chunk_counter:04d}_part{r_idx+1}"
                 tbl_md = f"### {table_title} (Part {r_idx+1}/{len(row_chunks)})\n\n"
+                if surrounding_context:
+                    tbl_md += f"> **Surrounding Context**: \"{surrounding_context}\"\n\n"
                 tbl_md += table_to_markdown(header, r_group)
                 if absorbed_footnotes:
                     tbl_md += "\n\n**Inlined Footnotes:**\n" + "\n".join(f"- {fn}" for fn in absorbed_footnotes)
@@ -368,9 +391,11 @@ for b_idx, sec_data in tqdm(sorted(sections_map.items()), desc="Processing TOC S
                     ),
                     navigation=GraphNavigation(),
                     inlined_footnotes=absorbed_footnotes,
-                    filter_metadata={"is_table_part": r_idx + 1, "total_table_parts": len(row_chunks)}
+                    filter_metadata={"is_table_part": r_idx + 1, "total_table_parts": len(row_chunks), "surrounding_context": surrounding_context}
                 ))
         elif modality == "picture":
+            context_source = current_text_run if current_text_run.strip() else last_narrative_context
+            surrounding_context = get_surrounding_context_snippet(context_source)
             pic_idx = elem.get("ref", "").split("/")[-1]
             cls_info = detailed_image_summaries.get(pic_idx, {})
             if not cls_info.get("is_decorative") and cls_info.get("rag_action") != "discard":
@@ -383,6 +408,8 @@ for b_idx, sec_data in tqdm(sorted(sections_map.items()), desc="Processing TOC S
                 chunk_counter += 1
                 c_id = f"chunk_sec{b_idx:03d}_figure_{chunk_counter:04d}"
                 fig_text = f"### Visual Figure: {title} ({category}, Page {page_no})\n\n"
+                if surrounding_context:
+                    fig_text += f"> **Surrounding Context**: \"{surrounding_context}\"\n\n"
                 fig_text += f"{detailed_sum}\n\n"
                 if takeaway:
                     fig_text += f"**Key Business Takeaway**: {takeaway}\n\n"
@@ -417,7 +444,8 @@ for b_idx, sec_data in tqdm(sorted(sections_map.items()), desc="Processing TOC S
                         visual_category=category,
                         quantitative_metrics=[str(m) for m in quant_data] if isinstance(quant_data, list) else [str(quant_data)],
                         tags=tags
-                    )
+                    ),
+                    filter_metadata={"surrounding_context": surrounding_context}
                 ))
         i += 1
     if current_text_run:
