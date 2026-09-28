@@ -16,7 +16,7 @@ from langgraph.graph.message import add_messages
 from langgraph.checkpoint.memory import MemorySaver
 
 from agent.models import get_agent_llm
-from agent.tools import retrieve_chunks, generate_grounded_answer
+from agent.tools import retrieve_chunks, generate_grounded_answer, normalize_text_input
 from agent.prompt import AGENT_SYSTEM_PROMPT
 
 # 1. State Definition
@@ -66,7 +66,10 @@ def tool_node(state: AgentState):
 
         if t_name in available_tools:
             tool = available_tools[t_name]
-            result = tool.invoke(t_args)
+            try:
+                result = tool.invoke(t_args)
+            except Exception as e:
+                result = f"Error executing tool '{t_name}': {e}"
             tool_messages.append(ToolMessage(content=str(result), tool_call_id=t_id, name=t_name))
             if t_name == "retrieve_chunks":
                 count += 1
@@ -76,26 +79,29 @@ def tool_node(state: AgentState):
 
 def synthesize_node(state: AgentState):
     """Guaranteed synthesis node: aggregates evidence and produces grounded executive answer."""
-    # Find original user query
+    # Find original user query (normalize str or Studio UI multimodal block list)
     user_q = ""
     for m in state["messages"]:
         if getattr(m, "type", "") == "human":
-            user_q = m.content
+            user_q = normalize_text_input(m.content)
             break
-    if not user_q:
-        user_q = state["messages"][0].content
+    if not user_q and state["messages"]:
+        user_q = normalize_text_input(state["messages"][0].content)
 
     # Collect all retrieved evidence from tools
     evidence_pieces = []
     for m in state["messages"]:
         if isinstance(m, ToolMessage) and m.name == "retrieve_chunks":
-            evidence_pieces.append(m.content)
+            evidence_pieces.append(normalize_text_input(m.content))
 
     combined_evidence = "\n\n".join(evidence_pieces)
-    grounded_ans = generate_grounded_answer.invoke({
-        "question": user_q,
-        "retrieved_evidence": combined_evidence
-    })
+    try:
+        grounded_ans = generate_grounded_answer.invoke({
+            "question": user_q,
+            "retrieved_evidence": combined_evidence
+        })
+    except Exception as e:
+        grounded_ans = f"Error generating grounded answer: {e}"
 
     return {"messages": [AIMessage(content=str(grounded_ans))]}
 

@@ -1,6 +1,6 @@
 import os
 import requests
-from typing import Optional, List
+from typing import Optional, List, Union, Any, Dict
 from langchain_core.tools import tool
 from qdrant_client import QdrantClient, models
 from fastembed import SparseTextEmbedding
@@ -16,6 +16,25 @@ EMBEDDING_DIM = 1024
 _qdrant_client = None
 _bm25_model = None
 _synthesis_llm = None
+
+
+def normalize_text_input(val: Any) -> str:
+    """Safely extracts plain string from str, list of content blocks (e.g. Studio UI), or dict."""
+    if val is None:
+        return ""
+    if isinstance(val, str):
+        return val
+    if isinstance(val, list):
+        parts = []
+        for item in val:
+            if isinstance(item, dict):
+                parts.append(str(item.get("text", item.get("content", item))))
+            else:
+                parts.append(str(item))
+        return " ".join(parts).strip()
+    if isinstance(val, dict):
+        return str(val.get("text", val.get("content", str(val))))
+    return str(val)
 
 
 def get_qdrant() -> QdrantClient:
@@ -40,7 +59,11 @@ def get_synthesis() -> any:
 
 
 @tool
-def retrieve_chunks(query: str, filter_modality: Optional[str] = None, limit: int = 10) -> str:
+def retrieve_chunks(
+    query: Union[str, List[Any]],
+    filter_modality: Optional[str] = None,
+    limit: int = 10
+) -> str:
     """Retrieve up to 10 relevant chunks from the JPMC 2025 Annual Report using hybrid search (Dense Qwen 1024d + Sparse BM25 + RRF).
     
     Use this tool to find information about financial metrics, executive strategy, accounting tables, risk management, and visual charts.
@@ -51,6 +74,7 @@ def retrieve_chunks(query: str, filter_modality: Optional[str] = None, limit: in
         filter_modality: Optional filter to restrict results to a specific modality: 'text', 'table', or 'figure'.
         limit: Number of chunks to retrieve (default is 10).
     """
+    query = normalize_text_input(query)
     client = get_qdrant()
     bm25 = get_bm25()
 
@@ -155,7 +179,11 @@ def retrieve_chunks(query: str, filter_modality: Optional[str] = None, limit: in
 
 
 @tool
-def generate_grounded_answer(question: str, retrieved_evidence: str, synthesis_notes: Optional[str] = None) -> str:
+def generate_grounded_answer(
+    question: Union[str, List[Any]],
+    retrieved_evidence: Union[str, List[Any]],
+    synthesis_notes: Optional[str] = None
+) -> str:
     """Generate a rigorous, audit-ready answer grounded strictly in the retrieved multimodal chunks.
     
     Call this tool after you have gathered all relevant chunks (from one or multiple retrieve_chunks calls).
@@ -167,6 +195,8 @@ def generate_grounded_answer(question: str, retrieved_evidence: str, synthesis_n
         retrieved_evidence: Combined text/markdown content of the retrieved chunks (or summary of key findings).
         synthesis_notes: Optional guidance or specific aspects to emphasize (e.g. 'reconcile table with letter', 'cite footnotes').
     """
+    question = normalize_text_input(question)
+    retrieved_evidence = normalize_text_input(retrieved_evidence)
     synthesis_llm = get_synthesis()
 
     system_prompt = (
