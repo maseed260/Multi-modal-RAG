@@ -14,8 +14,6 @@ __pycache__/
 *.swp
 *.swo
 
-# Project context & notes
-context.md
 
 # UV config and lock files
 pyproject.toml
