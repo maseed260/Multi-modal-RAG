@@ -46,3 +46,9 @@ tmp/
 parsing/scripts/*
 !parsing/scripts/run_classification.py
 !parsing/scripts/retry_failed.py
+
+# Chunking outputs & scratch scripts
+chunking/output/*
+chunking/build_notebook.py
+chunking/generate_enhanced_notebook.py
+chunking/inspect_errors.py
