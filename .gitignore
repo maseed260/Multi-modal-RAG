@@ -60,3 +60,4 @@ chunking/inspect_errors.py
 
 # Context / session notes (local only)
 context.md
+handoff.md
