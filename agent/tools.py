@@ -16,6 +16,9 @@ EMBEDDING_DIM = 1024
 _qdrant_client = None
 _bm25_model = None
 _synthesis_llm = None
+_reranker_model = None
+_reranker_tokenizer = None
+_reranker_device = None
 
 
 def normalize_text_input(val: Any) -> str:
@@ -58,21 +61,75 @@ def get_synthesis() -> any:
     return _synthesis_llm
 
 
+def get_reranker():
+    """Lazy loader for BAAI/bge-reranker-v2-m3 cross-encoder."""
+    global _reranker_model, _reranker_tokenizer, _reranker_device
+    if _reranker_model is None:
+        import torch
+        from transformers import AutoModelForSequenceClassification, AutoTokenizer
+
+        model_name = "BAAI/bge-reranker-v2-m3"
+        _reranker_device = "cuda" if torch.cuda.is_available() else "cpu"
+        _reranker_tokenizer = AutoTokenizer.from_pretrained(model_name)
+        _reranker_model = AutoModelForSequenceClassification.from_pretrained(model_name).to(_reranker_device)
+        _reranker_model.eval()
+    return _reranker_model, _reranker_tokenizer, _reranker_device
+
+
+def rerank_chunks(query: str, points: list, top_k: int = 10) -> list:
+    """Rerank candidate points using BAAI/bge-reranker-v2-m3 cross-attention."""
+    if not points:
+        return []
+    try:
+        import torch
+        model, tokenizer, device = get_reranker()
+
+        pairs = []
+        for pt in points:
+            p = pt.payload or {}
+            toc_str = " > ".join(p.get("toc_path") or [])
+            text = p.get("text", "")
+            # Combine TOC hierarchy context with chunk text for deep cross-attention
+            doc_context = f"{toc_str}\n{text}" if toc_str else text
+            pairs.append([query, doc_context[:1500]])
+
+        with torch.no_grad():
+            inputs = tokenizer(pairs, padding=True, truncation=True, return_tensors="pt", max_length=512).to(device)
+            scores = model(**inputs, return_dict=True).logits.view(-1).float().cpu().tolist()
+
+        scored_points = list(zip(points, scores))
+        scored_points.sort(key=lambda x: x[1], reverse=True)
+
+        final_points = []
+        for pt, score in scored_points[:top_k]:
+            pt.score = float(score)
+            final_points.append(pt)
+        return final_points
+    except Exception as e:
+        print(f"[!] Warning: BGE reranker encountered an error ({e}). Falling back to Qdrant RRF ranking.")
+        return points[:top_k]
+
+
 @tool
 def retrieve_chunks(
     query: Union[str, List[Any]],
     filter_modality: Optional[str] = None,
+    page_start: Optional[int] = None,
+    page_end: Optional[int] = None,
+    filter_toc_section: Optional[str] = None,
     limit: int = 10
 ) -> str:
-    """Retrieve up to 10 relevant chunks from the JPMC 2025 Annual Report using hybrid search (Dense Qwen 1024d + Sparse BM25 + RRF).
-    
-    Use this tool to find information about financial metrics, executive strategy, accounting tables, risk management, and visual charts.
-    You can call this tool multiple times with different query rewrites to assemble multi-angle evidence.
+    """Retrieve relevant chunks from the JPMC 2025 Annual Report using two-stage retrieval:
+    1. Hybrid Search (Dense Qwen 1024d + Sparse BM25 + RRF) with payload pre-filtering.
+    2. Deep Cross-Encoder Reranking via BAAI/bge-reranker-v2-m3.
     
     Args:
         query: Specific search phrase or question rewrite (e.g. 'Apple Card transaction provision', '20-year net income progression', 'CET1 capital ratios').
         filter_modality: Optional filter to restrict results to a specific modality: 'text', 'table', or 'figure'.
-        limit: Number of chunks to retrieve (default is 10).
+        page_start: Optional starting page number to restrict search window (e.g. 150 for financial statements).
+        page_end: Optional ending page number to restrict search window (e.g. 250).
+        filter_toc_section: Optional section name to filter by (e.g. 'Corporate & Investment Bank', 'Risk Management').
+        limit: Number of top reranked chunks to return (default is 10).
     """
     query = normalize_text_input(query)
     client = get_qdrant()
@@ -100,28 +157,43 @@ def retrieve_chunks(
     except Exception as e:
         return f"Error computing BM25 sparse embedding for query: {e}"
 
-    # 3. Payload filter if modality specified
-    q_filter = None
+    # 3. Payload filter with rich metadata support (modality, page range, toc section)
+    must_conditions = []
     if filter_modality:
-        mod_val = filter_modality.strip().lower()
-        q_filter = models.Filter(
-            must=[models.FieldCondition(key="modality", match=models.MatchValue(value=mod_val))]
+        must_conditions.append(
+            models.FieldCondition(key="modality", match=models.MatchValue(value=filter_modality.strip().lower()))
+        )
+    if filter_toc_section:
+        must_conditions.append(
+            models.FieldCondition(key="toc_section", match=models.MatchValue(value=filter_toc_section.strip()))
+        )
+    if page_start is not None or page_end is not None:
+        range_cond = {}
+        if page_start is not None:
+            range_cond["gte"] = page_start
+        if page_end is not None:
+            range_cond["lte"] = page_end
+        must_conditions.append(
+            models.FieldCondition(key="page_start", range=models.Range(**range_cond))
         )
 
-    # 4. Hybrid prefetch + RRF fusion
+    q_filter = models.Filter(must=must_conditions) if must_conditions else None
+
+    # 4. Stage 1: Hybrid prefetch + RRF over-retrieval
+    candidate_limit = max(limit * 3, 25)
     try:
         prefetch = [
             models.Prefetch(
                 query=dense_vec,
                 using="dense",
                 filter=q_filter,
-                limit=limit * 3,
+                limit=candidate_limit,
             ),
             models.Prefetch(
                 query=sparse_vec,
                 using="sparse",
                 filter=q_filter,
-                limit=limit * 3,
+                limit=candidate_limit,
             ),
         ]
 
@@ -129,7 +201,7 @@ def retrieve_chunks(
             collection_name=COLLECTION_NAME,
             prefetch=prefetch,
             query=models.FusionQuery(fusion=models.Fusion.RRF),
-            limit=limit,
+            limit=candidate_limit,
         )
     except Exception as e:
         return f"Error executing Qdrant hybrid query: {e}"
@@ -137,9 +209,12 @@ def retrieve_chunks(
     if not search_res.points:
         return f"No matching chunks found in Qdrant for query: '{query}'"
 
+    # 5. Stage 2: Cross-Encoder Reranking with BAAI/bge-reranker-v2-m3
+    reranked_points = rerank_chunks(query, search_res.points, top_k=limit)
+
     # Format output for agent consumption
-    results = [f"=== Retrieved {len(search_res.points)} Chunks for Query: '{query}' ==="]
-    for idx, point in enumerate(search_res.points, 1):
+    results = [f"=== Retrieved & BGE-Reranked {len(reranked_points)} Chunks for Query: '{query}' ==="]
+    for idx, point in enumerate(reranked_points, 1):
         p = point.payload or {}
         cid = p.get("chunk_id", "unknown")
         mod = (p.get("modality") or "unknown").upper()
@@ -148,7 +223,7 @@ def retrieve_chunks(
         toc_path = " > ".join(p.get("toc_path") or [])
         score = point.score
 
-        chunk_header = f"[{idx}] {cid} | {mod} | p.{page}"
+        chunk_header = f"[{idx}] {cid} | {mod} | p.{page} | Rerank Score: {score:+.2f}"
         if toc_path:
             # Keep deepest 2 levels of TOC hierarchy
             short_toc = " > ".join((p.get("toc_path") or [])[-2:])

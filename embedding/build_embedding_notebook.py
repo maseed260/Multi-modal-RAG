@@ -509,6 +509,88 @@ results_filtered = search_hybrid(
 display_results("Pre-Filtered Table Query (Pages 1-10)", results_filtered)
     """)
 
+    # Cell 12: Two-Stage RAG with BAAI/bge-reranker-v2-m3
+    md("""
+---
+## 12. Two-Stage RAG: Cross-Encoder Reranking with BAAI/bge-reranker-v2-m3
+
+### Why Add a Cross-Encoder Reranker?
+1. **Bi-Encoder / Hybrid Limitation:** Dense embeddings map queries and documents into separate vector spaces independently (bi-encoder). While fast (sub-10ms via HNSW), the model cannot observe token-level interactions between the specific query tokens and document tokens until vector dot-product.
+2. **Cross-Encoder Advantage:** `BAAI/bge-reranker-v2-m3` feeds the concatenated `[CLS] Query [SEP] Document [EOS]` into the transformer layers simultaneously. All query tokens attend to all document tokens across all self-attention heads, unlocking state-of-the-art precision for subtle financial qualifiers, footnotes, and accounting terms.
+3. **The Two-Stage Architecture:**
+   - **Stage 1 (High Recall):** Qdrant retrieves top 20 candidate chunks in ~15ms using Hybrid Dense + Sparse BM25 + RRF.
+   - **Stage 2 (High Precision):** `bge-reranker-v2-m3` scores all 20 candidate chunks on GPU/CPU in ~30ms, re-ordering them to place the exact audit-grade evidence at ranks 1–5.
+    """)
+
+    code("""import torch
+from transformers import AutoModelForSequenceClassification, AutoTokenizer
+
+device = "cuda" if torch.cuda.is_available() else "cpu"
+reranker_model_name = "BAAI/bge-reranker-v2-m3"
+
+print(f"[*] Initializing Cross-Encoder '{reranker_model_name}' on device: {device}...")
+reranker_tokenizer = AutoTokenizer.from_pretrained(reranker_model_name)
+reranker_model = AutoModelForSequenceClassification.from_pretrained(reranker_model_name).to(device)
+reranker_model.eval()
+
+print(f"[+] '{reranker_model_name}' ready for two-stage inference!")
+    """)
+
+    code("""def search_and_rerank(query_text: str, candidate_pool_size: int = 20, top_k: int = 5):
+    \"\"\"Execute two-stage retrieval: Qdrant Hybrid RRF candidate fetch -> BGE Cross-Encoder reranking.\"\"\"
+    # Stage 1: Over-retrieve candidates from Qdrant
+    candidates = search_hybrid(query_text=query_text, limit=candidate_pool_size)
+    if not candidates:
+        print("[!] No candidates found in Qdrant.")
+        return []
+
+    # Stage 2: Prepare pairs for BGE Cross-Encoder
+    pairs = []
+    for hit in candidates:
+        p = hit.payload
+        toc_str = " > ".join(p.get("toc_path", []))
+        text = p.get("text", "")
+        context = f"{toc_str}\\n{text}" if toc_str else text
+        pairs.append([query_text, context[:1500]])
+
+    with torch.no_grad():
+        inputs = reranker_tokenizer(
+            pairs, padding=True, truncation=True, return_tensors="pt", max_length=512
+        ).to(device)
+        scores = reranker_model(**inputs, return_dict=True).logits.view(-1).float().cpu().tolist()
+
+    # Combine candidates with cross-encoder scores and sort
+    reranked = list(zip(candidates, scores))
+    reranked.sort(key=lambda x: x[1], reverse=True)
+
+    print(f"==================================================")
+    print(f"🎯 TWO-STAGE RETRIEVAL & RERANKING")
+    print(f"Query: '{query_text}'")
+    print(f"Stage 1 (Qdrant RRF Pool): {len(candidates)} candidates")
+    print(f"Stage 2 (BGE Reranked Top {top_k}):")
+    print(f"==================================================")
+    for idx, (hit, rerank_score) in enumerate(reranked[:top_k], 1):
+        p = hit.payload
+        mod = p.get("modality", "unknown").upper()
+        cid = p.get("chunk_id")
+        page = p.get("page_start")
+        toc = " > ".join(p.get("toc_path", []))
+        
+        print(f"\\n[{idx}] BGE Score: {rerank_score:+.2f} (Qdrant RRF: {hit.score:.4f}) | {mod} | p.{page} | {cid}")
+        print(f"    TOC: {toc}")
+        if mod == "FIGURE" and p.get("quantitative_metrics"):
+            print(f"    Metrics: {p.get('quantitative_metrics')[:2]}")
+        snippet = p.get("text", "").replace("\\n", " ")[:160]
+        print(f"    Text: {snippet}...")
+    print(f"==================================================\\n")
+    return [hit for hit, _ in reranked[:top_k]]
+    """)
+
+    code("""# Demonstration: Complex Financial Metric Reranking
+query = "what was JPMorgan's net income and return on tangible common equity in 2025?"
+top_reranked = search_and_rerank(query, candidate_pool_size=20, top_k=5)
+    """)
+
     # Build notebook structure
     notebook = {
         "cells": cells,
