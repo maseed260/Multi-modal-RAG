@@ -57,3 +57,6 @@ chunking/output/*
 chunking/build_notebook.py
 chunking/generate_enhanced_notebook.py
 chunking/inspect_errors.py
+
+# Context / session notes (local only)
+context.md
