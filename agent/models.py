@@ -1,40 +1,57 @@
 import os
 import sys
 from dotenv import load_dotenv
+from langchain_ollama import ChatOllama
 from langchain_groq import ChatGroq
 
 load_dotenv()
 
-groq_api_key = os.getenv("GROQ_API_KEY")
-if not groq_api_key:
-    raise ValueError("GROQ_API_KEY is not set in environment or .env file.")
+# Primary local configuration: Ollama with Qwen 9B
+OLLAMA_URL = os.getenv("OLLAMA_URL", "http://localhost:11434")
+OLLAMA_MODEL = os.getenv("OLLAMA_MODEL", "qwen3.5:9b")
+LLM_PROVIDER = os.getenv("LLM_PROVIDER", "ollama").lower()
 
-# Model specifications
-PREFERRED_AGENT_MODEL = os.getenv("GROQ_AGENT_MODEL", "llama-3.1-8b-instant")
-FALLBACK_AGENT_MODEL = "openai/gpt-oss-20b"
-
-PREFERRED_SYNTHESIS_MODEL = os.getenv("GROQ_SYNTHESIS_MODEL", "llama-3.3-70b-versatile")
-FALLBACK_SYNTHESIS_MODEL = "openai/gpt-oss-120b"
-
-
-def get_agent_llm() -> ChatGroq:
-    """Return the LLM for agent decision making and tool orchestrating."""
-    try:
-        llm = ChatGroq(model=PREFERRED_AGENT_MODEL, api_key=groq_api_key, temperature=0.1)
-        # Test invocation to check if model exists
-        llm.invoke("ping")
-        return llm
-    except Exception as e:
-        print(f"[*] Note: '{PREFERRED_AGENT_MODEL}' not available ({e}). Using '{FALLBACK_AGENT_MODEL}'.")
-        return ChatGroq(model=FALLBACK_AGENT_MODEL, api_key=groq_api_key, temperature=0.1)
+# Optional Groq fallback configuration
+GROQ_API_KEY = os.getenv("GROQ_API_KEY")
+GROQ_AGENT_MODEL = os.getenv("GROQ_AGENT_MODEL", "openai/gpt-oss-20b")
+GROQ_SYNTHESIS_MODEL = os.getenv("GROQ_SYNTHESIS_MODEL", "openai/gpt-oss-120b")
 
 
-def get_synthesis_llm() -> ChatGroq:
-    """Return the high-capacity LLM for grounded answer generation."""
-    try:
-        llm = ChatGroq(model=PREFERRED_SYNTHESIS_MODEL, api_key=groq_api_key, temperature=0.2)
-        llm.invoke("ping")
-        return llm
-    except Exception as e:
-        print(f"[*] Note: '{PREFERRED_SYNTHESIS_MODEL}' not available ({e}). Using '{FALLBACK_SYNTHESIS_MODEL}'.")
-        return ChatGroq(model=FALLBACK_SYNTHESIS_MODEL, api_key=groq_api_key, temperature=0.2)
+def get_agent_llm():
+    """Return the LLM for agent decision making and tool orchestration.
+    
+    Defaults to local Ollama qwen3.5:9b for zero-rate-limit local execution.
+    """
+    if LLM_PROVIDER == "ollama":
+        print(f"[*] Using local Ollama model '{OLLAMA_MODEL}' at {OLLAMA_URL} for Agent decisions.")
+        return ChatOllama(
+            model=OLLAMA_MODEL,
+            base_url=OLLAMA_URL,
+            temperature=0.1
+        )
+    
+    # Fallback to Groq API if explicitly selected
+    if not GROQ_API_KEY:
+        raise ValueError("GROQ_API_KEY is required when LLM_PROVIDER='groq'.")
+    print(f"[*] Using Groq model '{GROQ_AGENT_MODEL}' for Agent decisions.")
+    return ChatGroq(model=GROQ_AGENT_MODEL, api_key=GROQ_API_KEY, temperature=0.1)
+
+
+def get_synthesis_llm():
+    """Return the LLM for grounded answer synthesis.
+    
+    Defaults to local Ollama qwen3.5:9b for 100% local privacy and execution.
+    """
+    if LLM_PROVIDER == "ollama":
+        print(f"[*] Using local Ollama model '{OLLAMA_MODEL}' at {OLLAMA_URL} for Answer Synthesis.")
+        return ChatOllama(
+            model=OLLAMA_MODEL,
+            base_url=OLLAMA_URL,
+            temperature=0.2
+        )
+    
+    # Fallback to Groq API if explicitly selected
+    if not GROQ_API_KEY:
+        raise ValueError("GROQ_API_KEY is required when LLM_PROVIDER='groq'.")
+    print(f"[*] Using Groq model '{GROQ_SYNTHESIS_MODEL}' for Answer Synthesis.")
+    return ChatGroq(model=GROQ_SYNTHESIS_MODEL, api_key=GROQ_API_KEY, temperature=0.2)
