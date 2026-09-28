@@ -174,7 +174,7 @@ Open any of the interactive notebooks in VS Code or Jupyter:
 - [x] **Phase 1.1:** Comparative framework evaluation across 7 parsers (PyMuPDF, pdfplumber, Camelot, Tabula, Tesseract, Docling, GLM-OCR).
 - [x] **Phase 1.2:** Full 364-page end-to-end document visual transduction with GLM-OCR (23.76 min, 100% success).
 - [x] **Phase 1.3:** Architectural decision matrix and failure mode analysis (TableFormer vs. VLM column omission).
-- [ ] **Phase 2:** Automated Hybrid Ingestion Engine implementation (Pass-0 Classifier + TableFormer + VLM chart captioner).
-- [ ] **Phase 3:** TOC-guided hierarchical chunking and metadata enrichment (linking footnote markers `(a)`, `(b)`).
-- [ ] **Phase 4:** Hybrid multi-vector indexing (Dense embeddings + Sparse BM25 + Visual crop anchors).
+- [x] **Phase 2:** Automated Hybrid Ingestion Engine implementation (Pass-0 Classifier + TableFormer + VLM chart captioner).
+- [x] **Phase 3:** TOC-guided hierarchical chunking and metadata enrichment (linking footnote markers `(a)`, `(b)`).
+- [x] **Phase 4:** Hybrid multi-vector indexing (Dense embeddings + Sparse BM25 + Visual crop anchors).
 - [ ] **Phase 5:** Multi-modal query routing, grounded generation, and visual source citations.
