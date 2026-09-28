@@ -177,4 +177,4 @@ Open any of the interactive notebooks in VS Code or Jupyter:
 - [x] **Phase 2:** Automated Hybrid Ingestion Engine implementation (Pass-0 Classifier + TableFormer + VLM chart captioner).
 - [x] **Phase 3:** TOC-guided hierarchical chunking and metadata enrichment (linking footnote markers `(a)`, `(b)`).
 - [x] **Phase 4:** Hybrid multi-vector indexing (Dense embeddings + Sparse BM25 + Visual crop anchors).
-- [ ] **Phase 5:** Multi-modal query routing, grounded generation, and visual source citations.
+- [x] **Phase 5:** Multi-modal query routing, grounded generation, and visual source citations (LangGraph Agent + Qdrant hybrid retrieval + Groq synthesis).

@@ -30,8 +30,14 @@ figures/
 **/figures/
 *.parquet
 
-# Root json ignore (except in parsing/output)
+# Secrets & Environment variables
+.env
+*.env
+.langgraph_api/
+
+# Root json ignore (except in parsing/output and langgraph.json)
 *.json
+!langgraph.json
 !parsing/output/full_docling_parsed.json
 !parsing/output/classified_images.json
 
