@@ -5,8 +5,28 @@ Features:
 - StateGraph with checkpointer (MemorySaver) for state persistence and time-travel in LangGraph Studio.
 - RAG Retrieval Tool: Qdrant Hybrid Search (Dense Qwen 1024d + Sparse FastEmbed BM25 + RRF Fusion), 10 chunks per query.
 - Multi-rewrite query execution allowing the agent to retrieve multiple angles (tables, narrative, figures).
-- Grounded Synthesis Tool: High-capacity LLM (Groq Llama 3.3 70B / equivalent) with exact page citations and footnote reconciliation.
-- Agent Orchestration LLM: Groq Llama 3.1 8B Instant (with automatic fallback to gpt-oss-20b if unavailable).
+- Grounded Synthesis Node: local Ollama gemma4:26b (num_ctx=8192) for deep long-context answer generation with page citations.
+- Agent Orchestration LLM: local Ollama qwen3.5:9b for fast tool-call-capable query planning and routing.
+
+Graph Architecture:
+    START
+      |
+    [agent]  <-- qwen3.5:9b, only sees retrieve_chunks tool
+      |
+      +-- has tool_calls --> [tools]  <-- Qdrant hybrid + BGE reranker
+      |                         |
+      |                    retrieval_count < 2 --> [agent]  (another rewrite pass)
+      |                    retrieval_count >= 2 -> [synthesize]
+      |
+      +-- no tool_calls  --> [synthesize]  <-- gemma4:26b, num_ctx=8192
+                                 |
+                               [END]
+
+Design Decisions:
+- generate_grounded_answer is NOT exposed to the agent as a tool. The agent's only
+  job is retrieval planning. Synthesis is always handled by the dedicated synthesize_node,
+  guaranteeing: (a) synthesis always happens, (b) no double-invocation risk,
+  (c) clean separation of concerns between planner and synthesizer models.
 """
 
 from typing import Annotated, TypedDict, List
@@ -19,6 +39,7 @@ from agent.models import get_agent_llm
 from agent.tools import retrieve_chunks, generate_grounded_answer, normalize_text_input
 from agent.prompt import AGENT_SYSTEM_PROMPT
 
+
 # 1. State Definition
 class AgentState(TypedDict):
     messages: Annotated[List[BaseMessage], add_messages]
@@ -27,34 +48,44 @@ class AgentState(TypedDict):
 
 # 2. Initialize Models & Checkpointer
 checkpointer = MemorySaver()
-agent_llm = get_agent_llm()
-available_tools = {t.name: t for t in [retrieve_chunks, generate_grounded_answer]}
+agent_llm = get_agent_llm()  # qwen3.5:9b — orchestrator only
+
+# NOTE: generate_grounded_answer is intentionally excluded from agent_tools.
+# The agent's sole responsibility is retrieval planning via retrieve_chunks.
+# Synthesis is always handled by the dedicated synthesize_node (gemma4:26b).
+agent_tools = [retrieve_chunks]
+available_tools = {t.name: t for t in agent_tools}
 
 
 # 3. Graph Node Definitions
 def agent_node(state: AgentState):
-    """Agent decision node: analyzes inquiry, plans query rewrites, and invokes tools."""
+    """Agent decision node: analyzes inquiry, plans query rewrites, and invokes retrieve_chunks.
+
+    Uses qwen3.5:9b (lightweight, fast) for tool-call routing and query planning.
+    The agent only has access to retrieve_chunks — it cannot call generate_grounded_answer.
+    Synthesis is always performed by the dedicated synthesize_node after retrieval completes.
+    """
     msgs = state["messages"]
     count = state.get("retrieval_count", 0)
 
-    # Dynamic prompt guidance to prevent runaway loops
+    # Dynamic prompt guidance to prevent runaway retrieval loops
     if count >= 2:
         prompt_text = (
             AGENT_SYSTEM_PROMPT
-            + "\n\nCRITICAL: You have gathered multi-angle retrieval evidence (2 passes completed). "
-            "You MUST now invoke 'generate_grounded_answer' to synthesize the final citation-backed response!"
+            + "\n\nCRITICAL: You have already completed 2 retrieval passes. "
+            "Do NOT call retrieve_chunks again. Stop now and the system will automatically synthesize the final answer."
         )
     else:
         prompt_text = AGENT_SYSTEM_PROMPT
 
-    model = agent_llm.bind_tools([retrieve_chunks, generate_grounded_answer])
+    model = agent_llm.bind_tools(agent_tools)
     system = SystemMessage(content=prompt_text)
     response = model.invoke([system] + msgs)
     return {"messages": [response]}
 
 
 def tool_node(state: AgentState):
-    """Tool execution node: executes Qdrant hybrid retrieval or grounded synthesis."""
+    """Tool execution node: executes Qdrant hybrid retrieval (retrieve_chunks only)."""
     last_msg = state["messages"][-1]
     count = state.get("retrieval_count", 0)
     tool_messages = []
@@ -78,7 +109,12 @@ def tool_node(state: AgentState):
 
 
 def synthesize_node(state: AgentState):
-    """Guaranteed synthesis node: aggregates evidence and produces grounded executive answer."""
+    """Synthesis node: the single, guaranteed path for answer generation.
+
+    Uses gemma4:26b (num_ctx=8192) via generate_grounded_answer.
+    Always fires — whether the agent stopped voluntarily or hit the retrieval budget.
+    Aggregates all retrieve_chunks ToolMessage outputs as the evidence context.
+    """
     # Find original user query (normalize str or Studio UI multimodal block list)
     user_q = ""
     for m in state["messages"]:
@@ -88,11 +124,15 @@ def synthesize_node(state: AgentState):
     if not user_q and state["messages"]:
         user_q = normalize_text_input(state["messages"][0].content)
 
-    # Collect all retrieved evidence from tools
+    # Collect all retrieved evidence from retrieve_chunks tool responses
     evidence_pieces = []
     for m in state["messages"]:
         if isinstance(m, ToolMessage) and m.name == "retrieve_chunks":
             evidence_pieces.append(normalize_text_input(m.content))
+
+    if not evidence_pieces:
+        # Edge case: agent produced no retrieval results
+        return {"messages": [AIMessage(content="No evidence was retrieved. Please rephrase your question.")]}
 
     combined_evidence = "\n\n".join(evidence_pieces)
     try:
@@ -108,25 +148,26 @@ def synthesize_node(state: AgentState):
 
 # 4. Conditional Edge Routing
 def should_continue(state: AgentState):
-    """Determine whether to invoke tools or conclude."""
+    """Route after agent_node.
+
+    - Has tool_calls (retrieve_chunks) -> execute them in tool_node
+    - No tool_calls (agent is done retrieving) -> go to synthesize_node
+      (synthesis ALWAYS happens — no path to END without synthesis)
+    """
     last_msg = state["messages"][-1]
     if getattr(last_msg, "tool_calls", None):
         return "tools"
-    return END
+    return "synthesize"
 
 
 def after_tools(state: AgentState):
-    """Route after tool execution: check if synthesis finished or if we reached retrieval budget."""
-    last_msg = state["messages"][-1]
-    # If generate_grounded_answer was explicitly invoked by agent, we're done
-    if getattr(last_msg, "name", "") == "generate_grounded_answer":
-        return END
+    """Route after tool_node.
 
-    # If the agent has retrieved 2+ times, trigger the synthesis node
+    - retrieval_count >= 2 -> synthesize (budget exhausted)
+    - otherwise -> back to agent for another retrieval rewrite pass
+    """
     if state.get("retrieval_count", 0) >= 2:
         return "synthesize"
-
-    # Otherwise allow agent to perform another rewrite
     return "agent"
 
 
@@ -138,9 +179,9 @@ workflow.add_node("tools", tool_node)
 workflow.add_node("synthesize", synthesize_node)
 
 workflow.add_edge(START, "agent")
-workflow.add_conditional_edges("agent", should_continue, ["tools", END])
-workflow.add_conditional_edges("tools", after_tools, ["agent", "synthesize", END])
+workflow.add_conditional_edges("agent", should_continue, ["tools", "synthesize"])
+workflow.add_conditional_edges("tools", after_tools, ["agent", "synthesize"])
 workflow.add_edge("synthesize", END)
 
-# Export compiled graph for LangGraph Studio (persistence is handled automatically by LangGraph API)
+# Export compiled graph for LangGraph Studio
 graph = workflow.compile()
