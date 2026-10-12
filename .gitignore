@@ -35,11 +35,12 @@ figures/
 *.env
 .langgraph_api/
 
-# Root json ignore (except in parsing/output and langgraph.json)
+# Root json ignore (except in parsing/output, langgraph.json, and evaluation)
 *.json
 !langgraph.json
 !parsing/output/full_docling_parsed.json
 !parsing/output/classified_images.json
+!evaluation/ground_truth_dataset.json
 
 # Temporary & cache
 .cache/

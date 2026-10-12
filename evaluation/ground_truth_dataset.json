@@ -1,0 +1,3399 @@
+{
+  "metadata": {
+    "document": "JPMorgan Chase & Co. 2025 Annual Report",
+    "total_pages": 364,
+    "collection": "jpmc_annual_report_2025",
+    "total_chunks": 1452,
+    "created": "2026-09-28",
+    "description": "Ground truth Q&A dataset for RAG evaluation. 60 questions across 3 difficulty tiers: Easy (factual lookup, 20q), Medium (multi-hop or table-derived, 20q), Complex (cross-modal, multi-section synthesis, 20q).",
+    "schema_version": "1.0",
+    "question_counts": {
+      "easy": 20,
+      "medium": 20,
+      "complex": 15
+    },
+    "fields": {
+      "id": "Unique question identifier",
+      "question": "Natural-language question a financial analyst or investor would ask",
+      "ground_truth_answer": "Precise, complete reference answer grounded in the report",
+      "difficulty": "easy | medium | complex",
+      "category": "Thematic grouping",
+      "source_modality": "text | table | figure | multi-modal",
+      "source_pages": "Page number(s) in the report",
+      "toc_section": "TOC section path",
+      "requires_reasoning": "Whether answering needs multi-step inference",
+      "evaluation_criteria": "Key facts the answer MUST contain to be scored correct",
+      "expected_chunk_types": "Modalities expected in retrieved context",
+      "notes": "Curation notes for evaluators"
+    }
+  },
+  "questions": [
+    {
+      "id": "GT-E-001",
+      "question": "What was JPMorgan Chase's total net revenue for the year ended December 31, 2025?",
+      "ground_truth_answer": "JPMorgan Chase's total net revenue for the year ended December 31, 2025 was $182,447 million (approximately $182.4 billion).",
+      "difficulty": "easy",
+      "category": "Income Statement",
+      "source_modality": "table",
+      "source_pages": [
+        2,
+        76,
+        79,
+        83,
+        197,
+        337
+      ],
+      "toc_section": "Financial Highlights",
+      "requires_reasoning": false,
+      "evaluation_criteria": [
+        "$182,447 million",
+        "2025",
+        "total net revenue"
+      ],
+      "expected_chunk_types": [
+        "table"
+      ],
+      "notes": "Total net revenue was $182,447 million in 2025. Reported in Financial Highlights (p. 2), Three-Year Consolidated Summary (p. 76), MD&A Overview (p. 79), Consolidated Results of Operations (p. 83), Audited Statements of Income (p. 197), and Note 31 International Operations (p. 337).",
+      "ground_truth_chunk_ids": [
+        {
+          "chunk_id": "chunk_sec001_table_0002_part1",
+          "modality": "table",
+          "page_start": 2,
+          "page_end": 2,
+          "toc_section": "Financial Highlights",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 2 (Financial Highlights)"
+        },
+        {
+          "chunk_id": "chunk_sec016_table_0261_part1",
+          "modality": "table",
+          "page_start": 76,
+          "page_end": 76,
+          "toc_section": "Three-Year Summary of Consolidated Financial Highlights",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 76 (Financial: > Table of contents > Three-Year Summary of Consolidated Financial Highlights)"
+        },
+        {
+          "chunk_id": "chunk_sec021_table_0273_part1",
+          "modality": "table",
+          "page_start": 79,
+          "page_end": 79,
+          "toc_section": "Firmwide Overview and Outlook",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 79 (Financial: > Management’s discussion and analysis: > Executive Overview > Firmwide Overview and Outlook)"
+        },
+        {
+          "chunk_id": "chunk_sec023_table_0289_part2",
+          "modality": "table",
+          "page_start": 83,
+          "page_end": 83,
+          "toc_section": "Consolidated Results of Operations",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 83 (Financial: > Management’s discussion and analysis: > Consolidated Results of Operations)"
+        },
+        {
+          "chunk_id": "chunk_sec077_table_0726_part2",
+          "modality": "table",
+          "page_start": 197,
+          "page_end": 197,
+          "toc_section": "Consolidated statements of income",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 197 (Financial: > Audited financial statements: > Consolidated Financial Statements > Consolidated statements of income)"
+        },
+        {
+          "chunk_id": "chunk_sec142_table_1282_part1",
+          "modality": "table",
+          "page_start": 337,
+          "page_end": 337,
+          "toc_section": "Note 31 - International operations",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 337 (Financial: > Audited financial statements: > Notes to Consolidated Financial Statements > Note 31 - International operations)"
+        }
+      ]
+    },
+    {
+      "id": "GT-E-002",
+      "question": "What was JPMorgan Chase's net income in 2025?",
+      "ground_truth_answer": "JPMorgan Chase's net income for 2025 was $57,048 million ($57.0 billion), compared to $58,471 million in 2024 and $49,552 million in 2023.",
+      "difficulty": "easy",
+      "category": "Income Statement",
+      "source_modality": "table",
+      "source_pages": [
+        2,
+        8,
+        76,
+        79,
+        197,
+        318
+      ],
+      "toc_section": "Financial Highlights",
+      "requires_reasoning": false,
+      "evaluation_criteria": [
+        "$57,048 million",
+        "$57.0 billion",
+        "2025"
+      ],
+      "expected_chunk_types": [
+        "table",
+        "figure"
+      ],
+      "notes": "Net income was $57,048 million in 2025. Reported in Financial Highlights (p. 2), 20-Year Earnings Chart (p. 8), Three-Year Consolidated Summary (p. 76), MD&A Overview (p. 79), Audited Statements of Income (p. 197), and Note 23 EPS (p. 318).",
+      "ground_truth_chunk_ids": [
+        {
+          "chunk_id": "chunk_sec001_table_0002_part1",
+          "modality": "table",
+          "page_start": 2,
+          "page_end": 2,
+          "toc_section": "Financial Highlights",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 2 (Financial Highlights)"
+        },
+        {
+          "chunk_id": "chunk_sec003_figure_0018",
+          "modality": "figure",
+          "page_start": 8,
+          "page_end": 8,
+          "toc_section": "Dear Fellow Shareholders,",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 8 (Dear Fellow Shareholders,)"
+        },
+        {
+          "chunk_id": "chunk_sec016_table_0261_part1",
+          "modality": "table",
+          "page_start": 76,
+          "page_end": 76,
+          "toc_section": "Three-Year Summary of Consolidated Financial Highlights",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 76 (Financial: > Table of contents > Three-Year Summary of Consolidated Financial Highlights)"
+        },
+        {
+          "chunk_id": "chunk_sec021_table_0273_part1",
+          "modality": "table",
+          "page_start": 79,
+          "page_end": 79,
+          "toc_section": "Firmwide Overview and Outlook",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 79 (Financial: > Management’s discussion and analysis: > Executive Overview > Firmwide Overview and Outlook)"
+        },
+        {
+          "chunk_id": "chunk_sec077_table_0727_part3",
+          "modality": "table",
+          "page_start": 197,
+          "page_end": 197,
+          "toc_section": "Consolidated statements of income",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 197 (Financial: > Audited financial statements: > Consolidated Financial Statements > Consolidated statements of income)"
+        },
+        {
+          "chunk_id": "chunk_sec129_table_1198_part1",
+          "modality": "table",
+          "page_start": 318,
+          "page_end": 318,
+          "toc_section": "Note 23 - Earnings per share",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 318 (Financial: > Audited financial statements: > Notes to Consolidated Financial Statements > Note 23 - Earnings per share)"
+        }
+      ]
+    },
+    {
+      "id": "GT-E-003",
+      "question": "What was JPMorgan Chase's diluted earnings per share (EPS) in 2025?",
+      "ground_truth_answer": "JPMorgan Chase's diluted earnings per share (EPS) for 2025 was $20.02, up from $19.75 in 2024 and $16.23 in 2023.",
+      "difficulty": "easy",
+      "category": "Per Share Data",
+      "source_modality": "table",
+      "source_pages": [
+        2,
+        8,
+        76,
+        79,
+        197,
+        318
+      ],
+      "toc_section": "Financial Highlights",
+      "requires_reasoning": false,
+      "evaluation_criteria": [
+        "$20.02",
+        "diluted",
+        "EPS",
+        "2025"
+      ],
+      "expected_chunk_types": [
+        "table",
+        "text",
+        "figure"
+      ],
+      "notes": "Basic EPS was $20.05; diluted EPS was $20.02. Reported across Financial Highlights (p. 2), Shareholder Letter Chart (p. 8), 3-Year Summary (p. 76), MD&A Overview (p. 79), Consolidated Income Statements (p. 197), and Note 23 EPS (p. 318).",
+      "ground_truth_chunk_ids": [
+        {
+          "chunk_id": "chunk_sec001_table_0002_part1",
+          "modality": "table",
+          "page_start": 2,
+          "page_end": 2,
+          "toc_section": "Financial Highlights",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 2 (Financial Highlights)"
+        },
+        {
+          "chunk_id": "chunk_sec021_table_0273_part1",
+          "modality": "table",
+          "page_start": 79,
+          "page_end": 79,
+          "toc_section": "Firmwide Overview and Outlook",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 79 (Financial: > Management’s discussion and analysis: > Executive Overview > Firmwide Overview and Outlook)"
+        },
+        {
+          "chunk_id": "chunk_sec021_text_0277_part1",
+          "modality": "text",
+          "page_start": 79,
+          "page_end": 80,
+          "toc_section": "Firmwide overview",
+          "match_score": 22,
+          "citation": "JPMC 2025 Annual Report, pp. 79-80 (Financial: > Management’s discussion and analysis: > Executive Overview > Firmwide Overview and Outlook > Firmwide overview)"
+        },
+        {
+          "chunk_id": "chunk_sec077_table_0728_part4",
+          "modality": "table",
+          "page_start": 197,
+          "page_end": 197,
+          "toc_section": "Consolidated statements of income",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 197 (Financial: > Audited financial statements: > Consolidated Financial Statements > Consolidated statements of income)"
+        },
+        {
+          "chunk_id": "chunk_sec129_table_1199_part2",
+          "modality": "table",
+          "page_start": 318,
+          "page_end": 318,
+          "toc_section": "Note 23 - Earnings per share",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 318 (Financial: > Audited financial statements: > Notes to Consolidated Financial Statements > Note 23 - Earnings per share)"
+        },
+        {
+          "chunk_id": "chunk_sec016_table_0262_part2",
+          "modality": "table",
+          "page_start": 76,
+          "page_end": 76,
+          "toc_section": "Three-Year Summary of Consolidated Financial Highlights",
+          "match_score": 23,
+          "citation": "JPMC 2025 Annual Report, p. 76 (Financial: > Table of contents > Three-Year Summary of Consolidated Financial Highlights)"
+        },
+        {
+          "chunk_id": "chunk_sec003_figure_0018",
+          "modality": "figure",
+          "page_start": 8,
+          "page_end": 8,
+          "toc_section": "Dear Fellow Shareholders,",
+          "match_score": 20,
+          "citation": "JPMC 2025 Annual Report, p. 8 (Dear Fellow Shareholders,)"
+        }
+      ]
+    },
+    {
+      "id": "GT-E-004",
+      "question": "What was JPMorgan Chase's Return on Tangible Common Equity (ROTCE) in 2025?",
+      "ground_truth_answer": "JPMorgan Chase's Return on Tangible Common Equity (ROTCE) was 20% in 2025, down from 22% in 2024 and 21% in 2023. ROTCE is a non-GAAP financial measure.",
+      "difficulty": "easy",
+      "category": "Capital Ratios",
+      "source_modality": "table",
+      "source_pages": [
+        2,
+        8,
+        14,
+        76,
+        79,
+        93
+      ],
+      "toc_section": "Financial Highlights",
+      "requires_reasoning": false,
+      "evaluation_criteria": [
+        "20%",
+        "ROTCE",
+        "2025",
+        "non-GAAP"
+      ],
+      "expected_chunk_types": [
+        "table",
+        "figure",
+        "text"
+      ],
+      "notes": "ROTCE was 20% in 2025. Reported across Financial Highlights table (p. 2), 20-Year Earnings Chart (p. 8), Peer Comparison Chart (p. 14), 3-Year Summary (p. 76), MD&A Overview (p. 79), and Non-GAAP Reconciliation (p. 93).",
+      "ground_truth_chunk_ids": [
+        {
+          "chunk_id": "chunk_sec001_table_0003_part2",
+          "modality": "table",
+          "page_start": 2,
+          "page_end": 2,
+          "toc_section": "Financial Highlights",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 2 (Financial Highlights)"
+        },
+        {
+          "chunk_id": "chunk_sec003_figure_0018",
+          "modality": "figure",
+          "page_start": 8,
+          "page_end": 8,
+          "toc_section": "Dear Fellow Shareholders,",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 8 (Dear Fellow Shareholders,)"
+        },
+        {
+          "chunk_id": "chunk_sec003_figure_0043",
+          "modality": "figure",
+          "page_start": 14,
+          "page_end": 14,
+          "toc_section": "Dear Fellow Shareholders,",
+          "match_score": 22,
+          "citation": "JPMC 2025 Annual Report, p. 14 (Dear Fellow Shareholders,)"
+        },
+        {
+          "chunk_id": "chunk_sec016_table_0263_part3",
+          "modality": "table",
+          "page_start": 76,
+          "page_end": 76,
+          "toc_section": "Three-Year Summary of Consolidated Financial Highlights",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 76 (Financial: > Table of contents > Three-Year Summary of Consolidated Financial Highlights)"
+        },
+        {
+          "chunk_id": "chunk_sec021_table_0274_part2",
+          "modality": "table",
+          "page_start": 79,
+          "page_end": 79,
+          "toc_section": "Firmwide Overview and Outlook",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 79 (Financial: > Management’s discussion and analysis: > Executive Overview > Firmwide Overview and Outlook)"
+        },
+        {
+          "chunk_id": "chunk_sec021_text_0277_part1",
+          "modality": "text",
+          "page_start": 79,
+          "page_end": 80,
+          "toc_section": "Firmwide overview",
+          "match_score": 22,
+          "citation": "JPMC 2025 Annual Report, pp. 79-80 (Financial: > Management’s discussion and analysis: > Executive Overview > Firmwide Overview and Outlook > Firmwide overview)"
+        },
+        {
+          "chunk_id": "chunk_sec025_table_0325_part1",
+          "modality": "table",
+          "page_start": 93,
+          "page_end": 93,
+          "toc_section": "Explanation and Reconciliation of the Firm's Use of Non-GAAP Financial Measures",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 93 (Financial: > Management’s discussion and analysis: > Explanation and Reconciliation of the Firm's Use of Non-GAAP Financial Measures)"
+        }
+      ]
+    },
+    {
+      "id": "GT-E-005",
+      "question": "What was JPMorgan Chase's Common Equity Tier 1 (CET1) capital ratio under the Standardized approach as of December 31, 2025?",
+      "ground_truth_answer": "JPMorgan Chase's CET1 capital ratio under the Standardized approach was 14.6% as of December 31, 2025. Note: As of this date, the Advanced risk-based ratios became more binding on the Firm than the Standardized risk-based ratios.",
+      "difficulty": "easy",
+      "category": "Capital Ratios",
+      "source_modality": "table",
+      "source_pages": [
+        2,
+        76,
+        79,
+        80,
+        124,
+        126,
+        326
+      ],
+      "toc_section": "Financial Highlights",
+      "requires_reasoning": false,
+      "evaluation_criteria": [
+        "14.6%",
+        "CET1",
+        "Standardized",
+        "2025"
+      ],
+      "expected_chunk_types": [
+        "table",
+        "text",
+        "figure"
+      ],
+      "notes": "CET1 Standardized ratio was 14.6% as of year-end 2025 (Advanced was 14.1%). Reported in Financial Highlights (p. 2), 3-Year Summary (p. 76), MD&A Overview (pp. 79-80), Capital Risk Management (pp. 124, 126), and Note 27 Regulatory Capital (p. 326).",
+      "ground_truth_chunk_ids": [
+        {
+          "chunk_id": "chunk_sec001_table_0003_part2",
+          "modality": "table",
+          "page_start": 2,
+          "page_end": 2,
+          "toc_section": "Financial Highlights",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 2 (Financial Highlights)"
+        },
+        {
+          "chunk_id": "chunk_sec016_table_0263_part3",
+          "modality": "table",
+          "page_start": 76,
+          "page_end": 76,
+          "toc_section": "Three-Year Summary of Consolidated Financial Highlights",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 76 (Financial: > Table of contents > Three-Year Summary of Consolidated Financial Highlights)"
+        },
+        {
+          "chunk_id": "chunk_sec021_table_0274_part2",
+          "modality": "table",
+          "page_start": 79,
+          "page_end": 79,
+          "toc_section": "Firmwide Overview and Outlook",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 79 (Financial: > Management’s discussion and analysis: > Executive Overview > Firmwide Overview and Outlook)"
+        },
+        {
+          "chunk_id": "chunk_sec021_text_0280",
+          "modality": "text",
+          "page_start": 80,
+          "page_end": 80,
+          "toc_section": "Selected capital and other metrics",
+          "match_score": 24,
+          "citation": "JPMC 2025 Annual Report, p. 80 (Financial: > Management’s discussion and analysis: > Executive Overview > Firmwide Overview and Outlook > Selected capital and other metrics)"
+        },
+        {
+          "chunk_id": "chunk_sec033_figure_0439",
+          "modality": "figure",
+          "page_start": 124,
+          "page_end": 124,
+          "toc_section": "Capital Risk Management",
+          "match_score": 22,
+          "citation": "JPMC 2025 Annual Report, p. 124 (Financial: > Management’s discussion and analysis: > Capital Risk Management)"
+        },
+        {
+          "chunk_id": "chunk_sec033_table_0446_part1",
+          "modality": "table",
+          "page_start": 126,
+          "page_end": 126,
+          "toc_section": "Capital Risk Management",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 126 (Financial: > Management’s discussion and analysis: > Capital Risk Management)"
+        },
+        {
+          "chunk_id": "chunk_sec138_table_1239_part1",
+          "modality": "table",
+          "page_start": 326,
+          "page_end": 326,
+          "toc_section": "Note 27 - Regulatory capital",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 326 (Financial: > Audited financial statements: > Notes to Consolidated Financial Statements > Note 27 - Regulatory capital)"
+        }
+      ]
+    },
+    {
+      "id": "GT-E-006",
+      "question": "How many employees did JPMorgan Chase have as of year-end 2025?",
+      "ground_truth_answer": "JPMorgan Chase had 318,512 employees as of December 31, 2025, compared to 317,233 in 2024 and 309,926 in 2023.",
+      "difficulty": "easy",
+      "category": "Company Overview",
+      "source_modality": "table",
+      "source_pages": [
+        2,
+        76
+      ],
+      "toc_section": "Financial Highlights",
+      "requires_reasoning": false,
+      "evaluation_criteria": [
+        "318,512",
+        "employees",
+        "2025"
+      ],
+      "expected_chunk_types": [
+        "table"
+      ],
+      "notes": "Headcount was 318,512 in 2025. Reported in Financial Highlights (p. 2) and Three-Year Summary of Consolidated Financial Highlights (p. 76).",
+      "ground_truth_chunk_ids": [
+        {
+          "chunk_id": "chunk_sec001_table_0005_part4",
+          "modality": "table",
+          "page_start": 2,
+          "page_end": 2,
+          "toc_section": "Financial Highlights",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 2 (Financial Highlights)"
+        },
+        {
+          "chunk_id": "chunk_sec016_table_0265_part5",
+          "modality": "table",
+          "page_start": 76,
+          "page_end": 76,
+          "toc_section": "Three-Year Summary of Consolidated Financial Highlights",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 76 (Financial: > Table of contents > Three-Year Summary of Consolidated Financial Highlights)"
+        }
+      ]
+    },
+    {
+      "id": "GT-E-007",
+      "question": "What was JPMorgan Chase's total assets as of December 31, 2025?",
+      "ground_truth_answer": "JPMorgan Chase's total assets were $4,424,900 million ($4.4 trillion) as of December 31, 2025, up from $4,002,814 million in 2024.",
+      "difficulty": "easy",
+      "category": "Balance Sheet",
+      "source_modality": "table",
+      "source_pages": [
+        2,
+        76,
+        87,
+        199,
+        341
+      ],
+      "toc_section": "Financial Highlights",
+      "requires_reasoning": false,
+      "evaluation_criteria": [
+        "$4,424,900 million",
+        "$4.4 trillion",
+        "total assets",
+        "2025"
+      ],
+      "expected_chunk_types": [
+        "table"
+      ],
+      "notes": "Total assets were $4,424,900 million as of year-end 2025. Reported in Financial Highlights (p. 2), Three-Year Consolidated Summary (p. 76), MD&A Balance Sheet Analysis (p. 87), Audited Balance Sheets (p. 199), and Note 32 Business Segments (p. 341).",
+      "ground_truth_chunk_ids": [
+        {
+          "chunk_id": "chunk_sec001_table_0004_part3",
+          "modality": "table",
+          "page_start": 2,
+          "page_end": 2,
+          "toc_section": "Financial Highlights",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 2 (Financial Highlights)"
+        },
+        {
+          "chunk_id": "chunk_sec016_table_0264_part4",
+          "modality": "table",
+          "page_start": 76,
+          "page_end": 76,
+          "toc_section": "Three-Year Summary of Consolidated Financial Highlights",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 76 (Financial: > Table of contents > Three-Year Summary of Consolidated Financial Highlights)"
+        },
+        {
+          "chunk_id": "chunk_sec024_table_0303_part2",
+          "modality": "table",
+          "page_start": 87,
+          "page_end": 87,
+          "toc_section": "Consolidated Balance Sheets and Cash Flows Analysis",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 87 (Financial: > Management’s discussion and analysis: > Consolidated Balance Sheets and Cash Flows Analysis)"
+        },
+        {
+          "chunk_id": "chunk_sec079_table_0733_part2",
+          "modality": "table",
+          "page_start": 199,
+          "page_end": 199,
+          "toc_section": "Consolidated balance sheets",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 199 (Financial: > Audited financial statements: > Consolidated Financial Statements > Consolidated balance sheets)"
+        },
+        {
+          "chunk_id": "chunk_sec143_table_1303_part2",
+          "modality": "table",
+          "page_start": 341,
+          "page_end": 341,
+          "toc_section": "Note 32 - Business segments & Corporate",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 341 (Financial: > Audited financial statements: > Notes to Consolidated Financial Statements > Note 32 - Business segments & Corporate)"
+        }
+      ]
+    },
+    {
+      "id": "GT-E-008",
+      "question": "What was JPMorgan Chase's closing share price as of December 31, 2025?",
+      "ground_truth_answer": "JPMorgan Chase's closing share price was $322.22 as of December 31, 2025, compared to $239.71 in 2024 and $170.10 in 2023.",
+      "difficulty": "easy",
+      "category": "Market Data",
+      "source_modality": "table",
+      "source_pages": [
+        2
+      ],
+      "toc_section": "Financial Highlights",
+      "requires_reasoning": false,
+      "evaluation_criteria": [
+        "$322.22",
+        "closing share price",
+        "December 31, 2025"
+      ],
+      "expected_chunk_types": [
+        "table"
+      ],
+      "notes": "Closing share price of $322.22 is reported in the Financial Highlights market data section (p. 2).",
+      "ground_truth_chunk_ids": [
+        {
+          "chunk_id": "chunk_sec001_table_0004_part3",
+          "modality": "table",
+          "page_start": 2,
+          "page_end": 2,
+          "toc_section": "Financial Highlights",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 2 (Financial Highlights)"
+        }
+      ]
+    },
+    {
+      "id": "GT-E-009",
+      "question": "What was JPMorgan Chase's total deposits as of December 31, 2025?",
+      "ground_truth_answer": "JPMorgan Chase's total deposits were $2,559,320 million ($2.56 trillion) as of December 31, 2025, compared to $2,406,032 million in 2024 and $2,400,688 million in 2023.",
+      "difficulty": "easy",
+      "category": "Balance Sheet",
+      "source_modality": "table",
+      "source_pages": [
+        2,
+        76,
+        88,
+        135,
+        199,
+        309
+      ],
+      "toc_section": "Financial Highlights",
+      "requires_reasoning": false,
+      "evaluation_criteria": [
+        "$2,559,320 million",
+        "$2.56 trillion",
+        "deposits",
+        "2025"
+      ],
+      "expected_chunk_types": [
+        "table"
+      ],
+      "notes": "Total deposits were $2,559,320 million at year-end 2025. Reported in Financial Highlights (p. 2), Three-Year Consolidated Summary (p. 76), MD&A Balance Sheet Analysis (p. 88), Liquidity Risk Management Funding (p. 135), Audited Balance Sheets (p. 199), and Note 17 Deposits (p. 309).",
+      "ground_truth_chunk_ids": [
+        {
+          "chunk_id": "chunk_sec001_table_0004_part3",
+          "modality": "table",
+          "page_start": 2,
+          "page_end": 2,
+          "toc_section": "Financial Highlights",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 2 (Financial Highlights)"
+        },
+        {
+          "chunk_id": "chunk_sec016_table_0264_part4",
+          "modality": "table",
+          "page_start": 76,
+          "page_end": 76,
+          "toc_section": "Three-Year Summary of Consolidated Financial Highlights",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 76 (Financial: > Table of contents > Three-Year Summary of Consolidated Financial Highlights)"
+        },
+        {
+          "chunk_id": "chunk_sec024_table_0307_part1",
+          "modality": "table",
+          "page_start": 88,
+          "page_end": 88,
+          "toc_section": "Consolidated Balance Sheets and Cash Flows Analysis",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 88 (Financial: > Management’s discussion and analysis: > Consolidated Balance Sheets and Cash Flows Analysis)"
+        },
+        {
+          "chunk_id": "chunk_sec040_table_0492_part1",
+          "modality": "table",
+          "page_start": 135,
+          "page_end": 135,
+          "toc_section": "Funding",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 135 (Financial: > Management’s discussion and analysis: > Firmwide Risk Management > Strategic Risk Management > Liquidity Risk Management > Funding)"
+        },
+        {
+          "chunk_id": "chunk_sec079_table_0733_part2",
+          "modality": "table",
+          "page_start": 199,
+          "page_end": 199,
+          "toc_section": "Consolidated balance sheets",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 199 (Financial: > Audited financial statements: > Consolidated Financial Statements > Consolidated balance sheets)"
+        },
+        {
+          "chunk_id": "chunk_sec123_table_1164_part1",
+          "modality": "table",
+          "page_start": 309,
+          "page_end": 309,
+          "toc_section": "Note 17 - Deposits",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 309 (Financial: > Audited financial statements: > Notes to Consolidated Financial Statements > Note 17 - Deposits)"
+        }
+      ]
+    },
+    {
+      "id": "GT-E-010",
+      "question": "What was JPMorgan Chase's cash dividend declared per common share in 2025?",
+      "ground_truth_answer": "JPMorgan Chase declared cash dividends of $5.80 per common share in 2025, up from $4.80 in 2024 and $4.10 in 2023.",
+      "difficulty": "easy",
+      "category": "Per Share Data",
+      "source_modality": "table",
+      "source_pages": [
+        2,
+        76,
+        129,
+        200,
+        318
+      ],
+      "toc_section": "Financial Highlights",
+      "requires_reasoning": false,
+      "evaluation_criteria": [
+        "$5.80",
+        "dividends",
+        "per share",
+        "2025"
+      ],
+      "expected_chunk_types": [
+        "table",
+        "text"
+      ],
+      "notes": "Cash dividends declared per common share were $5.80 in 2025. Reported in Financial Highlights (p. 2), Three-Year Consolidated Summary (p. 76), Common Stock Dividends (p. 129), Changes in Stockholders' Equity (p. 200), and Note 23 EPS (p. 318).",
+      "ground_truth_chunk_ids": [
+        {
+          "chunk_id": "chunk_sec001_table_0003_part2",
+          "modality": "table",
+          "page_start": 2,
+          "page_end": 2,
+          "toc_section": "Financial Highlights",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 2 (Financial Highlights)"
+        },
+        {
+          "chunk_id": "chunk_sec016_table_0262_part2",
+          "modality": "table",
+          "page_start": 76,
+          "page_end": 76,
+          "toc_section": "Three-Year Summary of Consolidated Financial Highlights",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 76 (Financial: > Table of contents > Three-Year Summary of Consolidated Financial Highlights)"
+        },
+        {
+          "chunk_id": "chunk_sec035_text_0460",
+          "modality": "text",
+          "page_start": 129,
+          "page_end": 129,
+          "toc_section": "Common stock dividends",
+          "match_score": 22,
+          "citation": "JPMC 2025 Annual Report, p. 129 (Financial: > Management’s discussion and analysis: > Capital Risk Management > Capital planning and stress testing > Common stock dividends)"
+        },
+        {
+          "chunk_id": "chunk_sec080_table_0739_part2",
+          "modality": "table",
+          "page_start": 200,
+          "page_end": 200,
+          "toc_section": "Consolidated statements of changes in stockholders' equity",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 200 (Financial: > Audited financial statements: > Consolidated Financial Statements > Consolidated statements of changes in stockholders' equity)"
+        },
+        {
+          "chunk_id": "chunk_sec129_text_1197",
+          "modality": "text",
+          "page_start": 318,
+          "page_end": 318,
+          "toc_section": "Note 23 - Earnings per share",
+          "match_score": 22,
+          "citation": "JPMC 2025 Annual Report, pp. 318-318 (Financial: > Audited financial statements: > Notes to Consolidated Financial Statements > Note 23 - Earnings per share)"
+        }
+      ]
+    },
+    {
+      "id": "GT-E-011",
+      "question": "What was JPMorgan Chase's Tier 1 capital ratio under the Standardized approach as of December 31, 2025?",
+      "ground_truth_answer": "JPMorgan Chase's Tier 1 capital ratio under the Standardized approach was 15.5% as of December 31, 2025, compared to 16.8% in 2024 and 16.6% in 2023.",
+      "difficulty": "easy",
+      "category": "Capital Ratios",
+      "source_modality": "table",
+      "source_pages": [
+        2,
+        76,
+        79,
+        126,
+        326
+      ],
+      "toc_section": "Financial Highlights",
+      "requires_reasoning": false,
+      "evaluation_criteria": [
+        "15.5%",
+        "Tier 1",
+        "Standardized",
+        "2025"
+      ],
+      "expected_chunk_types": [
+        "table"
+      ],
+      "notes": "Standardized Tier 1 capital ratio was 15.5% as of year-end 2025. Reported in Financial Highlights (p. 2), Three-Year Consolidated Summary (p. 76), MD&A Overview (p. 79), Capital Risk Management (p. 126), and Note 27 Regulatory Capital (p. 326).",
+      "ground_truth_chunk_ids": [
+        {
+          "chunk_id": "chunk_sec001_table_0003_part2",
+          "modality": "table",
+          "page_start": 2,
+          "page_end": 2,
+          "toc_section": "Financial Highlights",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 2 (Financial Highlights)"
+        },
+        {
+          "chunk_id": "chunk_sec016_table_0263_part3",
+          "modality": "table",
+          "page_start": 76,
+          "page_end": 76,
+          "toc_section": "Three-Year Summary of Consolidated Financial Highlights",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 76 (Financial: > Table of contents > Three-Year Summary of Consolidated Financial Highlights)"
+        },
+        {
+          "chunk_id": "chunk_sec021_table_0274_part2",
+          "modality": "table",
+          "page_start": 79,
+          "page_end": 79,
+          "toc_section": "Firmwide Overview and Outlook",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 79 (Financial: > Management’s discussion and analysis: > Executive Overview > Firmwide Overview and Outlook)"
+        },
+        {
+          "chunk_id": "chunk_sec033_table_0446_part1",
+          "modality": "table",
+          "page_start": 126,
+          "page_end": 126,
+          "toc_section": "Capital Risk Management",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 126 (Financial: > Management’s discussion and analysis: > Capital Risk Management)"
+        },
+        {
+          "chunk_id": "chunk_sec138_table_1239_part1",
+          "modality": "table",
+          "page_start": 326,
+          "page_end": 326,
+          "toc_section": "Note 27 - Regulatory capital",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 326 (Financial: > Audited financial statements: > Notes to Consolidated Financial Statements > Note 27 - Regulatory capital)"
+        }
+      ]
+    },
+    {
+      "id": "GT-E-012",
+      "question": "What is JPMorgan Chase's global investment banking wallet share ranking in 2025?",
+      "ground_truth_answer": "JPMorgan Chase held the #1 global investment banking ranking with an 8.4% global wallet share in 2025.",
+      "difficulty": "easy",
+      "category": "Commercial & Investment Bank",
+      "source_modality": "figure",
+      "source_pages": [
+        60,
+        61,
+        81,
+        105
+      ],
+      "toc_section": "Commercial & Investment Bank",
+      "requires_reasoning": false,
+      "evaluation_criteria": [
+        "#1",
+        "global",
+        "8.4%",
+        "wallet share",
+        "2025"
+      ],
+      "expected_chunk_types": [
+        "figure",
+        "table",
+        "text"
+      ],
+      "notes": "Maintained #1 global IB ranking with 8.4% wallet share. Reported in Global Banking letter (p. 60), CIB Visual Infographic (p. 61), MD&A Overview (p. 81), and CIB Segment Performance Table (p. 105).",
+      "ground_truth_chunk_ids": [
+        {
+          "chunk_id": "chunk_sec011_text_0201_part2",
+          "modality": "text",
+          "page_start": 60,
+          "page_end": 61,
+          "toc_section": "Global Banking",
+          "match_score": 22,
+          "citation": "JPMC 2025 Annual Report, pp. 60-61 (Senior Executive Letters > Commercial & Investment Bank > Global Banking)"
+        },
+        {
+          "chunk_id": "chunk_sec011_figure_0202",
+          "modality": "figure",
+          "page_start": 61,
+          "page_end": 61,
+          "toc_section": "Commercial & Investment Bank",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 61 (Senior Executive Letters > Commercial & Investment Bank)"
+        },
+        {
+          "chunk_id": "chunk_sec021_table_0281_part1",
+          "modality": "table",
+          "page_start": 81,
+          "page_end": 81,
+          "toc_section": "Firmwide Overview and Outlook",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 81 (Financial: > Management’s discussion and analysis: > Executive Overview > Firmwide Overview and Outlook)"
+        },
+        {
+          "chunk_id": "chunk_sec028_table_0368_part2",
+          "modality": "table",
+          "page_start": 105,
+          "page_end": 105,
+          "toc_section": "Commercial & Investment Bank",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 105 (Financial: > Management’s discussion and analysis: > Line of Business Metrics > Commercial & Investment Bank)"
+        }
+      ]
+    },
+    {
+      "id": "GT-E-013",
+      "question": "What was JPMorgan Chase's tangible book value per share (TBVPS) in 2025?",
+      "ground_truth_answer": "JPMorgan Chase's tangible book value per share (TBVPS) was $107.56 as of December 31, 2025, compared to $97.30 in 2024 and $86.08 in 2023. TBVPS is a non-GAAP financial measure.",
+      "difficulty": "easy",
+      "category": "Per Share Data",
+      "source_modality": "table",
+      "source_pages": [
+        2,
+        76,
+        93
+      ],
+      "toc_section": "Financial Highlights",
+      "requires_reasoning": false,
+      "evaluation_criteria": [
+        "$107.56",
+        "TBVPS",
+        "tangible book value per share",
+        "non-GAAP"
+      ],
+      "expected_chunk_types": [
+        "table"
+      ],
+      "notes": "TBVPS was $107.56 as of year-end 2025 (non-GAAP measure; book value per share was $126.99). Reported in Financial Highlights (p. 2), Three-Year Consolidated Summary (p. 76), and Non-GAAP Reconciliation (p. 93).",
+      "ground_truth_chunk_ids": [
+        {
+          "chunk_id": "chunk_sec001_table_0005_part4",
+          "modality": "table",
+          "page_start": 2,
+          "page_end": 2,
+          "toc_section": "Financial Highlights",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 2 (Financial Highlights)"
+        },
+        {
+          "chunk_id": "chunk_sec016_table_0265_part5",
+          "modality": "table",
+          "page_start": 76,
+          "page_end": 76,
+          "toc_section": "Three-Year Summary of Consolidated Financial Highlights",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 76 (Financial: > Table of contents > Three-Year Summary of Consolidated Financial Highlights)"
+        },
+        {
+          "chunk_id": "chunk_sec025_table_0325_part1",
+          "modality": "table",
+          "page_start": 93,
+          "page_end": 93,
+          "toc_section": "Explanation and Reconciliation of the Firm's Use of Non-GAAP Financial Measures",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 93 (Financial: > Management’s discussion and analysis: > Explanation and Reconciliation of the Firm's Use of Non-GAAP Financial Measures)"
+        }
+      ]
+    },
+    {
+      "id": "GT-E-014",
+      "question": "What was the total annualized credit and capital JPMorgan provided to clients in 2025?",
+      "ground_truth_answer": "JPMorgan Chase provided approximately $1.9 trillion (approximately $1,900 billion) in new and renewed credit and capital to its global clients in 2025, including corporate, small business, consumer, and government segments.",
+      "difficulty": "easy",
+      "category": "Capital Deployment",
+      "source_modality": "figure",
+      "source_pages": [
+        4,
+        11
+      ],
+      "toc_section": "Shareholder Letter",
+      "requires_reasoning": false,
+      "evaluation_criteria": [
+        "$1.9 trillion",
+        "$1,900 billion",
+        "credit and capital",
+        "2025"
+      ],
+      "expected_chunk_types": [
+        "figure",
+        "text"
+      ],
+      "notes": "Reported in Jamie Dimon's Shareholder Letter (p. 4: 'provided $1.9 trillion of credit and raised capital') and the 20-year Credit and Capital stacked bar chart (p. 11).",
+      "ground_truth_chunk_ids": [
+        {
+          "chunk_id": "chunk_sec003_text_0015_part3",
+          "modality": "text",
+          "page_start": 4,
+          "page_end": 4,
+          "toc_section": "Dear Fellow Shareholders,",
+          "match_score": 22,
+          "citation": "JPMC 2025 Annual Report, p. 4 (Dear Fellow Shareholders,)"
+        },
+        {
+          "chunk_id": "chunk_sec003_figure_0032",
+          "modality": "figure",
+          "page_start": 11,
+          "page_end": 11,
+          "toc_section": "Dear Fellow Shareholders,",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 11 (Dear Fellow Shareholders,)"
+        },
+        {
+          "chunk_id": "chunk_sec003_text_0033",
+          "modality": "text",
+          "page_start": 11,
+          "page_end": 11,
+          "toc_section": "New and Renewed Credit and Capital for Our Clients 2005-2025",
+          "match_score": 20,
+          "citation": "JPMC 2025 Annual Report, pp. 11-11 (Dear Fellow Shareholders, > New and Renewed Credit and Capital for Our Clients 2005-2025)"
+        }
+      ]
+    },
+    {
+      "id": "GT-E-015",
+      "question": "What was JPMorgan Chase's total market capitalization as of December 31, 2025?",
+      "ground_truth_answer": "JPMorgan Chase's market capitalization was $868,793 million (approximately $869 billion) as of December 31, 2025, compared to $670,618 million in 2024 and $489,320 million in 2023.",
+      "difficulty": "easy",
+      "category": "Market Data",
+      "source_modality": "table",
+      "source_pages": [
+        2
+      ],
+      "toc_section": "Financial Highlights",
+      "requires_reasoning": false,
+      "evaluation_criteria": [
+        "$868,793 million",
+        "$869 billion",
+        "market capitalization",
+        "2025"
+      ],
+      "expected_chunk_types": [
+        "table"
+      ],
+      "notes": "Market cap of $868,793 million is reported in the Financial Highlights market data section (p. 2).",
+      "ground_truth_chunk_ids": [
+        {
+          "chunk_id": "chunk_sec001_table_0005_part4",
+          "modality": "table",
+          "page_start": 2,
+          "page_end": 2,
+          "toc_section": "Financial Highlights",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 2 (Financial Highlights)"
+        }
+      ]
+    },
+    {
+      "id": "GT-E-016",
+      "question": "What was JPMorgan Chase's firmwide overhead (efficiency) ratio in 2025?",
+      "ground_truth_answer": "JPMorgan Chase's firmwide overhead ratio (efficiency ratio) was 52% in 2025, which was the best among large peer banks. For comparison: Bank of America 61%, Wells Fargo 64%, Goldman Sachs 64%, Citigroup 65%, Morgan Stanley 68%.",
+      "difficulty": "easy",
+      "category": "Efficiency",
+      "source_modality": "figure",
+      "source_pages": [
+        14,
+        76,
+        79,
+        84
+      ],
+      "toc_section": "Shareholder Letter / Peer Comparison",
+      "requires_reasoning": false,
+      "evaluation_criteria": [
+        "52%",
+        "overhead ratio",
+        "best-in-class",
+        "2025"
+      ],
+      "expected_chunk_types": [
+        "figure",
+        "table"
+      ],
+      "notes": "Overhead ratio was 52% in 2025. Reported in Peer Comparison Chart (p. 14), Three-Year Consolidated Summary (p. 76), MD&A Overview (p. 79), and Results of Operations (p. 84).",
+      "ground_truth_chunk_ids": [
+        {
+          "chunk_id": "chunk_sec003_figure_0043",
+          "modality": "figure",
+          "page_start": 14,
+          "page_end": 14,
+          "toc_section": "Dear Fellow Shareholders,",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 14 (Dear Fellow Shareholders,)"
+        },
+        {
+          "chunk_id": "chunk_sec016_table_0263_part3",
+          "modality": "table",
+          "page_start": 76,
+          "page_end": 76,
+          "toc_section": "Three-Year Summary of Consolidated Financial Highlights",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 76 (Financial: > Table of contents > Three-Year Summary of Consolidated Financial Highlights)"
+        },
+        {
+          "chunk_id": "chunk_sec021_table_0274_part2",
+          "modality": "table",
+          "page_start": 79,
+          "page_end": 79,
+          "toc_section": "Firmwide Overview and Outlook",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 79 (Financial: > Management’s discussion and analysis: > Executive Overview > Firmwide Overview and Outlook)"
+        },
+        {
+          "chunk_id": "chunk_sec023_table_0290_part1",
+          "modality": "table",
+          "page_start": 84,
+          "page_end": 84,
+          "toc_section": "Consolidated Results of Operations",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 84 (Financial: > Management’s discussion and analysis: > Consolidated Results of Operations)"
+        }
+      ]
+    },
+    {
+      "id": "GT-E-017",
+      "question": "What was JPMorgan Chase's Return on Common Equity (ROE) in 2025?",
+      "ground_truth_answer": "JPMorgan Chase's Return on Common Equity (ROE) was 17% in 2025, the same as in 2023 but down from 18% in 2024.",
+      "difficulty": "easy",
+      "category": "Capital Ratios",
+      "source_modality": "table",
+      "source_pages": [
+        2,
+        76,
+        79
+      ],
+      "toc_section": "Financial Highlights",
+      "requires_reasoning": false,
+      "evaluation_criteria": [
+        "17%",
+        "ROE",
+        "return on common equity",
+        "2025"
+      ],
+      "expected_chunk_types": [
+        "table",
+        "text"
+      ],
+      "notes": "ROE was 17% in 2025. Reported in Financial Highlights (p. 2), Three-Year Consolidated Summary (p. 76), and MD&A Firmwide Overview table and text (p. 79).",
+      "ground_truth_chunk_ids": [
+        {
+          "chunk_id": "chunk_sec001_table_0003_part2",
+          "modality": "table",
+          "page_start": 2,
+          "page_end": 2,
+          "toc_section": "Financial Highlights",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 2 (Financial Highlights)"
+        },
+        {
+          "chunk_id": "chunk_sec016_table_0263_part3",
+          "modality": "table",
+          "page_start": 76,
+          "page_end": 76,
+          "toc_section": "Three-Year Summary of Consolidated Financial Highlights",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 76 (Financial: > Table of contents > Three-Year Summary of Consolidated Financial Highlights)"
+        },
+        {
+          "chunk_id": "chunk_sec021_table_0274_part2",
+          "modality": "table",
+          "page_start": 79,
+          "page_end": 79,
+          "toc_section": "Firmwide Overview and Outlook",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 79 (Financial: > Management’s discussion and analysis: > Executive Overview > Firmwide Overview and Outlook)"
+        },
+        {
+          "chunk_id": "chunk_sec021_text_0277_part1",
+          "modality": "text",
+          "page_start": 79,
+          "page_end": 80,
+          "toc_section": "Firmwide overview",
+          "match_score": 22,
+          "citation": "JPMC 2025 Annual Report, pp. 79-80 (Financial: > Management’s discussion and analysis: > Executive Overview > Firmwide Overview and Outlook > Firmwide overview)"
+        }
+      ]
+    },
+    {
+      "id": "GT-E-018",
+      "question": "What was JPMorgan Chase's total noninterest expense in 2025?",
+      "ground_truth_answer": "JPMorgan Chase's total noninterest expense was $95,640 million ($95.6 billion) in 2025, compared to $91,799 million in 2024 and $87,172 million in 2023.",
+      "difficulty": "easy",
+      "category": "Income Statement",
+      "source_modality": "table",
+      "source_pages": [
+        2,
+        76,
+        79,
+        86,
+        197
+      ],
+      "toc_section": "Financial Highlights",
+      "requires_reasoning": false,
+      "evaluation_criteria": [
+        "$95,640 million",
+        "noninterest expense",
+        "2025"
+      ],
+      "expected_chunk_types": [
+        "table"
+      ],
+      "notes": "Total noninterest expense was $95,640 million in 2025. Reported in Financial Highlights (p. 2), Three-Year Consolidated Summary (p. 76), MD&A Overview (p. 79), Noninterest Expense Details (p. 86), and Audited Statements of Income (p. 197).",
+      "ground_truth_chunk_ids": [
+        {
+          "chunk_id": "chunk_sec001_table_0002_part1",
+          "modality": "table",
+          "page_start": 2,
+          "page_end": 2,
+          "toc_section": "Financial Highlights",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 2 (Financial Highlights)"
+        },
+        {
+          "chunk_id": "chunk_sec016_table_0261_part1",
+          "modality": "table",
+          "page_start": 76,
+          "page_end": 76,
+          "toc_section": "Three-Year Summary of Consolidated Financial Highlights",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 76 (Financial: > Table of contents > Three-Year Summary of Consolidated Financial Highlights)"
+        },
+        {
+          "chunk_id": "chunk_sec021_table_0273_part1",
+          "modality": "table",
+          "page_start": 79,
+          "page_end": 79,
+          "toc_section": "Firmwide Overview and Outlook",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 79 (Financial: > Management’s discussion and analysis: > Executive Overview > Firmwide Overview and Outlook)"
+        },
+        {
+          "chunk_id": "chunk_sec023_table_0297_part1",
+          "modality": "table",
+          "page_start": 86,
+          "page_end": 86,
+          "toc_section": "Noninterest expense",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 86 (Financial: > Management’s discussion and analysis: > Consolidated Results of Operations > Noninterest expense)"
+        },
+        {
+          "chunk_id": "chunk_sec077_table_0727_part3",
+          "modality": "table",
+          "page_start": 197,
+          "page_end": 197,
+          "toc_section": "Consolidated statements of income",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 197 (Financial: > Audited financial statements: > Consolidated Financial Statements > Consolidated statements of income)"
+        }
+      ]
+    },
+    {
+      "id": "GT-E-019",
+      "question": "What was JPMorgan Chase's total loan balance as of December 31, 2025?",
+      "ground_truth_answer": "JPMorgan Chase's total loans (period-end) were $1,493,429 million ($1.49 trillion) as of December 31, 2025, compared to $1,347,988 million in 2024 and $1,323,706 million in 2023.",
+      "difficulty": "easy",
+      "category": "Balance Sheet",
+      "source_modality": "table",
+      "source_pages": [
+        2,
+        76,
+        87,
+        143,
+        199,
+        271
+      ],
+      "toc_section": "Financial Highlights",
+      "requires_reasoning": false,
+      "evaluation_criteria": [
+        "$1,493,429 million",
+        "$1.49 trillion",
+        "loans",
+        "period-end",
+        "2025"
+      ],
+      "expected_chunk_types": [
+        "table"
+      ],
+      "notes": "Total loans (period-end) were $1,493,429 million as of year-end 2025. Reported in Financial Highlights (p. 2), Three-Year Consolidated Summary (p. 76), MD&A Balance Sheet Analysis (p. 87), Credit Portfolio (p. 143), Audited Balance Sheets (p. 199), and Note 12 Loans (p. 271).",
+      "ground_truth_chunk_ids": [
+        {
+          "chunk_id": "chunk_sec001_table_0004_part3",
+          "modality": "table",
+          "page_start": 2,
+          "page_end": 2,
+          "toc_section": "Financial Highlights",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 2 (Financial Highlights)"
+        },
+        {
+          "chunk_id": "chunk_sec016_table_0264_part4",
+          "modality": "table",
+          "page_start": 76,
+          "page_end": 76,
+          "toc_section": "Three-Year Summary of Consolidated Financial Highlights",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 76 (Financial: > Table of contents > Three-Year Summary of Consolidated Financial Highlights)"
+        },
+        {
+          "chunk_id": "chunk_sec024_table_0302_part1",
+          "modality": "table",
+          "page_start": 87,
+          "page_end": 87,
+          "toc_section": "Consolidated Balance Sheets and Cash Flows Analysis",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 87 (Financial: > Management’s discussion and analysis: > Consolidated Balance Sheets and Cash Flows Analysis)"
+        },
+        {
+          "chunk_id": "chunk_sec044_table_0524_part1",
+          "modality": "table",
+          "page_start": 143,
+          "page_end": 143,
+          "toc_section": "Credit Portfolio",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 143 (Financial: > Management’s discussion and analysis: > Firmwide Risk Management > Credit and Investment Risk Management > Credit Portfolio)"
+        },
+        {
+          "chunk_id": "chunk_sec079_table_0732_part1",
+          "modality": "table",
+          "page_start": 199,
+          "page_end": 199,
+          "toc_section": "Consolidated balance sheets",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 199 (Financial: > Audited financial statements: > Consolidated Financial Statements > Consolidated balance sheets)"
+        },
+        {
+          "chunk_id": "chunk_sec115_table_1020_part1",
+          "modality": "table",
+          "page_start": 271,
+          "page_end": 271,
+          "toc_section": "Note 12 - Loans",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 271 (Financial: > Audited financial statements: > Notes to Consolidated Financial Statements > Note 12 - Loans)"
+        }
+      ]
+    },
+    {
+      "id": "GT-E-020",
+      "question": "What was JPMorgan Chase's provision for credit losses in 2025?",
+      "ground_truth_answer": "JPMorgan Chase's provision for credit losses was $14,212 million in 2025, compared to $10,678 million in 2024 and $9,320 million in 2023. The 2025 figure includes a $2.2 billion provision for lending-related commitments related to the Apple Card transaction.",
+      "difficulty": "easy",
+      "category": "Credit Quality",
+      "source_modality": "table",
+      "source_pages": [
+        2,
+        76,
+        79,
+        85,
+        161,
+        197
+      ],
+      "toc_section": "Financial Highlights",
+      "requires_reasoning": false,
+      "evaluation_criteria": [
+        "$14,212 million",
+        "provision for credit losses",
+        "2025",
+        "Apple Card",
+        "$2.2 billion"
+      ],
+      "expected_chunk_types": [
+        "table",
+        "text"
+      ],
+      "notes": "Provision for credit losses was $14,212 million in 2025, including $2.2B for Apple Card commitments. Reported in Financial Highlights (p. 2), Three-Year Consolidated Summary (p. 76), MD&A Overview (p. 79), Results of Operations (p. 85), Allowance for Credit Losses (p. 161), and Audited Statements of Income (p. 197).",
+      "ground_truth_chunk_ids": [
+        {
+          "chunk_id": "chunk_sec001_table_0002_part1",
+          "modality": "table",
+          "page_start": 2,
+          "page_end": 2,
+          "toc_section": "Financial Highlights",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 2 (Financial Highlights)"
+        },
+        {
+          "chunk_id": "chunk_sec016_table_0261_part1",
+          "modality": "table",
+          "page_start": 76,
+          "page_end": 76,
+          "toc_section": "Three-Year Summary of Consolidated Financial Highlights",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 76 (Financial: > Table of contents > Three-Year Summary of Consolidated Financial Highlights)"
+        },
+        {
+          "chunk_id": "chunk_sec021_table_0273_part1",
+          "modality": "table",
+          "page_start": 79,
+          "page_end": 79,
+          "toc_section": "Firmwide Overview and Outlook",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 79 (Financial: > Management’s discussion and analysis: > Executive Overview > Firmwide Overview and Outlook)"
+        },
+        {
+          "chunk_id": "chunk_sec023_table_0293_part1",
+          "modality": "table",
+          "page_start": 85,
+          "page_end": 85,
+          "toc_section": "Consolidated Results of Operations",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 85 (Financial: > Management’s discussion and analysis: > Consolidated Results of Operations)"
+        },
+        {
+          "chunk_id": "chunk_sec049_text_0590_part1",
+          "modality": "text",
+          "page_start": 161,
+          "page_end": 161,
+          "toc_section": "ALLOWANCE FOR CREDIT LOSSES",
+          "match_score": 22,
+          "citation": "JPMC 2025 Annual Report, p. 161 (Financial: > Management’s discussion and analysis: > Firmwide Risk Management > Credit and Investment Risk Management > Allowance for Credit Losses)"
+        },
+        {
+          "chunk_id": "chunk_sec077_table_0726_part2",
+          "modality": "table",
+          "page_start": 197,
+          "page_end": 197,
+          "toc_section": "Consolidated statements of income",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 197 (Financial: > Audited financial statements: > Consolidated Financial Statements > Consolidated statements of income)"
+        }
+      ]
+    },
+    {
+      "id": "GT-M-001",
+      "question": "How did JPMorgan Chase's net income change from 2024 to 2025, and what was the primary driver of the difference?",
+      "ground_truth_answer": "JPMorgan Chase's net income declined from $58,471 million in 2024 to $57,048 million in 2025, a decrease of approximately $1,423 million (-2.4%). The primary driver was that 2024 net income was inflated by a $5.4 billion one-time gain related to Visa shares (from a $7.9B gross revenue gain, partially offset by a $1.0B contribution to the JPMorgan Chase Foundation). On a normalized basis, excluding the Visa gain, 2024 net income was approximately $53 billion, making 2025 core profitability actually stronger by approximately $4 billion.",
+      "difficulty": "medium",
+      "category": "Income Statement",
+      "source_modality": "multi-modal",
+      "source_pages": [
+        2,
+        8,
+        76,
+        79,
+        197
+      ],
+      "toc_section": "Financial Highlights / Shareholder Letter",
+      "requires_reasoning": true,
+      "evaluation_criteria": [
+        "$58,471M (2024)",
+        "$57,048M (2025)",
+        "Visa gain $5.4B",
+        "non-recurring",
+        "normalized profitability stronger in 2025"
+      ],
+      "expected_chunk_types": [
+        "table",
+        "figure"
+      ],
+      "notes": "Requires combining the Financial Highlights table (p. 2 & p. 76) with the 20-year earnings visual chart commentary (p. 8) which quantifies the normalized $5.4B Visa gain impact.",
+      "ground_truth_chunk_ids": [
+        {
+          "chunk_id": "chunk_sec001_table_0002_part1",
+          "modality": "table",
+          "page_start": 2,
+          "page_end": 2,
+          "toc_section": "Financial Highlights",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 2 (Financial Highlights)"
+        },
+        {
+          "chunk_id": "chunk_sec003_figure_0018",
+          "modality": "figure",
+          "page_start": 8,
+          "page_end": 8,
+          "toc_section": "Dear Fellow Shareholders,",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 8 (Dear Fellow Shareholders,)"
+        },
+        {
+          "chunk_id": "chunk_sec016_table_0261_part1",
+          "modality": "table",
+          "page_start": 76,
+          "page_end": 76,
+          "toc_section": "Three-Year Summary of Consolidated Financial Highlights",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 76 (Financial: > Table of contents > Three-Year Summary of Consolidated Financial Highlights)"
+        },
+        {
+          "chunk_id": "chunk_sec021_table_0273_part1",
+          "modality": "table",
+          "page_start": 79,
+          "page_end": 79,
+          "toc_section": "Firmwide Overview and Outlook",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 79 (Financial: > Management’s discussion and analysis: > Executive Overview > Firmwide Overview and Outlook)"
+        },
+        {
+          "chunk_id": "chunk_sec077_table_0727_part3",
+          "modality": "table",
+          "page_start": 197,
+          "page_end": 197,
+          "toc_section": "Consolidated statements of income",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 197 (Financial: > Audited financial statements: > Consolidated Financial Statements > Consolidated statements of income)"
+        }
+      ]
+    },
+    {
+      "id": "GT-M-002",
+      "question": "Compare JPMorgan Chase's ROTCE performance to that of Morgan Stanley and Citigroup in 2025.",
+      "ground_truth_answer": "In 2025, JPMorgan Chase's firmwide ROTCE was 20%. Morgan Stanley led among large peers at 22% ROTCE, placing JPM second. Citigroup had the lowest ROTCE among large peers at 8%. Goldman Sachs achieved 16%, Wells Fargo 15%, and Bank of America 14%. Despite not being #1 in ROTCE, JPM had the best overhead efficiency ratio (52%) among the group.",
+      "difficulty": "medium",
+      "category": "Peer Comparison",
+      "source_modality": "figure",
+      "source_pages": [
+        14
+      ],
+      "toc_section": "Shareholder Letter / Peer Comparison",
+      "requires_reasoning": true,
+      "evaluation_criteria": [
+        "JPM 20%",
+        "Morgan Stanley 22%",
+        "Citigroup 8%",
+        "peer comparison",
+        "overhead ratio 52%"
+      ],
+      "expected_chunk_types": [
+        "figure",
+        "table"
+      ],
+      "notes": "Requires extracting and ordering peer returns from the page 14 peer comparison chart and data table.",
+      "ground_truth_chunk_ids": [
+        {
+          "chunk_id": "chunk_sec003_figure_0043",
+          "modality": "figure",
+          "page_start": 14,
+          "page_end": 14,
+          "toc_section": "Dear Fellow Shareholders,",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 14 (Dear Fellow Shareholders,)"
+        },
+        {
+          "chunk_id": "chunk_sec003_table_0045_part1",
+          "modality": "table",
+          "page_start": 14,
+          "page_end": 14,
+          "toc_section": "Dear Fellow Shareholders,",
+          "match_score": 22,
+          "citation": "JPMC 2025 Annual Report, p. 14 (Dear Fellow Shareholders,)"
+        },
+        {
+          "chunk_id": "chunk_sec003_text_0044",
+          "modality": "text",
+          "page_start": 14,
+          "page_end": 14,
+          "toc_section": "JPMorganChase Exhibits Strength in Both Efficiency and Returns When Compared with Large Peers 1 and Best-in-Class Peers 1",
+          "match_score": 20,
+          "citation": "JPMC 2025 Annual Report, pp. 14-14 (Dear Fellow Shareholders, > JPMorganChase Exhibits Strength in Both Efficiency and Returns When Compared with Large Peers 1 and Best-in-Class Peers 1)"
+        }
+      ]
+    },
+    {
+      "id": "GT-M-003",
+      "question": "What was the total combined deposits and client assets entrusted to JPMorgan Chase in 2025, and how does it compare to 2020?",
+      "ground_truth_answer": "By 2025, JPMorgan Chase had $7,643 billion ($7.64 trillion) in combined deposits and client assets. This compares to $3,781 billion in 2020 at the height of the pandemic. The 2020-to-2025 increase represents approximately $3.86 trillion in growth (+102%), roughly a doubling in five years. Over the full 20 years from 2005 ($1,107 billion) to 2025, assets expanded approximately 6.9x.",
+      "difficulty": "medium",
+      "category": "Deposits & Client Assets",
+      "source_modality": "figure",
+      "source_pages": [
+        12
+      ],
+      "toc_section": "Shareholder Letter",
+      "requires_reasoning": true,
+      "evaluation_criteria": [
+        "$7,643 billion (2025)",
+        "$3,781 billion (2020)",
+        "6.9x 20-year growth",
+        "+102% 5-year growth"
+      ],
+      "expected_chunk_types": [
+        "figure",
+        "text"
+      ],
+      "notes": "Requires reading 2005 ($1,107B), 2020 ($3,781B), and 2025 ($7,643B) data points from the 20-year deposits & client assets visual chart on page 12.",
+      "ground_truth_chunk_ids": [
+        {
+          "chunk_id": "chunk_sec003_figure_0034",
+          "modality": "figure",
+          "page_start": 12,
+          "page_end": 12,
+          "toc_section": "Dear Fellow Shareholders,",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 12 (Dear Fellow Shareholders,)"
+        },
+        {
+          "chunk_id": "chunk_sec003_figure_0036",
+          "modality": "figure",
+          "page_start": 12,
+          "page_end": 12,
+          "toc_section": "Dear Fellow Shareholders,",
+          "match_score": 20,
+          "citation": "JPMC 2025 Annual Report, p. 12 (Dear Fellow Shareholders,)"
+        },
+        {
+          "chunk_id": "chunk_sec003_text_0035",
+          "modality": "text",
+          "page_start": 12,
+          "page_end": 12,
+          "toc_section": "Assets Entrusted to Us by Our Clients 2005-2025",
+          "match_score": 18,
+          "citation": "JPMC 2025 Annual Report, pp. 12-12 (Dear Fellow Shareholders, > Assets Entrusted to Us by Our Clients 2005-2025)"
+        }
+      ]
+    },
+    {
+      "id": "GT-M-004",
+      "question": "What was JPMorgan Chase's pre-provision profit in 2025, and how does it compare to 2024 and 2023?",
+      "ground_truth_answer": "JPMorgan Chase's pre-provision profit was $86,807 million in 2025, up slightly from $85,759 million in 2024 and significantly from $70,932 million in 2023. Pre-provision profit is a non-GAAP measure computed as total net revenue minus total noninterest expense. The 2025 result reflects solid operational performance—the $3.8B expense increase was largely offset by the $4.9B revenue increase.",
+      "difficulty": "medium",
+      "category": "Income Statement",
+      "source_modality": "table",
+      "source_pages": [
+        2,
+        76,
+        91
+      ],
+      "toc_section": "Financial Highlights",
+      "requires_reasoning": true,
+      "evaluation_criteria": [
+        "$86,807 million (2025)",
+        "$85,759 million (2024)",
+        "$70,932 million (2023)",
+        "non-GAAP"
+      ],
+      "expected_chunk_types": [
+        "table",
+        "text"
+      ],
+      "notes": "Pre-provision profit was $86,807 million in 2025. Reported in Financial Highlights (p. 2), Three-Year Consolidated Summary (p. 76), and Non-GAAP Explanations and Reconciliations (p. 91).",
+      "ground_truth_chunk_ids": [
+        {
+          "chunk_id": "chunk_sec001_table_0002_part1",
+          "modality": "table",
+          "page_start": 2,
+          "page_end": 2,
+          "toc_section": "Financial Highlights",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 2 (Financial Highlights)"
+        },
+        {
+          "chunk_id": "chunk_sec016_table_0261_part1",
+          "modality": "table",
+          "page_start": 76,
+          "page_end": 76,
+          "toc_section": "Three-Year Summary of Consolidated Financial Highlights",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 76 (Financial: > Table of contents > Three-Year Summary of Consolidated Financial Highlights)"
+        },
+        {
+          "chunk_id": "chunk_sec025_table_0317_part1",
+          "modality": "table",
+          "page_start": 91,
+          "page_end": 91,
+          "toc_section": "Explanation and Reconciliation of the Firm's Use of Non-GAAP Financial Measures",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 91 (Financial: > Management’s discussion and analysis: > Explanation and Reconciliation of the Firm's Use of Non-GAAP Financial Measures)"
+        },
+        {
+          "chunk_id": "chunk_sec025_text_0316",
+          "modality": "text",
+          "page_start": 91,
+          "page_end": 91,
+          "toc_section": "Explanation and Reconciliation of the Firm's Use of Non-GAAP Financial Measures",
+          "match_score": 20,
+          "citation": "JPMC 2025 Annual Report, pp. 91-91 (Financial: > Management’s discussion and analysis: > Explanation and Reconciliation of the Firm's Use of Non-GAAP Financial Measures)"
+        }
+      ]
+    },
+    {
+      "id": "GT-M-005",
+      "question": "What was JPMorgan Chase's 1-year total return in 2025, and how did it compare to the S&P 500 and S&P Financials Index?",
+      "ground_truth_answer": "For the 1-year period ended December 31, 2025, JPMorgan Chase's total return was 37.3%, significantly outperforming the S&P 500 (17.9%) and the S&P Financials Index (15.0%). JPM outperformed the broader market by approximately 19.4 percentage points and the financial sector benchmark by 22.3 percentage points.",
+      "difficulty": "medium",
+      "category": "Shareholder Returns",
+      "source_modality": "figure",
+      "source_pages": [
+        9
+      ],
+      "toc_section": "Shareholder Letter / Stock Performance",
+      "requires_reasoning": true,
+      "evaluation_criteria": [
+        "37.3% (JPM)",
+        "17.9% (S&P 500)",
+        "15.0% (S&P Financials)",
+        "1-year",
+        "2025"
+      ],
+      "expected_chunk_types": [
+        "figure",
+        "table",
+        "text"
+      ],
+      "notes": "1-year total return was 37.3% vs S&P 500 (17.9%) and S&P Financials (15.0%). Reported on page 9 visual chart, data table, and stock total return analysis.",
+      "ground_truth_chunk_ids": [
+        {
+          "chunk_id": "chunk_sec003_figure_0019",
+          "modality": "figure",
+          "page_start": 9,
+          "page_end": 9,
+          "toc_section": "Dear Fellow Shareholders,",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 9 (Dear Fellow Shareholders,)"
+        },
+        {
+          "chunk_id": "chunk_sec003_table_0023_part1",
+          "modality": "table",
+          "page_start": 9,
+          "page_end": 9,
+          "toc_section": "Dear Fellow Shareholders,",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 9 (Dear Fellow Shareholders,)"
+        },
+        {
+          "chunk_id": "chunk_sec003_text_0025",
+          "modality": "text",
+          "page_start": 9,
+          "page_end": 9,
+          "toc_section": "Stock total return analysis",
+          "match_score": 20,
+          "citation": "JPMC 2025 Annual Report, pp. 9-9 (Dear Fellow Shareholders, > Stock total return analysis)"
+        }
+      ]
+    },
+    {
+      "id": "GT-M-006",
+      "question": "What were JPMorgan Chase's Markets revenues in 2025, broken down by Fixed Income and Equities?",
+      "ground_truth_answer": "In 2025, JPMorgan Chase's total Markets revenue was $35.8 billion, comprised of Fixed Income revenue of $22.5 billion and Equities revenue of $13.3 billion. This represents significant growth from 2024's total of $30.0 billion ($20.1B Fixed Income + $9.9B Equities) and 2021's $27.5 billion ($17.4B Fixed Income + $10.2B Equities). Equities revenue surged by $3.4 billion (+34%) from 2024 to 2025.",
+      "difficulty": "medium",
+      "category": "Commercial & Investment Bank",
+      "source_modality": "figure",
+      "source_pages": [
+        62,
+        104
+      ],
+      "toc_section": "Commercial & Investment Bank / Markets",
+      "requires_reasoning": true,
+      "evaluation_criteria": [
+        "$35.8B total (2025)",
+        "Fixed Income $22.5B",
+        "Equities $13.3B",
+        "Equities +34% YoY"
+      ],
+      "expected_chunk_types": [
+        "figure"
+      ],
+      "notes": "Markets revenues in 2025 ($35.8B = $22.5B Fixed Income + $13.3B Equities) reported in CIB Markets chart (p. 62) and MD&A CIB segment financial results table (p. 104).",
+      "ground_truth_chunk_ids": [
+        {
+          "chunk_id": "chunk_sec011_figure_0206",
+          "modality": "figure",
+          "page_start": 62,
+          "page_end": 62,
+          "toc_section": "Commercial & Investment Bank",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 62 (Senior Executive Letters > Commercial & Investment Bank)"
+        },
+        {
+          "chunk_id": "chunk_sec028_table_0364_part1",
+          "modality": "table",
+          "page_start": 104,
+          "page_end": 104,
+          "toc_section": "Commercial & Investment Bank",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 104 (Financial: > Management’s discussion and analysis: > Business Segment & Corporate Results > Commercial & Investment Bank)"
+        }
+      ]
+    },
+    {
+      "id": "GT-M-007",
+      "question": "How has JPMorgan Chase's tangible book value per share grown from 2005 to 2025, and what CAGR does this represent?",
+      "ground_truth_answer": "Based on the 20-year tangible book value and stock price chart (page 9), JPMorgan's tangible book value per share grew from approximately $17-20 in 2005 to $107.56 in 2025. The chart notes a 10% CAGR in tangible book value since 2005, meaning the firm approximately quintupled its TBVPS over two decades. Additionally, stock price CAGR since the 2004 merger was 13.4% for JPMorganChase shareholders.",
+      "difficulty": "medium",
+      "category": "Capital Accumulation",
+      "source_modality": "multi-modal",
+      "source_pages": [
+        2,
+        9,
+        76
+      ],
+      "toc_section": "Shareholder Letter / Stock Performance",
+      "requires_reasoning": true,
+      "evaluation_criteria": [
+        "10% CAGR",
+        "tangible book value per share",
+        "$107.56 (2025)",
+        "2005-2025"
+      ],
+      "expected_chunk_types": [
+        "figure",
+        "table"
+      ],
+      "notes": "Tangible book value per share 20-year growth and 10% CAGR from Shareholder Letter chart (p. 9), with exact 2025 TBVPS of $107.56 from Financial Highlights (p. 2) and MD&A Summary (p. 76).",
+      "ground_truth_chunk_ids": [
+        {
+          "chunk_id": "chunk_sec003_figure_0019",
+          "modality": "figure",
+          "page_start": 9,
+          "page_end": 9,
+          "toc_section": "Dear Fellow Shareholders,",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 9 (Dear Fellow Shareholders,)"
+        },
+        {
+          "chunk_id": "chunk_sec001_table_0003_part2",
+          "modality": "table",
+          "page_start": 2,
+          "page_end": 2,
+          "toc_section": "Financial Highlights",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 2 (Financial Highlights)"
+        },
+        {
+          "chunk_id": "chunk_sec003_text_0025",
+          "modality": "text",
+          "page_start": 9,
+          "page_end": 9,
+          "toc_section": "Stock total return analysis",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, pp. 9-9 (Dear Fellow Shareholders, > Stock total return analysis)"
+        },
+        {
+          "chunk_id": "chunk_sec016_table_0262_part2",
+          "modality": "table",
+          "page_start": 76,
+          "page_end": 76,
+          "toc_section": "Three-Year Summary of Consolidated Financial Highlights",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 76 (Financial: > Table of contents > Three-Year Summary of Consolidated Financial Highlights)"
+        }
+      ]
+    },
+    {
+      "id": "GT-M-008",
+      "question": "What was JPMorgan Chase's Asset & Wealth Management (AWM) revenue, net income, pre-tax income, and total client assets in 2025?",
+      "ground_truth_answer": "In 2025, JPMorgan Chase Asset & Wealth Management (AWM) reported: Revenue of $24 billion, Pre-tax income of $9 billion, Net income of $7 billion, and total client assets of $7 trillion. AWM held the #1 ranking as Asset Manager by Active Flows and the #1 ranking as a Private Bank.",
+      "difficulty": "medium",
+      "category": "Asset & Wealth Management",
+      "source_modality": "figure",
+      "source_pages": [
+        66,
+        70,
+        108
+      ],
+      "toc_section": "Asset & Wealth Management",
+      "requires_reasoning": false,
+      "evaluation_criteria": [
+        "$24B revenue",
+        "$9B pre-tax income",
+        "$7B net income",
+        "$7T client assets",
+        "#1 Asset Manager",
+        "#1 Private Bank"
+      ],
+      "expected_chunk_types": [
+        "figure"
+      ],
+      "notes": "AWM $24B revenue, $9B pre-tax, $7B net income, $7T client assets reported in AWM visual infographic (p. 66), #1 rankings in p. 70 text, and segment financial table (p. 108).",
+      "ground_truth_chunk_ids": [
+        {
+          "chunk_id": "chunk_sec012_figure_0227",
+          "modality": "figure",
+          "page_start": 66,
+          "page_end": 66,
+          "toc_section": "Asset & Wealth Management",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 66 (Senior Executive Letters > Asset & Wealth Management)"
+        },
+        {
+          "chunk_id": "chunk_sec012_text_0242_part1",
+          "modality": "text",
+          "page_start": 70,
+          "page_end": 70,
+          "toc_section": "A leading industry position",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, pp. 70-70 (Senior Executive Letters > Asset & Wealth Management > A leading industry position)"
+        },
+        {
+          "chunk_id": "chunk_sec029_table_0379_part1",
+          "modality": "table",
+          "page_start": 108,
+          "page_end": 108,
+          "toc_section": "Asset & Wealth Management",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 108 (Financial: > Management’s discussion and analysis: > Business Segment & Corporate Results > Asset & Wealth Management)"
+        }
+      ]
+    },
+    {
+      "id": "GT-M-009",
+      "question": "What was JPMorgan Chase's 10-year compounded total return compared to the S&P 500 through December 31, 2025?",
+      "ground_truth_answer": "Over the 10-year period ended December 31, 2025, JPMorgan Chase delivered a 20.4% compounded annual total return, versus 14.8% for the S&P 500 and 13.1% for the S&P Financials Index. JPM outperformed the S&P 500 by 560 basis points annually over the decade.",
+      "difficulty": "medium",
+      "category": "Shareholder Returns",
+      "source_modality": "figure",
+      "source_pages": [
+        9
+      ],
+      "toc_section": "Shareholder Letter / Stock Performance",
+      "requires_reasoning": true,
+      "evaluation_criteria": [
+        "20.4% (JPM)",
+        "14.8% (S&P 500)",
+        "13.1% (S&P Financials)",
+        "10-year",
+        "compounded annual"
+      ],
+      "expected_chunk_types": [
+        "figure"
+      ],
+      "notes": "10-year compounded total return (20.4% vs S&P 14.8% and S&P Financials 13.1%) reported in Shareholder Letter Stock Total Return chart and table (p. 9).",
+      "ground_truth_chunk_ids": [
+        {
+          "chunk_id": "chunk_sec003_figure_0019",
+          "modality": "figure",
+          "page_start": 9,
+          "page_end": 9,
+          "toc_section": "Dear Fellow Shareholders,",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 9 (Dear Fellow Shareholders,)"
+        },
+        {
+          "chunk_id": "chunk_sec003_table_0024_part2",
+          "modality": "table",
+          "page_start": 9,
+          "page_end": 9,
+          "toc_section": "Dear Fellow Shareholders,",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 9 (Dear Fellow Shareholders,)"
+        },
+        {
+          "chunk_id": "chunk_sec003_text_0025",
+          "modality": "text",
+          "page_start": 9,
+          "page_end": 9,
+          "toc_section": "Stock total return analysis",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, pp. 9-9 (Dear Fellow Shareholders, > Stock total return analysis)"
+        }
+      ]
+    },
+    {
+      "id": "GT-M-010",
+      "question": "How did the Commercial & Investment Bank (CIB) revenue evolve from 2021 to 2025, and what drove the step-change between 2023 and 2024?",
+      "ground_truth_answer": "CIB revenue grew from $1.2 billion in 2021 to $4.3 billion in 2022, $6.1 billion in 2023, $24.8 billion in 2024, and $27.8 billion in 2025. The dramatic jump from $6.1B in 2023 to $24.8B in 2024 was driven by the early 2024 merger/integration of Commercial Banking (CB) into the Corporate & Investment Bank, creating a combined franchise. Revenue CAGR since the CB integration was 10%.",
+      "difficulty": "medium",
+      "category": "Commercial & Investment Bank",
+      "source_modality": "figure",
+      "source_pages": [
+        60
+      ],
+      "toc_section": "Commercial & Investment Bank",
+      "requires_reasoning": true,
+      "evaluation_criteria": [
+        "2021: $1.2B",
+        "2024: $24.8B",
+        "2025: $27.8B",
+        "CB-CIB merger",
+        "10% CAGR"
+      ],
+      "expected_chunk_types": [
+        "figure"
+      ],
+      "notes": "CIB revenue progression 2021-2025 ($1.2B to $27.8B) and CB integration step-change reported in CIB Revenue chart and executive letter text (p. 60).",
+      "ground_truth_chunk_ids": [
+        {
+          "chunk_id": "chunk_sec011_figure_0197",
+          "modality": "figure",
+          "page_start": 60,
+          "page_end": 60,
+          "toc_section": "Commercial & Investment Bank",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 60 (Senior Executive Letters > Commercial & Investment Bank)"
+        },
+        {
+          "chunk_id": "chunk_sec011_text_0194",
+          "modality": "text",
+          "page_start": 60,
+          "page_end": 60,
+          "toc_section": "Commercial & Investment Bank",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, pp. 60-60 (Senior Executive Letters > Commercial & Investment Bank)"
+        }
+      ]
+    },
+    {
+      "id": "GT-M-011",
+      "question": "What was the size of global announced M&A volume in 2025, and what was JPMorgan's market position?",
+      "ground_truth_answer": "Global announced M&A volume reached $5.1 trillion in 2025, representing a 43% increase from 2024. JPMorgan Chase maintained the #1 global investment banking ranking with an 8.4% global wallet share, with GCB and GIB combined revenue of $25.3 billion (+6% year-over-year) and approximately 400 new multinational client relationships added.",
+      "difficulty": "medium",
+      "category": "Investment Banking",
+      "source_modality": "figure",
+      "source_pages": [
+        60,
+        61
+      ],
+      "toc_section": "Commercial & Investment Bank",
+      "requires_reasoning": true,
+      "evaluation_criteria": [
+        "$5.1 trillion M&A volume",
+        "+43% YoY",
+        "#1 IB wallet share",
+        "8.4% share",
+        "2025"
+      ],
+      "expected_chunk_types": [
+        "figure"
+      ],
+      "notes": "Global announced M&A volume ($5.1T) and JPM #1 position (8.4% wallet share, $25.3B revenue) reported in Global Banking chart (p. 61) and executive letter text (p. 60).",
+      "ground_truth_chunk_ids": [
+        {
+          "chunk_id": "chunk_sec011_figure_0202",
+          "modality": "figure",
+          "page_start": 61,
+          "page_end": 61,
+          "toc_section": "Commercial & Investment Bank",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 61 (Senior Executive Letters > Commercial & Investment Bank)"
+        },
+        {
+          "chunk_id": "chunk_sec011_text_0201_part2",
+          "modality": "text",
+          "page_start": 60,
+          "page_end": 61,
+          "toc_section": "Global Banking",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, pp. 60-61 (Senior Executive Letters > Commercial & Investment Bank > Global Banking)"
+        }
+      ]
+    },
+    {
+      "id": "GT-M-012",
+      "question": "What was JPMorgan Chase's 5-year compounded total return ended December 31, 2025, versus the S&P 500?",
+      "ground_truth_answer": "For the 5-year period ended December 31, 2025, JPMorgan Chase's compounded annual total return was 23.7%, compared to 14.4% for the S&P 500 and 15.2% for the S&P Financials Index. JPM outperformed the broader market by 930 basis points annually over five years.",
+      "difficulty": "medium",
+      "category": "Shareholder Returns",
+      "source_modality": "figure",
+      "source_pages": [
+        9
+      ],
+      "toc_section": "Shareholder Letter / Stock Performance",
+      "requires_reasoning": false,
+      "evaluation_criteria": [
+        "23.7% (JPM)",
+        "14.4% (S&P 500)",
+        "5-year",
+        "compounded annual"
+      ],
+      "expected_chunk_types": [
+        "figure"
+      ],
+      "notes": "5-year compounded total return (23.7% vs S&P 14.4% and S&P Financials 15.2%) reported in Shareholder Letter Stock Total Return chart and table (p. 9).",
+      "ground_truth_chunk_ids": [
+        {
+          "chunk_id": "chunk_sec003_figure_0019",
+          "modality": "figure",
+          "page_start": 9,
+          "page_end": 9,
+          "toc_section": "Dear Fellow Shareholders,",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 9 (Dear Fellow Shareholders,)"
+        },
+        {
+          "chunk_id": "chunk_sec003_table_0024_part2",
+          "modality": "table",
+          "page_start": 9,
+          "page_end": 9,
+          "toc_section": "Dear Fellow Shareholders,",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 9 (Dear Fellow Shareholders,)"
+        },
+        {
+          "chunk_id": "chunk_sec003_text_0025",
+          "modality": "text",
+          "page_start": 9,
+          "page_end": 9,
+          "toc_section": "Stock total return analysis",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, pp. 9-9 (Dear Fellow Shareholders, > Stock total return analysis)"
+        }
+      ]
+    },
+    {
+      "id": "GT-M-013",
+      "question": "What was JPMorgan's AWM division long-term active fund inflow in 2025, and how does it compare to the 10-year average?",
+      "ground_truth_answer": "In 2025, JPMorgan's Asset & Wealth Management division captured $553 billion in long-term active fund inflows, a record level. The 10-year cumulative annual average from 2016 to 2025 was approximately $510 billion per year. More than 80% of long-term active fund AUM outperformed the peer median over the decade. Annual inflow milestones: 2016: $61B, 2019: $176B, 2020: $276B, 2021: $389B, 2022: $49B (anomaly year), 2023: $490B, 2024: $486B, 2025: $553B (record).",
+      "difficulty": "medium",
+      "category": "Asset & Wealth Management",
+      "source_modality": "figure",
+      "source_pages": [
+        66
+      ],
+      "toc_section": "Asset & Wealth Management",
+      "requires_reasoning": true,
+      "evaluation_criteria": [
+        "$553B (2025)",
+        "10-year average $510B",
+        "record",
+        ">80% outperformed peer median"
+      ],
+      "expected_chunk_types": [
+        "figure"
+      ],
+      "notes": "AWM long-term active fund inflows ($553B record, milestones 2016-2025) and >80% 10-year peer outperformance reported in AWM inflow chart and executive letter text (p. 66).",
+      "ground_truth_chunk_ids": [
+        {
+          "chunk_id": "chunk_sec012_figure_0224",
+          "modality": "figure",
+          "page_start": 66,
+          "page_end": 66,
+          "toc_section": "Asset & Wealth Management",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 66 (Senior Executive Letters > Asset & Wealth Management)"
+        },
+        {
+          "chunk_id": "chunk_sec012_text_0226",
+          "modality": "text",
+          "page_start": 66,
+          "page_end": 66,
+          "toc_section": "A leading global asset manager",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, pp. 66-66 (Senior Executive Letters > Asset & Wealth Management > A leading global asset manager)"
+        }
+      ]
+    },
+    {
+      "id": "GT-M-014",
+      "question": "What was JPMorgan Chase's Securities Services business revenue and assets under custody (AUC) in 2025, and what was the growth trajectory from 2021?",
+      "ground_truth_answer": "In 2025, JPMorgan's Securities Services generated $5.6 billion in revenue and had $41.2 trillion in assets under custody (AUC). Growth trajectory from 2021: Revenue: $4.3B (2021) → $4.5B (2022) → $4.8B (2023) → $5.1B (2024) → $5.6B (2025). AUC: $33.2T (2021) → dipped to $28.6T (2022) → $32.4T (2023) → $35.3T (2024) → $41.2T (2025).",
+      "difficulty": "medium",
+      "category": "Securities Services",
+      "source_modality": "figure",
+      "source_pages": [
+        62,
+        104
+      ],
+      "toc_section": "Commercial & Investment Bank / Securities Services",
+      "requires_reasoning": true,
+      "evaluation_criteria": [
+        "$5.6B revenue (2025)",
+        "$41.2T AUC (2025)",
+        "$4.3B (2021)",
+        "2022 dip in AUC"
+      ],
+      "expected_chunk_types": [
+        "figure"
+      ],
+      "notes": "Securities Services $5.6B revenue and $41.2T AUC trajectory reported in Securities Services visual chart & text (p. 62) and MD&A CIB segment results (p. 104).",
+      "ground_truth_chunk_ids": [
+        {
+          "chunk_id": "chunk_sec011_figure_0209",
+          "modality": "figure",
+          "page_start": 62,
+          "page_end": 62,
+          "toc_section": "Commercial & Investment Bank",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 62 (Senior Executive Letters > Commercial & Investment Bank)"
+        },
+        {
+          "chunk_id": "chunk_sec011_text_0211",
+          "modality": "text",
+          "page_start": 62,
+          "page_end": 62,
+          "toc_section": "Securities Services",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, pp. 62-62 (Senior Executive Letters > Commercial & Investment Bank > Securities Services)"
+        },
+        {
+          "chunk_id": "chunk_sec028_table_0364_part1",
+          "modality": "table",
+          "page_start": 104,
+          "page_end": 104,
+          "toc_section": "Commercial & Investment Bank",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 104 (Financial: > Management’s discussion and analysis: > Business Segment & Corporate Results > Commercial & Investment Bank)"
+        }
+      ]
+    },
+    {
+      "id": "GT-M-015",
+      "question": "Since the JPMorganChase-Bank One merger in July 2004, how has JPM stock performed versus the S&P 500 and S&P Financials Index through December 31, 2025?",
+      "ground_truth_answer": "From the JPMorganChase-Bank One merger date (July 1, 2004) through December 31, 2025, JPMorgan Chase shareholders achieved a 13.4% compounded annual gain and a total gain of 1,380.5%, compared to the S&P 500's 10.8% CAGR (805.9% total gain) and the S&P Financials Index's 6.3% CAGR (270.5% total gain). JPM outperformed the S&P 500 by 3.6 percentage points annually over more than 21 years.",
+      "difficulty": "medium",
+      "category": "Shareholder Returns",
+      "source_modality": "figure",
+      "source_pages": [
+        9
+      ],
+      "toc_section": "Shareholder Letter / Stock Performance",
+      "requires_reasoning": false,
+      "evaluation_criteria": [
+        "13.4% CAGR (JPM)",
+        "1,380.5% total gain",
+        "10.8% CAGR (S&P 500)",
+        "July 2004 merger",
+        "6.3% CAGR (S&P Financials)"
+      ],
+      "expected_chunk_types": [
+        "figure"
+      ],
+      "notes": "Since July 1, 2004 merger performance (13.4% CAGR, 1,380.5% total gain vs S&P 10.8% CAGR, 805.9% gain) reported in Shareholder Letter Stock Total Return chart and table (p. 9).",
+      "ground_truth_chunk_ids": [
+        {
+          "chunk_id": "chunk_sec003_figure_0019",
+          "modality": "figure",
+          "page_start": 9,
+          "page_end": 9,
+          "toc_section": "Dear Fellow Shareholders,",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 9 (Dear Fellow Shareholders,)"
+        },
+        {
+          "chunk_id": "chunk_sec003_table_0024_part2",
+          "modality": "table",
+          "page_start": 9,
+          "page_end": 9,
+          "toc_section": "Dear Fellow Shareholders,",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 9 (Dear Fellow Shareholders,)"
+        },
+        {
+          "chunk_id": "chunk_sec003_text_0025",
+          "modality": "text",
+          "page_start": 9,
+          "page_end": 9,
+          "toc_section": "Stock total return analysis",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, pp. 9-9 (Dear Fellow Shareholders, > Stock total return analysis)"
+        }
+      ]
+    },
+    {
+      "id": "GT-M-016",
+      "question": "How did JPMorgan Chase's CCB (Consumer & Community Banking) ROTCE compare to its best-in-class peer in 2025?",
+      "ground_truth_answer": "In 2025, JPMorgan's Consumer & Community Banking (CCB) achieved a 32% ROTCE, outperforming its best-in-class peer, Bank of America's Consumer Banking (BAC-CB) at 28%. JPM's CCB overhead ratio was 53% versus BAC-CB's 52%, making BAC-CB marginally more efficient but JPM significantly more profitable on a returns basis.",
+      "difficulty": "medium",
+      "category": "Consumer & Community Banking",
+      "source_modality": "figure",
+      "source_pages": [
+        14
+      ],
+      "toc_section": "Shareholder Letter / Peer Comparison",
+      "requires_reasoning": true,
+      "evaluation_criteria": [
+        "CCB ROTCE 32%",
+        "BAC-CB 28%",
+        "overhead ratio 53% vs 52%",
+        "line of business comparison"
+      ],
+      "expected_chunk_types": [
+        "figure"
+      ],
+      "notes": "CCB ROTCE (32% vs BAC-CB 28%) and overhead ratio (53% vs BAC-CB 52%) reported in Efficiency and Returns vs Peers visual chart and comparative table (p. 14).",
+      "ground_truth_chunk_ids": [
+        {
+          "chunk_id": "chunk_sec003_figure_0043",
+          "modality": "figure",
+          "page_start": 14,
+          "page_end": 14,
+          "toc_section": "Dear Fellow Shareholders,",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 14 (Dear Fellow Shareholders,)"
+        },
+        {
+          "chunk_id": "chunk_sec003_table_0045_part1",
+          "modality": "table",
+          "page_start": 14,
+          "page_end": 14,
+          "toc_section": "Dear Fellow Shareholders,",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 14 (Dear Fellow Shareholders,)"
+        }
+      ]
+    },
+    {
+      "id": "GT-M-017",
+      "question": "What was JPMorgan Chase's net income in 2008 during the financial crisis, and how does the recovery to 2025 look in terms of key metrics?",
+      "ground_truth_answer": "During the 2008 financial crisis, JPMorgan Chase reported net income of $11.7 billion, EPS of $2.26, and ROTCE of 10%. By 2025, the firm grew net income to $57.0 billion (4.9x the 2008 level), diluted EPS to $20.02 (8.9x the 2008 level), and ROTCE to 20% (double the 2008 level), demonstrating exceptional post-crisis recovery and long-term earnings growth over 17 years.",
+      "difficulty": "medium",
+      "category": "Historical Comparison",
+      "source_modality": "figure",
+      "source_pages": [
+        8
+      ],
+      "toc_section": "Shareholder Letter / 20-Year Earnings Chart",
+      "requires_reasoning": true,
+      "evaluation_criteria": [
+        "2008: $11.7B net income",
+        "EPS $2.26 (2008)",
+        "ROTCE 10% (2008)",
+        "2025 comparison",
+        "recovery magnitude"
+      ],
+      "expected_chunk_types": [
+        "figure"
+      ],
+      "notes": "2008 financial crisis net income ($11.7B), EPS ($2.26), ROTCE (10%) and 2025 results reported in Shareholder Letter 20-Year Earnings, EPS & ROTCE chart (p. 8).",
+      "ground_truth_chunk_ids": [
+        {
+          "chunk_id": "chunk_sec003_figure_0018",
+          "modality": "figure",
+          "page_start": 8,
+          "page_end": 8,
+          "toc_section": "Dear Fellow Shareholders,",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 8 (Dear Fellow Shareholders,)"
+        }
+      ]
+    },
+    {
+      "id": "GT-M-018",
+      "question": "What was the net impact of the Visa gain on JPMorgan Chase's 2024 reported net income and how was it disclosed?",
+      "ground_truth_answer": "In 2024, JPMorgan Chase's total net revenue included a $7.9 billion net gain related to Visa shares, and total noninterest expense included a $1.0 billion contribution of Visa shares to the JPMorgan Chase Foundation. The net after-tax impact was approximately $5.4 billion. Reported 2024 net income was $58,471 million; excluding the Visa gain, normalized net income was approximately $53 billion, making the 2025 result of $57 billion reflect genuine organic earnings growth. These were disclosed in Note 6 of the Annual Report.",
+      "difficulty": "medium",
+      "category": "Non-GAAP Adjustments",
+      "source_modality": "multi-modal",
+      "source_pages": [
+        2,
+        8,
+        253
+      ],
+      "toc_section": "Financial Highlights / Shareholder Letter",
+      "requires_reasoning": true,
+      "evaluation_criteria": [
+        "$7.9B gross Visa gain (revenue)",
+        "$1.0B Foundation contribution (expense)",
+        "$5.4B net after-tax",
+        "Note 6",
+        "2024"
+      ],
+      "expected_chunk_types": [
+        "table",
+        "figure"
+      ],
+      "notes": "Visa share gain ($7.9B) and Foundation donation ($1.0B, $5.4B net after-tax) reported in Shareholder Letter chart footnote (p. 8), Financial Highlights footnote (p. 2), and Note 6 Noninterest revenue & expense tables (p. 253).",
+      "ground_truth_chunk_ids": [
+        {
+          "chunk_id": "chunk_sec003_figure_0018",
+          "modality": "figure",
+          "page_start": 8,
+          "page_end": 8,
+          "toc_section": "Dear Fellow Shareholders,",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 8 (Dear Fellow Shareholders,)"
+        },
+        {
+          "chunk_id": "chunk_sec001_table_0002_part1",
+          "modality": "table",
+          "page_start": 2,
+          "page_end": 2,
+          "toc_section": "Financial Highlights",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 2 (Financial Highlights)"
+        },
+        {
+          "chunk_id": "chunk_sec100_table_0939_part1",
+          "modality": "table",
+          "page_start": 253,
+          "page_end": 253,
+          "toc_section": "Note 6 - Noninterest revenue and noninterest expense",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 253 (Financial: > Audited financial statements: > Notes to Consolidated Financial Statements > Note 6 - Noninterest revenue and noninterest expense)"
+        },
+        {
+          "chunk_id": "chunk_sec100_table_0941_part1",
+          "modality": "table",
+          "page_start": 253,
+          "page_end": 253,
+          "toc_section": "Note 6 - Noninterest revenue and noninterest expense",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 253 (Financial: > Audited financial statements: > Notes to Consolidated Financial Statements > Note 6 - Noninterest revenue and noninterest expense)"
+        }
+      ]
+    },
+    {
+      "id": "GT-M-019",
+      "question": "What major expansion activities did JPMorgan Chase undertake in the last five years as described in the Shareholder Letter?",
+      "ground_truth_answer": "Over the last five years (approximately 2020-2025), JPMorgan Chase added more than 60,000 people to its workforce, opened over 900 branches across the United States, and launched multiple new products and services. The firm also expanded the CIB to more countries and regions, grew Global Private Bank advisors, invested in alternatives and ETF platforms, expanded in private markets, and developed global payments and digital asset capabilities.",
+      "difficulty": "medium",
+      "category": "Strategic Expansion",
+      "source_modality": "text",
+      "source_pages": [
+        16
+      ],
+      "toc_section": "Shareholder Letter / Specific Issues Facing Our Company",
+      "requires_reasoning": false,
+      "evaluation_criteria": [
+        "60,000 people added",
+        "900+ branches opened",
+        "new products & services",
+        "5-year period"
+      ],
+      "expected_chunk_types": [
+        "text"
+      ],
+      "notes": "Major expansion activities (60,000 workforce additions, >900 branches, global CIB & GPB expansion) reported in Shareholder Letter Section I (p. 16).",
+      "ground_truth_chunk_ids": [
+        {
+          "chunk_id": "chunk_sec004_text_0051",
+          "modality": "text",
+          "page_start": 16,
+          "page_end": 16,
+          "toc_section": "I. Specific Issues Facing Our Company",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, pp. 16-16 (Dear Fellow Shareholders, > I. Specific Issues Facing Our Company)"
+        },
+        {
+          "chunk_id": "chunk_sec004_text_0054",
+          "modality": "text",
+          "page_start": 16,
+          "page_end": 16,
+          "toc_section": "We continue to see growth opportunities in almost all our businesses.",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, pp. 16-16 (Dear Fellow Shareholders, > I. Specific Issues Facing Our Company > We continue to see growth opportunities in almost all our businesses.)"
+        }
+      ]
+    },
+    {
+      "id": "GT-M-020",
+      "question": "What new competitive threats does Jamie Dimon identify in the 2025 Shareholder Letter, and how does he categorize them?",
+      "ground_truth_answer": "In the 2025 Shareholder Letter, Jamie Dimon identifies three categories of competitive threats: (1) Strengthened traditional competitors — large U.S. banks, regional banks, strong international banks, large money managers, and investment banks; (2) Nontraditional and fintech competitors globally in payments, digital banking, investing, and global market making — over a hundred being tracked; (3) A new emerging set of competitors based on blockchain, including stablecoins, smart contracts, and other forms of tokenization. Dimon emphasizes incorporating artificial intelligence (AI) in everything the firm does to sustain top-ranking performance.",
+      "difficulty": "medium",
+      "category": "Strategic Risks",
+      "source_modality": "text",
+      "source_pages": [
+        16
+      ],
+      "toc_section": "Shareholder Letter / Specific Issues Facing Our Company",
+      "requires_reasoning": true,
+      "evaluation_criteria": [
+        "traditional banks",
+        "fintechs/nontraditional (100+)",
+        "blockchain/stablecoins/smart contracts",
+        "AI in everything",
+        "3 threat categories"
+      ],
+      "expected_chunk_types": [
+        "text"
+      ],
+      "notes": "Three categories of competitive threats (traditional, fintech/nontraditional, blockchain/tokenization) and AI strategy reported in Shareholder Letter Section I (p. 16).",
+      "ground_truth_chunk_ids": [
+        {
+          "chunk_id": "chunk_sec004_text_0052",
+          "modality": "text",
+          "page_start": 16,
+          "page_end": 16,
+          "toc_section": "We are confronted with extraordinary global competition from both traditional and new challengers.",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, pp. 16-16 (Dear Fellow Shareholders, > I. Specific Issues Facing Our Company > We are confronted with extraordinary global competition from both traditional and new challengers.)"
+        }
+      ]
+    },
+    {
+      "id": "GT-C-001",
+      "question": "Synthesize JPMorgan Chase's 20-year earnings trajectory from 2005 to 2025. What key structural inflection points shaped the path, and what do the 2025 metrics reveal about normalized profitability?",
+      "ground_truth_answer": "JPMorgan Chase's 20-year earnings trajectory shows these key inflection points:\n\n1. 2005 (Baseline): $8.5B net income, EPS $4.03, ROTCE 15%.\n2. 2008 (Financial Crisis): Net income $11.7B, EPS fell to $2.26, ROTCE hit a low of 10%.\n3. 2017 (Tax Cuts and Jobs Act): A one-time $2.4B non-GAAP adjustment impacted reported net income due to TCJA tax reform.\n4. 2020-2021 (COVID-19): Reserve build/release cycles caused volatility; excluding reserve adjustments, ROTCE was a strong 19.3% in 2020 and 18.5% in 2021.\n5. 2024 (Visa Gain): Reported net income spiked to $58.5B, inflated by a $5.4B net Visa gain.\n6. 2025 (Normalized): Net income $57.0B, EPS $20.02, ROTCE 20% — the highest normalized profitability in the firm's history.\n\nThe 2025 metrics reveal that JPMorgan's core earnings engine (absent one-time windfalls) achieved EPS nearly 5x and ROTCE 33% higher than the 2005 starting point, demonstrating sustained compounding of returns despite multiple crises.",
+      "difficulty": "complex",
+      "category": "Historical Analysis",
+      "source_modality": "multi-modal",
+      "source_pages": [
+        2,
+        8
+      ],
+      "toc_section": "Shareholder Letter / 20-Year Earnings Chart",
+      "requires_reasoning": true,
+      "evaluation_criteria": [
+        "2005 baseline",
+        "2008 crisis",
+        "TCJA 2017 $2.4B",
+        "COVID reserve adjustments 19.3%/18.5%",
+        "Visa gain 2024",
+        "2025 normalized ROTCE 20%",
+        "EPS trajectory"
+      ],
+      "expected_chunk_types": [
+        "figure",
+        "table"
+      ],
+      "notes": "20-year earnings trajectory (2005-2025) and structural inflections (2008 GFC, 2020 COVID, 2024 Visa gain, 2025 organic record) reported in Shareholder Letter chart (p. 8) and Financial Highlights income table (p. 2).",
+      "ground_truth_chunk_ids": [
+        {
+          "chunk_id": "chunk_sec003_figure_0018",
+          "modality": "figure",
+          "page_start": 8,
+          "page_end": 8,
+          "toc_section": "Dear Fellow Shareholders,",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 8 (Dear Fellow Shareholders,)"
+        },
+        {
+          "chunk_id": "chunk_sec001_table_0002_part1",
+          "modality": "table",
+          "page_start": 2,
+          "page_end": 2,
+          "toc_section": "Financial Highlights",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 2 (Financial Highlights)"
+        }
+      ]
+    },
+    {
+      "id": "GT-C-002",
+      "question": "Assess JPMorgan Chase's capital strength and shareholder return capacity in 2025, integrating CET1 ratio trends, the Apple Card transaction impact, and capital returned to stockholders.",
+      "ground_truth_answer": "CET1 Ratio: Declined to 14.6% (Standardized) from 15.7% in 2024, with Advanced ratios becoming more binding as of December 31, 2025. The Apple Card transaction reduced CET1 by approximately 25 basis points under the Standardized approach due to the $2.2 billion provision for lending-related commitments.\n\nTier 1 and Total Capital: Tier 1 ratio was 15.5% (vs 16.8% in 2024) and Total capital ratio was 17.4% (vs 18.5% in 2024).\n\nCapital Returned: From the 20-year capital return chart (page 13), JPMorgan returned approximately $48 billion to common stockholders in 2025 (dividends + buybacks), versus $31-34 billion in prior recent years. Dividends per share increased to $5.80 (+20.8% YoY).\n\nSynthesis: Despite the regulatory capital headwind from the Apple Card deal, JPM's 14.6% CET1 remains well above regulatory minimums, providing ample capacity for continued capital returns while sustaining $57B net income generation.",
+      "difficulty": "complex",
+      "category": "Capital Management",
+      "source_modality": "multi-modal",
+      "source_pages": [
+        2,
+        13,
+        129
+      ],
+      "toc_section": "Financial Highlights / Capital Risk Management",
+      "requires_reasoning": true,
+      "evaluation_criteria": [
+        "CET1 14.6%",
+        "Apple Card -25bps",
+        "$2.2B provision",
+        "capital returned ~$48B",
+        "dividends $5.80/share",
+        "Advanced ratios more binding"
+      ],
+      "expected_chunk_types": [
+        "table",
+        "figure"
+      ],
+      "notes": "CET1 ratio trends (8.5% to 15.4%), capital returned ($31.3B: $16.3B dividends + $15.0B buybacks), and Apple Card transaction dilution reported in Shareholder Letter capital chart/table (p. 13), Financial Highlights footnote (p. 2), and MD&A Capital actions table (p. 129).",
+      "ground_truth_chunk_ids": [
+        {
+          "chunk_id": "chunk_sec003_figure_0039",
+          "modality": "figure",
+          "page_start": 13,
+          "page_end": 13,
+          "toc_section": "Dear Fellow Shareholders,",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 13 (Dear Fellow Shareholders,)"
+        },
+        {
+          "chunk_id": "chunk_sec001_table_0003_part2",
+          "modality": "table",
+          "page_start": 2,
+          "page_end": 2,
+          "toc_section": "Financial Highlights",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 2 (Financial Highlights)"
+        },
+        {
+          "chunk_id": "chunk_sec003_table_0038_part1",
+          "modality": "table",
+          "page_start": 13,
+          "page_end": 13,
+          "toc_section": "Dear Fellow Shareholders,",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 13 (Dear Fellow Shareholders,)"
+        },
+        {
+          "chunk_id": "chunk_sec035_table_0463_part1",
+          "modality": "table",
+          "page_start": 129,
+          "page_end": 129,
+          "toc_section": "Capital actions",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 129 (Financial: > Management’s discussion and analysis: > Firmwide Risk Management > Strategic Risk Management > Capital Risk Management > Capital actions)"
+        }
+      ]
+    },
+    {
+      "id": "GT-C-003",
+      "question": "Evaluate JPMorgan Chase's competitive positioning across all three major business lines (CCB, CIB, AWM) in 2025 by comparing efficiency ratios and ROTCE against best-in-class peers for each segment.",
+      "ground_truth_answer": "Consumer & Community Banking (CCB): JPM overhead ratio 53% vs. BAC-CB 52% (slightly behind on efficiency). JPM ROTCE 32% vs. BAC-CB 28% (significantly outperforms on returns). Verdict: Higher returns justify slightly higher costs.\n\nCommercial & Investment Bank (CIB): JPM overhead ratio 49% vs. GS-GBM 57% (JPM more efficient by 800bps). JPM ROTCE 18% vs. GS-GBM and MS-IS 17% (JPM leads marginally). Verdict: Dominant position — better efficiency AND better returns.\n\nAsset & Wealth Management (AWM): JPM overhead ratio 64% vs. NTRS-WM & DWS 60% (JPM less efficient by 400bps). JPM ROTCE 40% vs. MS-WM & IM 48% (JPM trails on returns). Verdict: Most room to improve of the three segments.\n\nFirmwide: JPM's 52% overhead ratio is best-in-class and 20% ROTCE places it second (behind Morgan Stanley's 22%) despite being the largest and most complex firm.",
+      "difficulty": "complex",
+      "category": "Peer Comparison",
+      "source_modality": "figure",
+      "source_pages": [
+        14
+      ],
+      "toc_section": "Shareholder Letter / Peer Comparison",
+      "requires_reasoning": true,
+      "evaluation_criteria": [
+        "CCB: 53%/32%",
+        "CIB: 49%/18%",
+        "AWM: 64%/40%",
+        "peer benchmarks for each LOB",
+        "firmwide 52%/20%"
+      ],
+      "expected_chunk_types": [
+        "figure"
+      ],
+      "notes": "CCB, CIB, and AWM efficiency (overhead ratio) and returns (ROTCE) vs large and best-in-class peers reported in Shareholder Letter peer comparison chart and tables (p. 14).",
+      "ground_truth_chunk_ids": [
+        {
+          "chunk_id": "chunk_sec003_figure_0043",
+          "modality": "figure",
+          "page_start": 14,
+          "page_end": 14,
+          "toc_section": "Dear Fellow Shareholders,",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 14 (Dear Fellow Shareholders,)"
+        },
+        {
+          "chunk_id": "chunk_sec003_table_0045_part1",
+          "modality": "table",
+          "page_start": 14,
+          "page_end": 14,
+          "toc_section": "Dear Fellow Shareholders,",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 14 (Dear Fellow Shareholders,)"
+        },
+        {
+          "chunk_id": "chunk_sec003_table_0046_part2",
+          "modality": "table",
+          "page_start": 14,
+          "page_end": 14,
+          "toc_section": "Dear Fellow Shareholders,",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 14 (Dear Fellow Shareholders,)"
+        }
+      ]
+    },
+    {
+      "id": "GT-C-004",
+      "question": "Evaluate JPMorgan Chase's long-term shareholder value creation across multiple time horizons: since the 2000 Bank One CEO appointment, since the 2004 merger, and over 1, 5, and 10 trailing years. What conclusions can be drawn about JPM as a compounder?",
+      "ground_truth_answer": "Bank One Heritage Shareholders (since March 27, 2000): JPM 14.1% CAGR → 2,873.1% total gain. S&P 500: 8.0% CAGR → 621.6% total. S&P Financials: 6.1% CAGR → 365.0% total. Alpha over S&P 500: +610bps annually.\n\nJPMorganChase Heritage Shareholders (since July 1, 2004 merger): JPM 13.4% CAGR → 1,380.5% total gain. S&P 500: 10.8% CAGR → 805.9% total. S&P Financials: 6.3% CAGR → 270.5% total. Alpha over S&P 500: +360bps annually.\n\nTrailing Periods (Dec 31, 2025): 1-Year: 37.3% vs S&P 17.9%. 5-Year CAGR: 23.7% vs S&P 14.4%. 10-Year CAGR: 20.4% vs S&P 14.8%.\n\nConclusion: Across every measured time horizon (1, 5, 10, 21, and 25+ years), JPMorgan Chase substantially outperformed both the broader market and the financial sector index. The consistent 13-14% CAGR over two-decade horizons, while growing to nearly $870B market cap, strongly supports JPM as an exceptional long-term wealth compounder.",
+      "difficulty": "complex",
+      "category": "Shareholder Returns",
+      "source_modality": "figure",
+      "source_pages": [
+        9
+      ],
+      "toc_section": "Shareholder Letter / Stock Performance",
+      "requires_reasoning": true,
+      "evaluation_criteria": [
+        "Bank One 14.1% CAGR / 2,873%",
+        "merger 13.4% CAGR / 1,380.5%",
+        "1/5/10 year trailing returns",
+        "S&P comparison all periods"
+      ],
+      "expected_chunk_types": [
+        "figure"
+      ],
+      "notes": "Long-term compounding across multiple time horizons (since 2000 Bank One, 2004 merger, 10-yr, 5-yr, 1-yr) vs S&P 500 and S&P Financials reported in Shareholder Letter Stock Total Return chart, tables, and narrative (p. 9).",
+      "ground_truth_chunk_ids": [
+        {
+          "chunk_id": "chunk_sec003_figure_0019",
+          "modality": "figure",
+          "page_start": 9,
+          "page_end": 9,
+          "toc_section": "Dear Fellow Shareholders,",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 9 (Dear Fellow Shareholders,)"
+        },
+        {
+          "chunk_id": "chunk_sec003_table_0023_part1",
+          "modality": "table",
+          "page_start": 9,
+          "page_end": 9,
+          "toc_section": "Dear Fellow Shareholders,",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 9 (Dear Fellow Shareholders,)"
+        },
+        {
+          "chunk_id": "chunk_sec003_table_0024_part2",
+          "modality": "table",
+          "page_start": 9,
+          "page_end": 9,
+          "toc_section": "Dear Fellow Shareholders,",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 9 (Dear Fellow Shareholders,)"
+        },
+        {
+          "chunk_id": "chunk_sec003_text_0025",
+          "modality": "text",
+          "page_start": 9,
+          "page_end": 9,
+          "toc_section": "Stock total return analysis",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, pp. 9-9 (Dear Fellow Shareholders, > Stock total return analysis)"
+        }
+      ]
+    },
+    {
+      "id": "GT-C-005",
+      "question": "How has JPMorgan Chase's combined deposits and client assets grown from the 2008 financial crisis to 2025, and what does this trajectory reveal about JPM's competitive moat during systemic stress events?",
+      "ground_truth_answer": "Trajectory: 2008 (GFC start): $1,415B. 2009 (post-Lehman): $1,743B (+23% — flight-to-quality inflows benefited JPM). 2020 (COVID-19): $3,781B (+16% from 2019's $3,258B — another flight-to-quality surge). 2021: $4,488B (+18.7% YoY). 2022: $4,240B (contraction from rising rates/QT). 2023: $5,292B (+24.8% — First Republic acquisition and continued asset gathering). 2024: $6,383B. 2025: $7,643B (6.9x the 2005 starting point of $1,107B).\n\nCompetitive Moat Analysis: During both the 2008-2009 GFC and the 2020-2021 COVID shock, JPM experienced accelerated deposit/asset inflows (flight-to-quality effect). The 2022 dip is consistent with industry-wide deposit migration to money market funds during rate normalization, but 2023-2025 shows rapid recovery. JPM's ability to consistently gain assets during crises is a structural competitive advantage reflecting its 'fortress' brand and perceived safety.",
+      "difficulty": "complex",
+      "category": "Deposits & Client Assets",
+      "source_modality": "figure",
+      "source_pages": [
+        12
+      ],
+      "toc_section": "Shareholder Letter",
+      "requires_reasoning": true,
+      "evaluation_criteria": [
+        "2008: $1,415B",
+        "2020: $3,781B",
+        "2023: $5,292B",
+        "2025: $7,643B",
+        "6.9x growth",
+        "flight-to-quality narrative",
+        "2022 contraction"
+      ],
+      "expected_chunk_types": [
+        "figure"
+      ],
+      "notes": "Combined deposits and client assets trajectory 2005-2025 during systemic stress events (2008 GFC, 2020 COVID, 2023 regional banking crisis) reported in Shareholder Letter Assets Entrusted charts and text (p. 12).",
+      "ground_truth_chunk_ids": [
+        {
+          "chunk_id": "chunk_sec003_figure_0034",
+          "modality": "figure",
+          "page_start": 12,
+          "page_end": 12,
+          "toc_section": "Dear Fellow Shareholders,",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 12 (Dear Fellow Shareholders,)"
+        },
+        {
+          "chunk_id": "chunk_sec003_figure_0036",
+          "modality": "figure",
+          "page_start": 12,
+          "page_end": 12,
+          "toc_section": "Dear Fellow Shareholders,",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 12 (Dear Fellow Shareholders,)"
+        },
+        {
+          "chunk_id": "chunk_sec003_text_0035",
+          "modality": "text",
+          "page_start": 12,
+          "page_end": 12,
+          "toc_section": "Assets Entrusted to Us by Our Clients 2005-2025",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, pp. 12-12 (Dear Fellow Shareholders, > Assets Entrusted to Us by Our Clients 2005-2025)"
+        }
+      ]
+    },
+    {
+      "id": "GT-C-006",
+      "question": "JPMorgan Chase's reported net income declined from 2024 to 2025, yet the stock returned 37.3% and diluted EPS increased. Explain this apparent paradox.",
+      "ground_truth_answer": "Why reported net income declined: 2024 net income of $58.5B was inflated by a $5.4B net after-tax Visa gain ($7.9B gross revenue gain less $1.0B Foundation contribution). Stripping this out, normalized 2024 net income was ~$53 billion. By contrast, 2025's $57.0B is entirely organic — a true improvement of ~$4B on a normalized basis.\n\nWhy diluted EPS rose ($19.75 → $20.02): Share count fell from ~2,798M (2024) to ~2,696M (2025), a ~3.6% reduction from buybacks, which mechanically boosted EPS even as net income dollars declined.\n\nWhy the market rewarded JPM with 37.3% returns: Record organic net income ($57B) at best-ever EPS ($20.02). ROTCE of 20%. Best-in-class efficiency ratio of 52%. Dividend increase (+20.8% to $5.80). Capital returned ~$48B. #1 IB wallet share in a record M&A year ($5.1T). Loans grew $145B (+10.8%). TBVPS grew to $107.56.\n\nThe stock market valued growing normalized earnings power and shareholder return commitment more than the headline net income comparison distorted by 2024's Visa windfall.",
+      "difficulty": "complex",
+      "category": "Financial Analysis",
+      "source_modality": "multi-modal",
+      "source_pages": [
+        2,
+        8,
+        9
+      ],
+      "toc_section": "Financial Highlights / Shareholder Letter",
+      "requires_reasoning": true,
+      "evaluation_criteria": [
+        "Visa gain 2024 $5.4B",
+        "normalized 2024 ~$53B",
+        "share buyback reducing count",
+        "EPS $20.02",
+        "37.3% total return",
+        "organic earnings quality"
+      ],
+      "expected_chunk_types": [
+        "table",
+        "figure"
+      ],
+      "notes": "Resolution of earnings decline paradox (2024 Visa gain distortion, 2025 organic expansion, share count reduction driving EPS growth, and 37.3% stock return) synthesizing p. 8 chart, p. 2 tables, and p. 9 returns table.",
+      "ground_truth_chunk_ids": [
+        {
+          "chunk_id": "chunk_sec003_figure_0018",
+          "modality": "figure",
+          "page_start": 8,
+          "page_end": 8,
+          "toc_section": "Dear Fellow Shareholders,",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 8 (Dear Fellow Shareholders,)"
+        },
+        {
+          "chunk_id": "chunk_sec001_table_0002_part1",
+          "modality": "table",
+          "page_start": 2,
+          "page_end": 2,
+          "toc_section": "Financial Highlights",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 2 (Financial Highlights)"
+        },
+        {
+          "chunk_id": "chunk_sec001_table_0003_part2",
+          "modality": "table",
+          "page_start": 2,
+          "page_end": 2,
+          "toc_section": "Financial Highlights",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 2 (Financial Highlights)"
+        },
+        {
+          "chunk_id": "chunk_sec003_table_0024_part2",
+          "modality": "table",
+          "page_start": 9,
+          "page_end": 9,
+          "toc_section": "Dear Fellow Shareholders,",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 9 (Dear Fellow Shareholders,)"
+        }
+      ]
+    },
+    {
+      "id": "GT-C-007",
+      "question": "Construct a comprehensive picture of JPMorgan Chase's competitive threats in 2025 as described by the CEO, how the firm plans to address each, and what role AI plays in the competitive response.",
+      "ground_truth_answer": "From the 2025 Shareholder Letter, Dimon categorizes and addresses three tiers:\n\nTier 1 — Traditional Competitors: Large U.S. banks, regional banks, strong international banks, large money managers, investment banks. Response: Branch expansion (900+ new branches in 5 years), organic investment in bankers/advisors, product refreshes, wealth management scaling.\n\nTier 2 — Nontraditional & Fintech (100+ tracked): Competitors in payments, digital banking, investing, global market making. Response: Rapid product design and rollout, global payments expansion, digital banking investment, AI incorporation in all products.\n\nTier 3 — Blockchain-Native (Emerging): Stablecoins, smart contracts, tokenization-based business models threatening core banking. Response: Digital asset capabilities in CIB, blockchain infrastructure exploration, regulatory monitoring.\n\nRole of AI: Dimon explicitly states that sustained competitive success requires the ability to 'wisely invest and move very quickly and nimbly, especially around product design and rollout, including incorporating artificial intelligence (AI) in everything we do.' AI is an embedded capability across all functions, not a standalone initiative.\n\nStrategic Outlook: The firm acknowledges competition will gain but believes it can sustain top-ranking performance through scale, AI investment, and rapid product iteration.",
+      "difficulty": "complex",
+      "category": "Strategic Risks",
+      "source_modality": "text",
+      "source_pages": [
+        16
+      ],
+      "toc_section": "Shareholder Letter / Specific Issues Facing Our Company",
+      "requires_reasoning": true,
+      "evaluation_criteria": [
+        "3 threat categories",
+        "traditional banks",
+        "fintechs (100+)",
+        "blockchain/stablecoins",
+        "AI in everything",
+        "900+ branches",
+        "mitigation per tier"
+      ],
+      "expected_chunk_types": [
+        "text"
+      ],
+      "notes": "CEO competitive threats analysis across three tiers (traditional, fintech/nontraditional, blockchain/tokenization), firm expansion response, and AI embedding reported in Shareholder Letter Section I (p. 16).",
+      "ground_truth_chunk_ids": [
+        {
+          "chunk_id": "chunk_sec004_text_0052",
+          "modality": "text",
+          "page_start": 16,
+          "page_end": 16,
+          "toc_section": "We are confronted with extraordinary global competition from both traditional and new challengers.",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, pp. 16-16 (Dear Fellow Shareholders, > I. Specific Issues Facing Our Company > We are confronted with extraordinary global competition from both traditional and new challengers.)"
+        },
+        {
+          "chunk_id": "chunk_sec004_text_0053",
+          "modality": "text",
+          "page_start": 16,
+          "page_end": 16,
+          "toc_section": "We're addressing those challengers as part of our expansion plans.",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, pp. 16-16 (Dear Fellow Shareholders, > I. Specific Issues Facing Our Company > We're addressing those challengers as part of our expansion plans.)"
+        },
+        {
+          "chunk_id": "chunk_sec004_text_0054",
+          "modality": "text",
+          "page_start": 16,
+          "page_end": 16,
+          "toc_section": "We continue to see growth opportunities in almost all our businesses.",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, pp. 16-16 (Dear Fellow Shareholders, > I. Specific Issues Facing Our Company > We continue to see growth opportunities in almost all our businesses.)"
+        }
+      ]
+    },
+    {
+      "id": "GT-C-008",
+      "question": "Compare JPMorgan Chase's three primary business lines — CCB, CIB, and AWM — in 2025: which is growing fastest, most profitable by ROTCE, and where is the firm still investing for future returns?",
+      "ground_truth_answer": "Consumer & Community Banking (CCB): ROTCE 32% (highest of three LOBs). Overhead 53%. Growth: Branch expansion, card account growth, wealth management adjacencies, rural market penetration. Position: Most profitable by ROTCE; strong organic growth.\n\nCommercial & Investment Bank (CIB): Revenue $27.8B. Markets $35.8B. IB wallet share #1 (8.4%). ROTCE 18%. Overhead 49% (most efficient LOB). Growth drivers: M&A recovery ($5.1T, +43%), private markets, CRE originations +80%. Position: Revenue leader and fastest growing in absolute dollars after CB integration.\n\nAsset & Wealth Management (AWM): Revenue $24B. Net income $7B. Client assets $7T. ROTCE 40% (but trails Morgan Stanley/others at 48%). Overhead 64% (least efficient LOB). Inflows: Record $553B. Position: Significant scale; most investment opportunity for efficiency improvement, alternatives/ETF platform buildout.\n\nSynthesis: CCB leads on ROTCE, CIB leads on revenue and efficiency, AWM has the most investment opportunity. The firm is well-diversified across all three with different maturity stages.",
+      "difficulty": "complex",
+      "category": "Segment Analysis",
+      "source_modality": "multi-modal",
+      "source_pages": [
+        14,
+        60,
+        66
+      ],
+      "toc_section": "Multiple Sections",
+      "requires_reasoning": true,
+      "evaluation_criteria": [
+        "CCB ROTCE 32%",
+        "CIB revenue $27.8B / IB #1",
+        "AWM $7T assets / inflows $553B",
+        "efficiency by LOB",
+        "growth drivers per segment"
+      ],
+      "expected_chunk_types": [
+        "figure",
+        "text"
+      ],
+      "notes": "Comparative analysis of CCB (highest ROTCE 32%), CIB (largest revenue $73.4B), and AWM (fastest client asset growth $7.0T, record inflows $553B) synthesizing p. 14, p. 60, and p. 66 figures/tables.",
+      "ground_truth_chunk_ids": [
+        {
+          "chunk_id": "chunk_sec003_figure_0043",
+          "modality": "figure",
+          "page_start": 14,
+          "page_end": 14,
+          "toc_section": "Dear Fellow Shareholders,",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 14 (Dear Fellow Shareholders,)"
+        },
+        {
+          "chunk_id": "chunk_sec003_table_0045_part1",
+          "modality": "table",
+          "page_start": 14,
+          "page_end": 14,
+          "toc_section": "Dear Fellow Shareholders,",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 14 (Dear Fellow Shareholders,)"
+        },
+        {
+          "chunk_id": "chunk_sec011_figure_0197",
+          "modality": "figure",
+          "page_start": 60,
+          "page_end": 60,
+          "toc_section": "Commercial & Investment Bank",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 60 (Senior Executive Letters > Commercial & Investment Bank)"
+        },
+        {
+          "chunk_id": "chunk_sec012_figure_0227",
+          "modality": "figure",
+          "page_start": 66,
+          "page_end": 66,
+          "toc_section": "Asset & Wealth Management",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 66 (Senior Executive Letters > Asset & Wealth Management)"
+        }
+      ]
+    },
+    {
+      "id": "GT-C-009",
+      "question": "How does the Apple Card acquisition in 2025 affect JPMorgan Chase's financial statements across the income statement, balance sheet, and capital ratios?",
+      "ground_truth_answer": "Income Statement Impact: A provision for lending-related commitments of $2.2 billion was recognized for the Apple Card transaction, contributing to the sharp increase in provision for credit losses from $10,678M (2024) to $14,212M (2025), a YoY increase of ~$3.5 billion.\n\nCapital Ratio Impact: The Apple Card transaction decreased the CET1 capital ratio by approximately 25 basis points under the Standardized approach, partly explaining the CET1 decline from 15.7% (2024) to 14.6% (2025). As of December 31, 2025, Advanced risk-based ratios became more binding than Standardized ratios.\n\nBalance Sheet Impact: The acquisition added significant lending commitments and loan exposures to the consumer balance sheet, with full details referenced in the Executive Overview (page 47) and Capital Risk Management sections (pages 89-99).\n\nSynthesis: The Apple Card transaction is a material 2025 event that temporarily weighed on capital ratios and credit provisions, representing a strategic expansion of JPM's consumer credit card franchise with potential for large-scale revenue growth given Apple's massive customer base.",
+      "difficulty": "complex",
+      "category": "Acquisitions & Transactions",
+      "source_modality": "table",
+      "source_pages": [
+        2,
+        55,
+        79
+      ],
+      "toc_section": "Financial Highlights / Capital Risk Management",
+      "requires_reasoning": true,
+      "evaluation_criteria": [
+        "$2.2B provision for lending commitments",
+        "-25bps CET1 impact",
+        "Advanced ratios more binding",
+        "provision credit losses increase",
+        "strategic rationale"
+      ],
+      "expected_chunk_types": [
+        "table"
+      ],
+      "notes": "Apple Card transaction impact on financial statements (forward purchase commitment, $0.08 EPS dilution, card loan additions, CET1 impact) reported in MD&A Firmwide Overview (p. 79), Financial Highlights (p. 2), and CCB Strategy (p. 55).",
+      "ground_truth_chunk_ids": [
+        {
+          "chunk_id": "chunk_sec021_text_0276",
+          "modality": "text",
+          "page_start": 79,
+          "page_end": 79,
+          "toc_section": "Financial performance of JPMorganChase",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, pp. 79-79 (Financial: > Management’s discussion and analysis: > Executive Overview > Firmwide Overview and Outlook > Financial performance of JPMorganChase)"
+        },
+        {
+          "chunk_id": "chunk_sec001_table_0003_part2",
+          "modality": "table",
+          "page_start": 2,
+          "page_end": 2,
+          "toc_section": "Financial Highlights",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 2 (Financial Highlights)"
+        },
+        {
+          "chunk_id": "chunk_sec010_text_0178_part1",
+          "modality": "text",
+          "page_start": 55,
+          "page_end": 55,
+          "toc_section": "These strategies will fuel our path to 15% retail deposit share.",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, pp. 55-55 (Senior Executive Letters > Consumer & Community Banking > These strategies will fuel our path to 15% retail deposit share.)"
+        }
+      ]
+    },
+    {
+      "id": "GT-C-010",
+      "question": "How has JPMorgan Chase's diluted EPS grown from 2005 to 2025? Calculate the 20-year CAGR and decompose how much growth came from earnings expansion versus share count reduction.",
+      "ground_truth_answer": "20-Year EPS Trajectory: 2005: $4.03. 2008: $2.26 (crisis trough). 2024: $19.75. 2025: $20.02.\n\n20-Year CAGR Calculation: From $4.03 (2005) to $20.02 (2025) over 20 years: CAGR = (20.02/4.03)^(1/20) - 1 = (4.97)^(0.05) - 1 ≈ 8.2% annual EPS growth.\n\nAttribution: Net income grew from ~$8.5B (2005) to ~$57.0B (2025), approximately 6.7x growth (~10.1% CAGR). EPS grew 4.97x. The slower EPS growth relative to net income growth suggests share count increased slightly over the full 20-year period (Bank One merger added shares). In recent years (2024→2025), shares fell from ~2,798M to ~2,696M (-3.6%), with buybacks meaningfully contributing to EPS growth.\n\nConclusion: The long-term EPS growth is primarily driven by earnings expansion (net income 6.7x) rather than buybacks, with buybacks becoming a more significant accelerant in the 2020s. The ~8.2% 20-year EPS CAGR places JPM among the strongest large-cap earnings compounders globally.",
+      "difficulty": "complex",
+      "category": "Financial Analysis",
+      "source_modality": "multi-modal",
+      "source_pages": [
+        2,
+        8
+      ],
+      "toc_section": "Financial Highlights / Shareholder Letter",
+      "requires_reasoning": true,
+      "evaluation_criteria": [
+        "$4.03 (2005 EPS)",
+        "$20.02 (2025 EPS)",
+        "~8.2% 20-year CAGR",
+        "net income vs EPS growth attribution",
+        "share count change"
+      ],
+      "expected_chunk_types": [
+        "table",
+        "figure"
+      ],
+      "notes": "Diluted EPS growth from 2005 to 2025 (11.3% CAGR) decomposed into earnings expansion (6.7x) and share count reduction (~20%) reported in Shareholder Letter chart (p. 8) and Financial Highlights table (p. 2).",
+      "ground_truth_chunk_ids": [
+        {
+          "chunk_id": "chunk_sec003_figure_0018",
+          "modality": "figure",
+          "page_start": 8,
+          "page_end": 8,
+          "toc_section": "Dear Fellow Shareholders,",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 8 (Dear Fellow Shareholders,)"
+        },
+        {
+          "chunk_id": "chunk_sec001_table_0003_part2",
+          "modality": "table",
+          "page_start": 2,
+          "page_end": 2,
+          "toc_section": "Financial Highlights",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 2 (Financial Highlights)"
+        }
+      ]
+    },
+    {
+      "id": "GT-C-011",
+      "question": "What is the significance of JPMorgan Chase's CET1 capital ratio trend from 2005 to 2025, and what does the transition to Advanced risk-based ratios being 'more binding' mean for the firm's future capital strategy?",
+      "ground_truth_answer": "CET1 Historical Trend (page 13 chart): Pre-Basel III (2005-2012): Ratios ranged ~7.0% to ~10.9%. Post-Basel III (2013+): Rose to 10.2%, 11.6%, then 12.0-12.9% range. COVID and beyond (2020-2022): 13.1%-15.6%. 2023-2024: 15.0%-15.7% (peak). 2025: Declined to 14.6% (partly Apple Card -25bps).\n\nWhat 'Advanced Ratios Becoming More Binding' Means: Banks calculate capital under two approaches: Standardized (simpler, standard risk weights) and Advanced (internal models with potentially higher RWA). Advanced becoming binding means the firm's internal model-based capital requirement now exceeds the Standardized requirement, constraining capital planning to the tighter Advanced framework. This may: (1) limit future buybacks before hitting regulatory minima; (2) require higher buffers if Basel III Endgame tightens model weights; (3) reduce apparent excess capital vs. Standardized.\n\nLong-Term Investor Significance: The trend from ~7% (2005) to 14.6% (2025) reflects massive capital accumulation that simultaneously funded 6.7x earnings growth. The fortress capital provides a buffer against future crises. The Advanced ratio transition introduces potential constraint on capital return velocity.",
+      "difficulty": "complex",
+      "category": "Capital Management",
+      "source_modality": "multi-modal",
+      "source_pages": [
+        2,
+        13
+      ],
+      "toc_section": "Financial Highlights / Capital Risk Management",
+      "requires_reasoning": true,
+      "evaluation_criteria": [
+        "CET1 historical 7% to 14.6%",
+        "Advanced vs Standardized definition",
+        "Advanced more binding implication",
+        "buyback constraint",
+        "Apple Card -25bps",
+        "Basel III context"
+      ],
+      "expected_chunk_types": [
+        "table",
+        "figure"
+      ],
+      "notes": "Fortress balance sheet evaluation 2005-2025 (CET1 ratio 8.5% to 15.4%, liquid assets $1.4T, total assets $4.4T, TLAC growth) reported in Shareholder Letter capital charts (p. 13) and Financial Highlights tables (p. 2).",
+      "ground_truth_chunk_ids": [
+        {
+          "chunk_id": "chunk_sec003_figure_0039",
+          "modality": "figure",
+          "page_start": 13,
+          "page_end": 13,
+          "toc_section": "Dear Fellow Shareholders,",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 13 (Dear Fellow Shareholders,)"
+        },
+        {
+          "chunk_id": "chunk_sec003_text_0042",
+          "modality": "text",
+          "page_start": 13,
+          "page_end": 13,
+          "toc_section": "Liquid assets 4",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, pp. 13-13 (Dear Fellow Shareholders, > Liquid assets 4)"
+        },
+        {
+          "chunk_id": "chunk_sec001_table_0004_part3",
+          "modality": "table",
+          "page_start": 2,
+          "page_end": 2,
+          "toc_section": "Financial Highlights",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 2 (Financial Highlights)"
+        },
+        {
+          "chunk_id": "chunk_sec001_table_0005_part4",
+          "modality": "table",
+          "page_start": 2,
+          "page_end": 2,
+          "toc_section": "Financial Highlights",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 2 (Financial Highlights)"
+        }
+      ]
+    },
+    {
+      "id": "GT-C-012",
+      "question": "Evaluate the investment banking franchise of JPMorgan Chase in 2025: its global standing, revenue trajectory, market share, and the structural reorganization that affected segment reporting.",
+      "ground_truth_answer": "Global Standing: #1 global investment banking by wallet share. 8.4% global IB wallet share. Presence in over 100 markets globally.\n\nRevenue Trajectory (CIB Segment): 2021: $1.2B. 2022: $4.3B. 2023: $6.1B. 2024: $24.8B (CB integrated). 2025: $27.8B (+12% YoY). Revenue CAGR since 2024 CB integration: 10%.\n\nStructural Reorganization: In early 2024, JPMorgan merged Commercial Banking (CB) with the Corporate & Investment Bank. Effective Q2 2024, Corporate Client Banking activity was reorganized from Small Business/Middle Market into Corporate clients under CIB. This makes pre-2024 vs. post-2024 comparisons non-comparable without reorganization context.\n\nMarkets Revenue (within CIB): Fixed Income: $22.5B (2025), up from $20.1B (2024). Equities: $13.3B (2025), up sharply from $9.9B (2024) — +34% YoY. Total Markets: $35.8B (2025).\n\nM&A Context: Global announced M&A volume: $5.1T (+43% from 2024). GCB & GIB combined revenue: $25.3B (+6% YoY). New multinational relationships: ~400. CB Revenue: $11.9B (+3% YoY). CRE lending originations: +80%. Client base: ~60,000 across 160+ locations.",
+      "difficulty": "complex",
+      "category": "Investment Banking",
+      "source_modality": "multi-modal",
+      "source_pages": [
+        60,
+        61
+      ],
+      "toc_section": "Commercial & Investment Bank",
+      "requires_reasoning": true,
+      "evaluation_criteria": [
+        "#1 wallet share 8.4%",
+        "$27.8B CIB revenue (2025)",
+        "CB integration structural change",
+        "Markets $35.8B",
+        "M&A $5.1T +43%",
+        "revenue CAGR 10%"
+      ],
+      "expected_chunk_types": [
+        "figure"
+      ],
+      "notes": "Investment banking global standing (#1 ranking, 8.4% wallet share), revenue trajectory ($1.2B to $27.8B), and CB-CIB reorganization reported in CIB charts and executive letter text (pp. 60-61).",
+      "ground_truth_chunk_ids": [
+        {
+          "chunk_id": "chunk_sec011_figure_0202",
+          "modality": "figure",
+          "page_start": 61,
+          "page_end": 61,
+          "toc_section": "Commercial & Investment Bank",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 61 (Senior Executive Letters > Commercial & Investment Bank)"
+        },
+        {
+          "chunk_id": "chunk_sec011_text_0201_part2",
+          "modality": "text",
+          "page_start": 60,
+          "page_end": 61,
+          "toc_section": "Global Banking",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, pp. 60-61 (Senior Executive Letters > Commercial & Investment Bank > Global Banking)"
+        },
+        {
+          "chunk_id": "chunk_sec011_figure_0197",
+          "modality": "figure",
+          "page_start": 60,
+          "page_end": 60,
+          "toc_section": "Commercial & Investment Bank",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 60 (Senior Executive Letters > Commercial & Investment Bank)"
+        },
+        {
+          "chunk_id": "chunk_sec011_text_0194",
+          "modality": "text",
+          "page_start": 60,
+          "page_end": 60,
+          "toc_section": "Commercial & Investment Bank",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, pp. 60-60 (Senior Executive Letters > Commercial & Investment Bank)"
+        }
+      ]
+    },
+    {
+      "id": "GT-C-013",
+      "question": "How resilient has JPMorgan Chase's earnings been during the three major crises of the past 20 years (2008 GFC, 2020 COVID-19, 2022-2023 regional banking crisis), and what structural advantages enabled consistent profitability?",
+      "ground_truth_answer": "2008 Global Financial Crisis: Reported net income $11.7B (significant but positive when most peers reported massive losses). EPS $2.26; ROTCE 10%. JPM was one of the few large banks that remained profitable throughout the GFC. Key advantage: Fortress balance sheet, conservative underwriting.\n\n2020 COVID-19 Pandemic: Large provision build led to elevated provisions. However, ROTCE excluding reserve adjustments was 19.3% in 2020 — extremely strong underlying profitability. JPM received flood of deposit inflows: deposits/assets jumped from $3,258B (2019) to $3,781B (2020) and $4,488B (2021) (flight-to-quality).\n\n2022-2023 Regional Banking Crisis: While SVB and other regional banks collapsed, JPM's CET1 was 15%+. JPM acquired First Republic Bank in 2023, contributing to the dramatic $5,292B asset/deposit total in 2023 vs. $4,240B in 2022. JPM absorbed distressed assets that competitors shed.\n\nStructural Advantages: (1) Diversification across CCB, CIB, AWM providing offsetting revenues. (2) Fortress balance sheet with CET1 consistently above regulatory minimums. (3) 'Too big to fail' status generating flight-to-quality deposit inflows during crises. (4) Global scale providing countercyclical revenue sources. (5) Disciplined risk management.",
+      "difficulty": "complex",
+      "category": "Risk Management",
+      "source_modality": "multi-modal",
+      "source_pages": [
+        8,
+        12,
+        13
+      ],
+      "toc_section": "Shareholder Letter / Risk Management",
+      "requires_reasoning": true,
+      "evaluation_criteria": [
+        "2008: $11.7B profitable",
+        "2020: ROTCE 19.3% ex-reserves",
+        "2023: First Republic acquisition",
+        "deposit inflows during crises",
+        "CET1 fortress",
+        "3 crisis periods addressed"
+      ],
+      "expected_chunk_types": [
+        "figure"
+      ],
+      "notes": "Earnings resilience across three major crises (2008 GFC, 2020 COVID, 2022-2023 regional banking crisis) and fortress balance sheet advantages synthesizing p. 8, p. 12, and p. 13 visual charts.",
+      "ground_truth_chunk_ids": [
+        {
+          "chunk_id": "chunk_sec003_figure_0018",
+          "modality": "figure",
+          "page_start": 8,
+          "page_end": 8,
+          "toc_section": "Dear Fellow Shareholders,",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 8 (Dear Fellow Shareholders,)"
+        },
+        {
+          "chunk_id": "chunk_sec003_figure_0034",
+          "modality": "figure",
+          "page_start": 12,
+          "page_end": 12,
+          "toc_section": "Dear Fellow Shareholders,",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 12 (Dear Fellow Shareholders,)"
+        },
+        {
+          "chunk_id": "chunk_sec003_figure_0039",
+          "modality": "figure",
+          "page_start": 13,
+          "page_end": 13,
+          "toc_section": "Dear Fellow Shareholders,",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 13 (Dear Fellow Shareholders,)"
+        }
+      ]
+    },
+    {
+      "id": "GT-C-014",
+      "question": "Decompose JPMorgan Chase's total net revenue of $182.4 billion in 2025, identify non-recurring items in the comparable year, and assess the sustainability of the firm's revenue base.",
+      "ground_truth_answer": "Total Reported Net Revenue (2025): $182,447 million ($182.4 billion).\n\nRevenue Quality Analysis: (1) Baseline revenue grew from $158,104M (2023) to $177,556M (2024) to $182,447M (2025). (2) 2024 Non-Recurring: 2024 included a $7.9 billion Visa gain. Normalized 2024 revenue: $177,556M - $7,900M = $169,656M. (3) Normalized YoY Growth: $182,447M vs $169,656M = +$12,791M (+7.5% organic growth).\n\nRevenue Drivers by Segment: CIB total $27.8B. Markets: $35.8B (FI $22.5B + EQ $13.3B). AWM: $24B. Securities Services: $5.6B. Commercial Banking: $11.9B.\n\nRevenue Sustainability Indicators: Loan growth +$145B (+10.8%) suggests NII tailwind. Deposit growth +$153B (+6.4%). AWM inflows $553B (record) generating future fee income. IB wallet share #1 (8.4%). Dividends per share +20.8%, signaling management confidence in revenue sustainability.\n\nConclusion: The 2025 revenue of $182.4B represents 7.5% organic growth on a normalized basis. The diversified revenue mix (interest income, fee income, market-linked revenues) suggests high quality and sustainability.",
+      "difficulty": "complex",
+      "category": "Revenue Analysis",
+      "source_modality": "multi-modal",
+      "source_pages": [
+        2,
+        8,
+        76,
+        96
+      ],
+      "toc_section": "Financial Highlights / Multiple Segments",
+      "requires_reasoning": true,
+      "evaluation_criteria": [
+        "$182,447M total (2025)",
+        "$7.9B Visa adjustment in 2024",
+        "7.5% organic growth",
+        "segment revenue breakdown",
+        "sustainability drivers",
+        "loan/deposit growth"
+      ],
+      "expected_chunk_types": [
+        "table",
+        "figure"
+      ],
+      "notes": "Decomposition of $182.4B total net revenue, 2024 Visa gain ($7.9B) normalization, and segment revenue sustainability synthesizing p. 2, p. 76, p. 8, and p. 96 tables/charts.",
+      "ground_truth_chunk_ids": [
+        {
+          "chunk_id": "chunk_sec001_table_0002_part1",
+          "modality": "table",
+          "page_start": 2,
+          "page_end": 2,
+          "toc_section": "Financial Highlights",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 2 (Financial Highlights)"
+        },
+        {
+          "chunk_id": "chunk_sec016_table_0261_part1",
+          "modality": "table",
+          "page_start": 76,
+          "page_end": 76,
+          "toc_section": "Three-Year Summary of Consolidated Financial Highlights",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 76 (Financial: > Table of contents > Three-Year Summary of Consolidated Financial Highlights)"
+        },
+        {
+          "chunk_id": "chunk_sec003_figure_0018",
+          "modality": "figure",
+          "page_start": 8,
+          "page_end": 8,
+          "toc_section": "Dear Fellow Shareholders,",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 8 (Dear Fellow Shareholders,)"
+        },
+        {
+          "chunk_id": "chunk_sec026_table_0335_part1",
+          "modality": "table",
+          "page_start": 96,
+          "page_end": 96,
+          "toc_section": "Business Segment & Corporate Results",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 96 (Financial: > Management’s discussion and analysis: > Business Segment & Corporate Results)"
+        }
+      ]
+    },
+    {
+      "id": "GT-C-015",
+      "question": "In the context of the JPMC multi-modal RAG system, which combination of retrieved chunk modalities (table, figure, text) would be required to accurately answer a comprehensive question about JPMorgan's 20-year financial journey from 2005 to 2025, and what are the key data points from each modality?",
+      "ground_truth_answer": "This meta-question tests multi-modal retrieval depth. Data sources required:\n\n1. Table Modality (Page 2 — Financial Highlights): 2025 financials: Net revenue $182.4B, Net income $57.0B, ROTCE 20%, Diluted EPS $20.02, CET1 14.6%, Total assets $4.4T, Deposits $2.56T, TBVPS $107.56.\n\n2. Figure Modality (Page 8 — 20-Year Earnings Chart): 2005 baseline (NI $8.5B, EPS $4.03, ROTCE 15%). Crisis/event annotations: 2008 trough, 2017 TCJA $2.4B, 2020 reserves 19.3%, 2024 Visa gain $5.4B.\n\n3. Figure Modality (Page 9 — TBV & Stock Chart): Tangible book value CAGR ~10% since 2005. Stock total return 1,380% since 2004 merger. Average stock price $279.87 in 2025. 1/5/10-year outperformance vs S&P 500.\n\n4. Figure Modality (Page 12 — Deposits Chart): Deposits + client assets grew from $1,107B (2005) to $7,643B (2025) = 6.9x growth.\n\n5. Figure Modality (Page 11 — Credit & Capital Chart): Credit/capital deployed ~$1.9T in 2025.\n\n6. Figure Modality (Page 13 — CET1 Chart): CET1 from ~7% (2005) to 14.6% (2025).\n\nSynthesis: The system answers this correctly only when it retrieves chunks from at least 3 different pages and 2+ different modalities (table + multiple figures), reconciling units (millions vs billions) and performing multi-year comparisons. Net income grew 6.7x, EPS 4.97x, ROTCE improved from 15% to 20%, client assets grew 6.9x, CET1 doubled.",
+      "difficulty": "complex",
+      "category": "Multi-Modal Retrieval",
+      "source_modality": "multi-modal",
+      "source_pages": [
+        2,
+        8,
+        9,
+        12,
+        13,
+        16
+      ],
+      "toc_section": "Multiple Sections",
+      "requires_reasoning": true,
+      "evaluation_criteria": [
+        "6 source pages identified",
+        "table + figure retrieval",
+        "2005 vs 2025 comparison",
+        "net income 6.7x",
+        "EPS 4.97x",
+        "client assets 6.9x",
+        "ROTCE +500bps"
+      ],
+      "expected_chunk_types": [
+        "table",
+        "figure"
+      ],
+      "notes": "Multi-modal RAG meta-question requiring synthesis across Table modality (p. 2 audited financials), Figure modality (pp. 8, 9, 12, 13 charts), and Text modality (pp. 9, 16 strategic narrative).",
+      "ground_truth_chunk_ids": [
+        {
+          "chunk_id": "chunk_sec001_table_0002_part1",
+          "modality": "table",
+          "page_start": 2,
+          "page_end": 2,
+          "toc_section": "Financial Highlights",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 2 (Financial Highlights)"
+        },
+        {
+          "chunk_id": "chunk_sec003_figure_0018",
+          "modality": "figure",
+          "page_start": 8,
+          "page_end": 8,
+          "toc_section": "Dear Fellow Shareholders,",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 8 (Dear Fellow Shareholders,)"
+        },
+        {
+          "chunk_id": "chunk_sec003_figure_0019",
+          "modality": "figure",
+          "page_start": 9,
+          "page_end": 9,
+          "toc_section": "Dear Fellow Shareholders,",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 9 (Dear Fellow Shareholders,)"
+        },
+        {
+          "chunk_id": "chunk_sec003_figure_0034",
+          "modality": "figure",
+          "page_start": 12,
+          "page_end": 12,
+          "toc_section": "Dear Fellow Shareholders,",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 12 (Dear Fellow Shareholders,)"
+        },
+        {
+          "chunk_id": "chunk_sec003_figure_0039",
+          "modality": "figure",
+          "page_start": 13,
+          "page_end": 13,
+          "toc_section": "Dear Fellow Shareholders,",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, p. 13 (Dear Fellow Shareholders,)"
+        },
+        {
+          "chunk_id": "chunk_sec003_text_0025",
+          "modality": "text",
+          "page_start": 9,
+          "page_end": 9,
+          "toc_section": "Stock total return analysis",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, pp. 9-9 (Dear Fellow Shareholders, > Stock total return analysis)"
+        },
+        {
+          "chunk_id": "chunk_sec004_text_0051",
+          "modality": "text",
+          "page_start": 16,
+          "page_end": 16,
+          "toc_section": "I. Specific Issues Facing Our Company",
+          "match_score": 25,
+          "citation": "JPMC 2025 Annual Report, pp. 16-16 (Dear Fellow Shareholders, > I. Specific Issues Facing Our Company)"
+        }
+      ]
+    }
+  ]
+}
